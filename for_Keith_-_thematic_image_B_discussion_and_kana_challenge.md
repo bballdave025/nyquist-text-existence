@@ -14,7 +14,306 @@ Hey Keith. This is a conversational artifact of our collaboration. you might wan
 
 ---
 
-## Idea Tracking
+# Idea Tracking
+
+# Somewhat condensed
+
+## Text Existence at the Nyquist Boundary
+
+---
+
+## Purpose of This Document
+
+This document records why a small number of images recur across multiple
+RMFB- and Nyquist-related documents, talks, and experiments.
+
+These images are not “examples” in the narrow sense. They are **thematic
+anchors**: they encode the conceptual motivation for the project and
+illustrate failure modes that are otherwise easy to dismiss as model
+weakness, annotation error, or insufficient training data.
+
+The images discussed here motivate the distinction between:
+
+- text existence vs. text recognition,
+- recoverable signal vs. irreversible loss,
+- and interpretation vs. evidence.
+
+Image B is one such anchor.
+
+---
+
+## Image B: Low–Pixel-Footprint Text at the Nyquist Boundary
+
+### What the Image Shows (at Full Resolution)
+
+Image B is a reused manuscript fragment embedded in a book-binding context,
+visible only along the extreme edge of the material rather than on a primary
+page surface.
+
+At native resolution:
+
+- Individual letterforms are **clearly separable**.
+- Stroke structure is intact: ink–background alternation, curvature, and
+  minim alignment are preserved.
+- Parallel vertical strokes (minims) are visible and coherent.
+- A trained paleographer would almost certainly classify the trace as text,
+  even in isolation.
+
+The most likely interpretation is a Latin-script letterform (e.g., *n* or
+part of a longer sequence), based solely on minim structure.
+
+Importantly, this is **not faint text**.  
+The signal is structurally present but occupies only a few pixels in one
+spatial dimension (≈ single-digit pixel width) within an image thousands of
+pixels wide.
+
+This distinction matters enormously.
+
+---
+
+## Why This Image Matters
+
+Image B sits precisely at the boundary between:
+
+- **recoverable signal** and **irreversible loss**, and
+- **expert certainty** and **computational undecidability**.
+
+At full resolution, the ink–substrate alternation that defines strokes is
+present. After modest downsampling or compression, the same region becomes
+indistinguishable from background texture, abrasion, or noise.
+
+This transition is abrupt rather than gradual and is consistent with
+Nyquist-based sampling limits rather than progressive degradation.
+
+Once the critical stroke-scale frequencies fall below the Nyquist limit,
+the signal corresponding to text presence no longer exists in the image.
+
+No downstream model — and no human observer — can recover it.
+
+This is not a modeling failure.
+It is an **information-theoretic loss**.
+
+---
+
+## Full-Resolution vs. Downsampled Views
+
+When Image B is downsampled to resolutions commonly used in computer-vision
+pipelines:
+
+- Horizontal stroke frequencies drop below Nyquist.
+- Ink–blank–ink alternation collapses.
+- Directional continuity across minims disappears.
+- Letterforms cease to exist as signals.
+
+Both humans and models fail after downsampling:
+
+- Humans lose legibility.
+- Models fail to detect *existence*, not merely recognition.
+
+This isolates the failure cleanly:
+
+> Same artifact, same ink, same lighting — only sampling changes.
+
+The disappearance of text existence under downsampling demonstrates that the
+failure precedes and dominates any model-level consideration.
+
+---
+
+## Why Image B Is Better Than a “Faint Text” Example
+
+Faint-text examples are often dismissed as problems of:
+
+- illumination,
+- contrast,
+- noise,
+- or insufficient enhancement.
+
+Image B blocks those escape hatches.
+
+- The text is **high-contrast and legible** at full resolution.
+- The only change applied is **sampling**.
+- No enhancement is required to observe the signal at native resolution.
+
+This makes Image B a clean, reviewer-resistant demonstration of Nyquist
+constraints on text existence.
+
+---
+
+## Relation to Nyquist Text-Existence Arguments
+
+Image B directly motivated the formal distinction between:
+
+- **text existence detection** (signal presence), and
+- **text recognition** (symbol decoding).
+
+These tasks operate at different sampling thresholds.
+
+Once stroke-scale spatial frequencies fall below Nyquist:
+
+- No downstream model can recover them.
+- No amount of training helps.
+- The failure is mathematical, not architectural.
+
+This framing explains why whole-image downsampling systematically erases
+precisely the class of signals most relevant to manuscript reuse discovery.
+
+---
+
+## Zooms and Pixel-Faithful Rendering
+
+All evidentiary zooms used in this project are produced using **nearest-neighbor
+(no-interpolation) scaling**.
+
+These square-pixel renderings preserve the original sampled values exactly
+and make explicit which structures are present in the data itself.
+
+Interpolated zooms (bilinear, bicubic, browser rendering) may be shown for
+visual intuition only and are always labeled as illustrative.
+
+A guiding principle throughout this work is:
+
+> Zooms are intuition; evidence lives in the sampled pixels.
+
+All experimental claims rely exclusively on properties of the original image
+and on controlled resampling from that image.
+
+---
+
+## Super-Resolution as Contrast, Not Evidence
+
+Super-resolution models may generate visually plausible text-like structures
+from low-resolution inputs.
+
+However, such reconstructions necessarily introduce information absent from
+the sampled image and therefore **cannot be treated as evidence of original
+inscription**.
+
+In this project, super-resolution outputs are used only as contrast:
+
+- to illustrate how humans and models interpolate beyond the Nyquist limit,
+- not to assert the presence of original text.
+
+This distinction is essential for maintaining a clear separation between
+reconstruction and evidence.
+
+---
+
+## Extension Beyond Text
+
+The Nyquist considerations illustrated by Image B apply equally to other
+fine-scale, high-frequency phenomena common in manuscript digitizations,
+including:
+
+- fingerprints,
+- sewing traces,
+- tooling marks,
+- abrasion patterns,
+- surface preparation artifacts.
+
+When ridge–valley periodicity or directional continuity is lost below the
+sampling threshold, the phenomenon ceases to exist as a classifiable entity
+within the image, regardless of human intuition or contextual knowledge.
+
+Annotations in this work are therefore restricted to structures explicitly
+resolvable in the image itself.
+
+This conservative approach may produce false negatives relative to the
+physical artifact, but it avoids false positives within the digitized domain
+and preserves a strict separation between evidence and inference.
+
+---
+
+## Why This Image Is Reused Across Documents
+
+Image B appears (or is referenced) in:
+
+- RMFB vision documents,
+- Nyquist technical notes,
+- talks and slide decks,
+- experimental design discussions.
+
+This reuse is intentional.
+
+The image reliably elicits the same reaction from domain experts:
+
+> “That’s obviously text — but I see why a model would miss it.”
+
+That reaction is the bridge this work aims to build between manuscript
+scholarship and computational analysis.
+
+---
+
+## Scope Limitation
+
+No claim is made here regarding:
+
+- transcription,
+- script identification,
+- dating,
+- provenance,
+- or historical interpretation.
+
+Those questions require higher-fidelity imaging or direct access to the
+physical artifact and fall outside the scope of this work.
+
+---
+
+## Thematic Challenge: A Minimal CJKV Nyquist Test Case
+
+To complement Image B with a cross-script contrast, we propose the following
+challenge for further exploration.
+
+### Japanese Dakuten / Handakuten Contrast
+
+Consider the hiragana forms:
+
+- **は** (ha)
+- **ば** (ba) — voiced via dakuten (゛)
+- **ぱ** (pa) — plosive via handakuten (゜)
+
+The base glyph shape is identical.
+The semantic distinction is carried entirely by **small diacritic marks**.
+
+A parallel contrast exists in katakana:
+
+- **ボ** (bo)
+- **ポ** (po)
+
+Katakana’s straighter strokes may survive downsampling slightly better than
+hiragana, enabling controlled comparison across scripts with identical
+phonetic content.
+
+### Why This Challenge Is Interesting
+
+This setup allows one to test:
+
+- whether *text existence* survives after semantic distinction fails,
+- how different scripts distribute critical spatial frequencies,
+- and whether digitization pipelines erase decisive marks before larger
+  glyph structure collapses.
+
+The challenge mirrors the Latin minim example in Image B while extending the
+Nyquist argument across writing systems.
+
+---
+
+## Summary
+
+Image B and the associated challenges demonstrate that:
+
+- some historically meaningful signals exist only above specific sampling
+  thresholds,
+- digitization decisions bound all future computational analysis,
+- and abstention is a principled outcome when the signal is gone.
+
+These images are reused intentionally to make those limits visible,
+concrete, and testable.
+
+---
+
+---
+
+#Not condensed
 
 Oh, I do like the badges, by the way.
 
