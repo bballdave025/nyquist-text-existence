@@ -1,5 +1,4 @@
-# Thematic Image Information — Image B
-## Text Existence at the Nyquist Boundary
+# Thematic Image B: Text Existence at the Nyquist Boundary
 
 ## Purpose of this document
 
@@ -49,7 +48,7 @@ Image B sits precisely at the boundary between:
 At native resolution, the ink–background alternation that defines stroke
 structure is preserved. After modest downsampling or compression—of the sort
 commonly used in computer vision pipelines—the same region becomes
-indistinguishable from background texture, abrasion, or noise.
+indistinguishable from background texture or noise.
 
 This collapse is **structural, not semantic**. It is not a failure of model
 architecture, training data, or enhancement technique. It is a direct
