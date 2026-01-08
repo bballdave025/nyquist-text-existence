@@ -5,6 +5,8 @@ A study on text existence detection limits based on image-resolution rather then
 
 Please attribute work using: Title, Author, Source, and License (TASL format).
 
+---
+
 This repository explores the limits of **text existence detection** in digitized manuscript imagery under fundamental sampling constraints.
 
 See `thematic_image_info.md` for discussion of representative images and
@@ -23,11 +25,15 @@ The repository contains:
 - experimental design scaffolding,
 - and thematic examples linking theory to manuscript reuse contexts.
 
+This is an open research project intended to support collaboration between computer vision researchers, paleographers, codicologists, and digital humanities practitioners.
 
+---
 
 **License:** Creative Commons Attribution 4.0 International (CC BY 4.0)  
 This work is licensed under CC BY 4.0. See `LICENSE` for details, or visit https://creativecommons.org/licenses/by/4.0/.
 
 **Attribution recommendation:**  
-David Black (GitHub @bballdave025), “Nyquist Text Existence”.
 
+@TODO : Talk through this with Keith, look at examples in target journals, etc.
+
+David Black (GitHub @bballdave025), “Nyquist Text Existence”.
