@@ -10,7 +10,7 @@ In particular, the work distinguishes between:
 - **model uncertainty** vs. **information-theoretic absence**, and  
 - **recoverable** vs. **unrecoverable** historical signal.
 
-See `thematic_image_info.md` for discussion of representative images and their role in motivating the Nyquist text-existence argument.
+See [`thematic_image_info.md`](thematic_image_info.md) for discussion of representative images and their role in motivating the Nyquist text-existence argument.
 
 ---
 
@@ -18,7 +18,7 @@ See `thematic_image_info.md` for discussion of representative images and their r
 
 This repository includes:
 
-- vision and scope documents,
+- [vision](IP_Plus_Vision_-_Nyquist_rev-2026-01-07.md) and scope documents,
 - Nyquist-based technical notes,
 - experimental design scaffolding,
 - and thematic examples linking theory to manuscript reuse contexts.
@@ -34,4 +34,4 @@ The emphasis is on clarifying *what cannot be recovered* once sampling limits ar
 This work is licensed under the **Creative Commons Attribution 4.0 International (CC BY 4.0)** license.
 
 If you reuse material from this repository, please provide attribution in a standard **TASL** format (Title, Author, Source, License).  
-See `LICENSE` or <https://creativecommons.org/licenses/by/4.0/> for details.
+See [`LICENSE`](LICENSE) or <https://creativecommons.org/licenses/by/4.0/> for details.
