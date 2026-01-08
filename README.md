@@ -1,39 +1,37 @@
 # nyquist-text-existence
-A study on text existence detection limits based on image-resolution rather then CV-model factors
 
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+This repository explores fundamental constraints on detecting the *presence* of writing in digitized manuscript imagery.
 
-Please attribute work using: Title, Author, Source, and License (TASL format).
+The central claim is that many failures to detect faint, peripheral, or low–pixel-footprint text are not due to model choice or insufficient training data, but to irreversible information loss introduced by upstream decisions about spatial resolution, bit depth, or compression.
+
+In particular, the work distinguishes between:
+
+- **text existence** vs. **text recognition**,  
+- **model uncertainty** vs. **information-theoretic absence**, and  
+- **recoverable** vs. **unrecoverable** historical signal.
+
+See `thematic_image_info.md` for discussion of representative images and their role in motivating the Nyquist text-existence argument.
 
 ---
 
-This repository explores the limits of **text existence detection** in digitized manuscript imagery under fundamental sampling constraints.
+## Contents
 
-See `thematic_image_info.md` for discussion of representative images and
-their role in the Nyquist text-existence argument.
+This repository includes:
 
-The central claim is that many failures to detect faint, peripheral, or low–pixel-footprint writing are not due to model choice or training data, but to irreversible information loss caused by resolution, bit-depth, or compression decisions made upstream.
-
-The work distinguishes:
-- text existence vs. text recognition,
-- model uncertainty vs. information-theoretic absence,
-- and recoverable vs. unrecoverable historical signal.
-
-The repository contains:
 - vision and scope documents,
-- technical notes (including Nyquist-based arguments),
+- Nyquist-based technical notes,
 - experimental design scaffolding,
 - and thematic examples linking theory to manuscript reuse contexts.
 
-This is an open research project intended to support collaboration between computer vision researchers, paleographers, codicologists, and digital humanities practitioners.
+The emphasis is on clarifying *what cannot be recovered* once sampling limits are exceeded, rather than on proposing new recognition pipelines.
 
 ---
 
-**License:** Creative Commons Attribution 4.0 International (CC BY 4.0)  
-This work is licensed under CC BY 4.0. See `LICENSE` for details, or visit https://creativecommons.org/licenses/by/4.0/.
+## License and attribution
 
-**Attribution recommendation:**  
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-@TODO : Talk through this with Keith, look at examples in target journals, etc.
+This work is licensed under the **Creative Commons Attribution 4.0 International (CC BY 4.0)** license.
 
-David Black (GitHub @bballdave025), “Nyquist Text Existence”.
+If you reuse material from this repository, please provide attribution in a standard **TASL** format (Title, Author, Source, License).  
+See `LICENSE` or <https://creativecommons.org/licenses/by/4.0/> for details.
