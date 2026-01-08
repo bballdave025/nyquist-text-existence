@@ -128,7 +128,64 @@ artifact itself and fall outside the scope of this work.
 
 ---
 
-## Summary
+## Cross-Script Challenge: A Minimal CJKV Nyquist Test Case
+
+To complement Image B with a cross-script contrast, we propose a simple
+challenge intended to probe Nyquist-limited text existence in CJKV materials.
+
+The goal is not to test OCR accuracy or semantic interpretation, but to examine
+whether **small, decisive marks survive sampling and preprocessing decisions
+independently of the larger glyph structure to which they attach**.
+
+### Japanese Dakuten / Handakuten Contrast
+
+Japanese kana provide a particularly clean test case.
+
+Consider the hiragana forms:
+
+- **は** (ha)
+- **ば** (ba) — voiced via dakuten (゛)
+- **ぱ** (pa) — plosive via handakuten (゜)
+
+The base glyph shape is identical.  
+The phonemic distinction is carried entirely by **small diacritic marks**.
+
+A parallel contrast exists in katakana:
+
+- **ボ** (bo)
+- **ポ** (po)
+
+Because katakana employs straighter strokes and more angular structure than
+hiragana, it may tolerate downsampling differently. This enables controlled
+comparison across scripts with identical phonetic content but different stroke
+geometry.
+
+### Why This Challenge Is Interesting
+
+This setup allows one to test, in a tightly constrained way:
+
+- whether **text existence** survives after semantic distinction fails;
+- how different scripts distribute critical spatial frequencies;
+- and whether digitization or compression pipelines erase decisive marks
+  *before* larger glyph structure collapses.
+
+The challenge mirrors the Latin minim-based example in Image B while extending
+the Nyquist argument across writing systems.
+
+### Open Invitation
+
+As an exploratory prompt:
+
+> *Can you identify a genealogical or historical document containing kana with
+> dakuten or handakuten marks, and test whether those diacritics survive
+> downsampling independently of the base glyph?*
+
+Even a single well-chosen example would serve as a compelling cross-script
+counterpart to Image B.
+
+---
+
+## Summary and Next Directions
 
 Image B is not merely an example of manuscript reuse. It is a concrete
 demonstration that:
