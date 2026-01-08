@@ -148,7 +148,7 @@ Even at high quality settings:
 
 can suppress stroke-scale information.
 
-A key experimental question (pre-registered):
+### Pre-registered experimental question *(for Keith)*
 
 > Does JPEG compression at fixed spatial resolution reduce recoverable stroke-frequency or gradient information below Nyquist thresholds for text and surface traces that remain detectable in PNG/TIFF representations?
 
@@ -169,4 +169,105 @@ This work treats script variation as a parameter, not an exception.
 
 ---
 
-##
+## 9. Extension beyond text: surface traces and material signals
+
+The sampling constraints described here apply not only to text, but to other
+fine-scale, high-frequency visual phenomena common in manuscript imagery,
+including:
+
+- fingerprints and palm prints,
+- sewing and stitching traces,
+- tooling marks and abrasion patterns,
+- surface preparation artifacts,
+- follicle patterns in animal skin.
+
+These features often occupy spatial frequency regimes comparable to or higher
+than those of small handwriting strokes. When their defining structure is lost
+through downsampling, compression, or quantization, the phenomenon ceases to
+exist as a classifiable signal within the image.
+
+In this project, non-textual classifications are assigned only when defining
+structural features are explicitly present in the digitized image itself.
+Suggestive marks or expert inference without structural support are excluded.
+
+This conservative stance prioritizes evidentiary clarity over completeness and
+preserves a clear separation between **evidence** and **interpretation**.
+
+---
+
+## 10. Pre-registered, falsifiable claims *(for Keith)*
+
+The following claims are specified **prior to experimentation**. Each includes
+explicit refutation criteria.
+
+### H1 — Spatial Nyquist (text existence)
+
+If stroke-scale spatial frequencies fall below the Nyquist limit due to
+downsampling, text existence becomes undecidable for both humans and models.
+
+**Refutation:** Demonstration of reliable text existence detection from images
+provably sampled below the Nyquist threshold without introducing new
+information.
+
+---
+
+### H2 — Bit-depth quantization
+
+At fixed spatial resolution, reduced intensity bit depth suppresses gradients
+required for text and surface-trace detection.
+
+**Refutation:** Demonstration that low-bit-depth captures preserve equivalent
+gradient information and detection performance for low-contrast traces.
+
+---
+
+### H3 — JPEG interaction
+
+At fixed spatial resolution, JPEG compression disproportionately degrades
+recoverable stroke-scale information relative to lossless formats.
+
+**Refutation:** No measurable difference in recoverable high-frequency or
+gradient information between JPEG and lossless encodings under controlled
+conditions.
+
+---
+
+### H4 — Human–machine parity under signal annihilation
+
+Once sampling removes critical stroke-scale information, humans do not
+outperform models in detecting text existence.
+
+**Refutation:** Reliable human detection of text existence where no model
+operating on the same sampled image succeeds.
+
+---
+
+### H5 — Script-dependent critical frequencies
+
+Scripts with dense, two-dimensional stroke structure reach Nyquist violation
+under downsampling or quantization at higher resolutions than scripts with
+predominantly directional strokes.
+
+**Refutation:** Equivalent sampling thresholds across scripts with
+substantially different stroke density and orientation.
+
+---
+
+## 11. Conclusion and scope boundary
+
+This project formalizes a simple but often neglected point: **digitization
+choices determine which historical signals remain available for computation at
+all**.
+
+When information has been destroyed by sampling, no amount of model
+sophistication can recover it. Treating such absences as model failures
+misdirects effort and obscures the true limiting factors.
+
+By grounding text and surface-trace detection in sampling theory, this work
+provides:
+- a principled basis for abstention,
+- a rationale for full-resolution and multi-scale analysis,
+- and a framework for evaluating negative results without post hoc revision.
+
+This document establishes theory and scope. Experiments will test—not extend—
+these claims.
