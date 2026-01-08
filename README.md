@@ -18,7 +18,7 @@ See [`thematic_image_info.md`](thematic_image_info.md) for discussion of represe
 
 This repository includes:
 
-- [vision](IP_Plus_Vision_-_Nyquist_rev-2026-01-07.md) and scope documents,
+- [vision](IP_Plus_Vision_-_Nyquist_rev-2026-01-07.md) and [scope](IP_Plus_Vision_-_Nyquist_rev-2026-01-07.md) documents,
 - Nyquist-based technical notes,
 - experimental design scaffolding,
 - and thematic examples linking theory to manuscript reuse contexts.
