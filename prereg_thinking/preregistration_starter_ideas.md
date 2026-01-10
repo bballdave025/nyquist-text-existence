@@ -2,12 +2,16 @@
 
 **Project: Nyquist Text Existence**
 
-**Authors: David Black (GitHub @bballdave025), Keith Prisbrey (GitHub @KeithPrisbrey)**
+**Authors: David Black (GitHub @bballdave025), Keith Prisbrey (GitHub @keithprisbrey)**
 
 **Date of preregistration: TBD**
 
 **Status: Pre-experimental (confirmatory phase not yet begun)**
 
+
+---
+
+_Confirmatory analysis begins at the first execution of a pre-registered test on the locked image set and locked resampling procedure._
 
 ---
 
