@@ -1,3 +1,7 @@
+_Confirmatory analysis begins at the first execution of a pre-registered test on the locked image set and locked resampling procedure._
+
+---
+
 This directory and its documents are meant to provide a place to think through
 the general and specific hypotheses we want to test with this study, to clearly
 explain these hypotheses and how they can be falsified, and to prepare this
