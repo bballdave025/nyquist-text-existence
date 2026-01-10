@@ -1,8 +1,11 @@
 # Preregistration — Nyquist Text Existence
 
 **Project: Nyquist Text Existence**
+
 **Authors: David Black (GitHub @bballdave025), Keith Prisbrey (GitHub @KeithPrisbrey)**
-**Date of preregistration: YYYY-MM-DD**
+
+**Date of preregistration: TBD**
+
 **Status: Pre-experimental (confirmatory phase not yet begun)**
 
 
