@@ -1,5 +1,7 @@
 # Hypothesis Pre-Registration (Why and What)
 
+_Confirmatory analysis begins at the first execution of a pre-registered test on the locked image set and locked resampling procedure._
+
 Hypothesis pre-registration is the practice of recording core claims before running confirmatory analyses, 
 in order to clearly distinguish between:
 
