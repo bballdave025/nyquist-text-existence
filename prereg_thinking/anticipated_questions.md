@@ -1,4 +1,62 @@
-\[Header/Explanation\]
+# Anticipated Questions and Scope Clarifications
+## Nyquist Text Existence Project
+
+## Purpose of this document
+
+This document records questions, objections, and points of clarification that
+the authors anticipate may arise from readers, reviewers, collaborators, or
+conference audiences.
+
+Its purpose is **not** to introduce new claims, results, or hypotheses.
+Instead, it serves to:
+
+- clarify project scope before experimentation,
+- distinguish conceptual boundaries from empirical claims,
+- document decisions made *prior* to preregistered analysis,
+- and reduce the risk of post-hoc rationalization or scope drift.
+
+This document is part of the **preregistration thinking layer** of the project
+and is intentionally separate from both the paper draft and the preregistered
+analysis plan.
+
+---
+
+## Status and intended use
+
+- This document is **internal-facing** and may evolve.
+- It is intended to support collaboration and preregistration hygiene.
+- Content here may inform—but will not be copied verbatim into—the final paper
+  or preregistration submission.
+
+Questions recorded here may later be:
+- answered experimentally,
+- addressed explicitly in the paper,
+- or ruled out of scope by design.
+
+---
+
+## Relationship to preregistration
+
+Anticipating questions is treated as a *methodological safeguard*, not as
+argumentation.
+
+Where relevant, this document helps ensure that:
+- hypotheses are defined before data analysis,
+- exclusions and scope limits are principled rather than reactive,
+- and confirmatory analysis begins only after procedures are locked.
+
+No analysis decisions are made in this document.
+
+---
+
+## Relationship to IP_Plus_Vision
+
+The IP_Plus_Vision document defines the **conceptual and theoretical framing**
+of the project.
+
+This document exists downstream of that framing and upstream of formal
+preregistration. It addresses how the framing is likely to be interpreted,
+challenged, or misunderstood, without modifying the framing itself.
 
 
 ---
