@@ -70,6 +70,8 @@ These problems operate at **different sampling thresholds**.
 
 A system may fail to detect the presence of writing entirely, even though the same text would be legible to humans in a higher-resolution or higher-bit-depth representation of the same artifact.
 
+We do not measure readability; we establish the conditions under which readability is even theoretically possible.
+
 ---
 
 ## 3. Directional frequency structure of text
