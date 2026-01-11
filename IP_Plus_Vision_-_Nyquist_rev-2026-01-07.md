@@ -255,6 +255,10 @@ substantially different stroke density and orientation.
 
 ---
 
+## 11. Discussion
+
+\[Simply a placeholder for now.\]
+
 ## 11. Conclusion and scope boundary
 
 This project formalizes a simple but often neglected point: **digitization
@@ -270,6 +274,10 @@ provides:
 - a principled basis for abstention,
 - a rationale for full-resolution and multi-scale analysis,
 - and a framework for evaluating negative results without post hoc revision.
+
+**Model behavior under information loss.**
+
+We note that modern convolutional vision models may continue to produce confident high-level classifications (e.g., “document,” “contains text”) even when stroke-scale information is provably absent at the resolution presented to the model. This behavior reflects the use of global structure, layout cues, and learned priors rather than access to evidentiary text signal. Such outputs are therefore not treated here as measurements of text existence. Instead, they serve to illustrate a potential divergence between model confidence and information-theoretic availability of evidence once sampling limits are violated. For this reason, model behavior is discussed only qualitatively and is not used as a primary anchor or experimental endpoint in this work.
 
 This document establishes theory and scope. Experiments will test—not extend—
 these claims.
