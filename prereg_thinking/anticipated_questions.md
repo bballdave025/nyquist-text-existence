@@ -70,16 +70,19 @@ challenged, or misunderstood, without modifying the framing itself.
 
 This question would be in relation to part in the Conclusion/Scope Section
 
+
+> `"""`
 > **Model behavior under information loss.**<br/>
-> We note that modern convolutional vision models may continue to produce confident high-level
-> classifications (e.g., “document,” “contains text”) even when stroke-scale information is
-> provably absent at the resolution presented to the model. This behavior reflects the use of
-> global structure, layout cues, and learned priors rather than access to evidentiary text
-> signal. Such outputs are therefore not treated here as measurements of text existence.
-> Instead, they serve to illustrate a potential divergence between model confidence and
-> information-theoretic availability of evidence once sampling limits are violated. For this
-> reason, model behavior is discussed only qualitatively and is not used as a primary anchor
-> or experimental endpoint in this work.
+We note that modern convolutional vision models may continue to produce confident high-level
+classifications (e.g., “document,” “contains text”) even when stroke-scale information is
+provably absent at the resolution presented to the model. This behavior reflects the use of
+global structure, layout cues, and learned priors rather than access to evidentiary text
+signal. Such outputs are therefore not treated here as measurements of text existence.
+
+Instead, they serve to illustrate a potential divergence between model confidence and
+information-theoretic availability of evidence once sampling limits are violated. For this
+reason, model behavior is discussed only qualitatively and is not used as a primary anchor
+or experimental endpoint in this work.
 
 ## Answer (at least points)
 
