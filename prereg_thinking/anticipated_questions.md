@@ -63,10 +63,8 @@ challenged, or misunderstood, without modifying the framing itself.
 
 ## Question/Start of Reply Restating Question
 
-```
-“Excellent question. The question was: Did you actually test this against modern vision models, 
-like ResNet, or is this purely theoretical?”
-```
+> Excellent question. The question was: Did you actually test this against modern vision models, 
+>like ResNet, or is this purely theoretical?”
 
 ### Clarifications
 
@@ -85,12 +83,10 @@ This question would be in relation to part in the Conclusion/Scope Section
 
 ## Answer (at least points)
 
-```
-That’s an excellent question. We did look at ResNet-style behavior, because it would have been irresponsible not to. What we observed was consistent with the theoretical framing: models can remain confident about document-level or layout-level properties even when the specific textual evidence is no longer present at the resolution they actually receive.
-However, that observation is not what this paper is claiming. The goal here is not to evaluate model performance, but to establish a prior boundary: when sampling removes stroke-scale information, text existence is no longer a well-posed question. Model confidence beyond that point reflects inference around missing information, not access to it.
-For that reason, we intentionally treat model behavior as a secondary illustration rather than a primary experimental anchor.
-```
+> That’s an excellent question. We did look at ResNet-style behavior, because it would have been irresponsible not to. What we observed was consistent with the theoretical framing: models can remain confident about document-level or layout-level properties even when the specific textual evidence is no longer present at the resolution they actually receive.
+> However, that observation is not what this paper is claiming. The goal here is not to evaluate model performance, but to establish a prior boundary: when sampling removes stroke-scale information, text existence is no longer a well-posed question. Model confidence beyond that point reflects inference around missing information, not access to it.
+> For that reason, we intentionally treat model behavior as a secondary illustration rather than a primary experimental anchor.
 
 ### Defusing remarks and other ideas
 
-> I would have disappointed my younger, I-want-to-be-a-scientist self if i hadn't at last checked.
+> I would have disappointed my younger, I-want-to-be-a-scientist self if I hadn't at least checked.
