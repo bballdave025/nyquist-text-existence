@@ -2,11 +2,19 @@
 
 **Project:** Nyquist Text Existence
 
-**Authors:**  
-David Black (GitHub @bballdave025)  
+**Provisional Paper Title and Subtitle:**
+
+Text Existence at the Nyquist Boundary
+
+_Information-Theoretic Limits on Binary Detectability in Digitized Manuscripts_
+
+**Authors:**
+
+David Black (GitHub @bballdave025)
+
 Keith Prisbrey (GitHub @keithprisbrey)
 
-**Date of preregistration:** TBD
+**Date of preregistration:** 2026-01-13
 
 **Status:** Pre-experimental (confirmatory phase not yet begun)
 
@@ -53,7 +61,7 @@ The focus is strictly on whether evidentiary signal corresponding to writing exi
 
 If stroke-scale spatial frequencies or intensity gradients corresponding to writing fall below the Nyquist limit imposed by sampling resolution, bit depth, or compression, then the signal corresponding to text ceases to exist in the digitized image.
 
-Once this occurs, no downstream method—human, neural, or generative—can recover that signal as evidence of original inscription.
+Once this loss occurs, no downstream method—human, neural, or generative—can recover evidentiary signal corresponding to original inscription, as distinct from inferred or synthesized structure.
 
 ---
 
@@ -67,6 +75,10 @@ There exists a sampling threshold below which text existence transitions from re
 
 Failure to detect text below this threshold reflects information-theoretic loss, not model inadequacy or insufficient training.
 
+**Falsification criterion:**
+
+This prediction would be falsified if recoverable stroke-scale signal remains detectable below the nominal Nyquist threshold without the introduction of external information (e.g., priors, generative synthesis, or cross-image leakage).
+
 ---
 
 ### Prediction 2: Model-agnostic failure
@@ -74,6 +86,10 @@ Failure to detect text below this threshold reflects information-theoretic loss,
 Below the sampling threshold, diverse model classes (e.g., CNNs, vision transformers, VLMs) will fail to detect text existence in qualitatively similar ways, despite architectural or training differences.
 
 Any retained confidence reflects priors, layout cues, or global structure, not access to stroke-level evidentiary signal.
+
+**Falsification criterion:**
+
+This prediction would be falsified if one or more model classes reliably detect text existence below the threshold using only the degraded image data, and this detection generalizes across images and resampling instances.
 
 ---
 
@@ -83,19 +99,48 @@ Once sampling destroys stroke-scale information, human observers will not reliab
 
 Such inference does not constitute access to evidentiary signal and is not treated as evidence of text existence under this framework.
 
+Any apparent human advantage below the sampling threshold is expected to derive from contextual inference or perceptual interpolation rather than access to evidentiary signal. Such advantage does not constitute evidence of text existence under this framework. (Keep? ChatGPT? No comment is being made about the value of such advantage.)
+
 ---
 
 ## 5. Image-specific anchor (Image B)
 
-Image B is designated as a **thematic anchor**, not a cherry-picked success case.
+Image B is designated as a pre-registered anchor case illustrating the Nyquist Text Existence boundary under realistic archival digitization conditions.
 
-### Pre-registered expectations for Image B:
+### Role of Image B
 
-- At native resolution, stroke-scale structure corresponding to writing is recoverable.
-- After routine downsampling or compression, the same region becomes undecidable with respect to text existence.
-- The transition is attributable solely to sampling decisions, not enhancement, denoising, or model choice.
+Image B is not selected as a success case. It serves to instantiate a theoretically predicted transition between:
+- recoverable stroke-scale writing signal, and
+- undecidable texture following routine resampling.
 
-Image B serves to concretize the Nyquist boundary under realistic digitization practices.
+### Pre-registered expectations
+
+For Image B:
+
+1. At native resolution, stroke-scale structure corresponding to writing is recoverable.
+2. Under routine downsampling or compression consistent with common archival (ChatGPT, Keep? and Computer Vision) workflows, the same region becomes undecidable with respect to text existence.
+3. The transition is attributable to sampling decisions alone and persists across model classes and human observers.
+
+### Falsification criterion
+
+This anchor expectation would be falsified if:
+
+- stroke-scale writing signal remains recoverable after resampling below the predicted threshold without the introduction of external information, or
+- recovery depends on enhancement methods that introduce new information rather than preserve sampled signal.
+
+Image B is used to concretize the Nyquist boundary, not to define it.
+
+### Image B provenance (summary):
+
+Image B is drawn from the FamilySearch digital collection “Sweden, Malmöhus Church Records, 1541–1918,” specifically a digitized court record volume (Domkapitlet i Lund, A III Protokoll, domböcker i äktenskapsmål). The image originates from microfilm of archival material held by Landsarkivet i Lund (Sweden) and was digitized by FamilySearch under standard archival imaging practices.
+
+### Image B Citation and Usage
+
+“Sweden, Malmöhus, Church Records, 1541–1918,” images, FamilySearch (https://www.familysearch.org : accessed YYYY-MM-DD), Domkapitlet i Lund > A III Protokoll (domböcker) i äktenskapsmål > vol. 4, 1646–1649, image 5 of 111; Landsarkivet i Lund (Sweden Regional Archives, Lund).
+
+For access information, see Note \[1\].
+
+
 
 ---
 
@@ -114,7 +159,7 @@ This extension is intended to test generality across writing systems without ass
 
 ---
 
-## 7. Fingerprints and non-text surface traces (exploratory analysis)
+## 7. Fingerprints and non-text surface traces (explicitly exploratory)
 
 This project includes **exploratory but serious analysis** of fingerprints and related non-text surface traces frequently observed in manuscript imagery.
 
@@ -127,6 +172,8 @@ These analyses are intended to:
 Fingerprint analyses are **not** treated as primary anchors and do not generate confirmatory claims about text existence. They are used to sharpen intuition, contrast signal geometries, and contextualize the text-specific results.
 
 All such analyses will be explicitly labeled as exploratory.
+
+No confirmatory claims about text existence are derived from these analyses.
 
 ---
 
@@ -180,6 +227,12 @@ This preregistration is intended to:
 - and serve as a stable reference for workshops, arXiv preprints, and related discussion.
 
 It does not assert priority, ownership, or completeness.
+
+---
+
+## 12. Notes
+
+1. Image B corresponds to FamilySearch DGS 004534287, image 00361.
 
 ---
 
