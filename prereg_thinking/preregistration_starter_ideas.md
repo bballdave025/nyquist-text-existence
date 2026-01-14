@@ -99,7 +99,7 @@ Once sampling destroys stroke-scale information, human observers will not reliab
 
 Such inference does not constitute access to evidentiary signal and is not treated as evidence of text existence under this framework.
 
-Any apparent human advantage below the sampling threshold is expected to derive from contextual inference or perceptual interpolation rather than access to evidentiary signal. Such advantage does not constitute evidence of text existence under this framework. (Keep? ChatGPT? No comment is being made about the value of such advantage.)
+Any apparent human advantage below the sampling threshold is expected to derive from contextual inference or perceptual interpolation rather than access to evidentiary signal. Such advantage does not constitute evidence of text existence under this framework. (Keep? CG? No comment is being made about the value of such advantage.)
 
 ---
 
@@ -136,9 +136,9 @@ Image B is drawn from the FamilySearch digital collection “Sweden, Malmöhus C
 
 ### Image B Citation and Usage
 
-“Sweden, Malmöhus, Church Records, 1541–1918,” images, FamilySearch (https://www.familysearch.org : accessed YYYY-MM-DD), Domkapitlet i Lund > A III Protokoll (domböcker) i äktenskapsmål > vol. 4, 1646–1649, image 5 of 111; Landsarkivet i Lund (Sweden Regional Archives, Lund).
+“Sweden, Malmöhus, Church Records, 1541–1918,” images, FamilySearch (https://www.familysearch.org : accessed 2026-01-14), Domkapitlet i Lund > A III Protokoll (domböcker) i äktenskapsmål > vol. 4, 1646–1649, image 5 of 111; Landsarkivet i Lund (Sweden Regional Archives, Lund).
 
-For access information, see Note \[1\].
+For access information, see Note \[3\].
 
 
 
@@ -232,7 +232,7 @@ It does not assert priority, ownership, or completeness.
 
 ## 12. Notes
 
-1. Image B corresponds to FamilySearch DGS 004534287, image 00361.
+3. Image B corresponds to FamilySearch DGS 004534287, image 00361.
 
 ---
 
