@@ -99,7 +99,7 @@ Once sampling destroys stroke-scale information, human observers will not reliab
 
 Such inference does not constitute access to evidentiary signal and is not treated as evidence of text existence under this framework.
 
-Any apparent human advantage below the sampling threshold is expected to derive from contextual inference or perceptual interpolation rather than access to evidentiary signal. Such advantage does not constitute evidence of text existence under this framework. (Keep? CG? No comment is being made about the value of such advantage.)
+Any apparent human advantage below the sampling threshold is expected to derive from contextual inference or perceptual interpolation rather than access to evidentiary signal. Such advantage does not constitute evidence of text existence under this framework. (CG. Keep? No comment is being made about the value of such advantage.)
 
 ---
 
@@ -118,7 +118,7 @@ Image B is not selected as a success case. It serves to instantiate a theoretica
 For Image B:
 
 1. At native resolution, stroke-scale structure corresponding to writing is recoverable.
-2. Under routine downsampling or compression consistent with common archival (ChatGPT, Keep? and Computer Vision) workflows, the same region becomes undecidable with respect to text existence.
+2. Under routine downsampling or compression consistent with common archival (CG, Keep? and Computer Vision) workflows, the same region becomes undecidable with respect to text existence.
 3. The transition is attributable to sampling decisions alone and persists across model classes and human observers.
 
 ### Falsification criterion
