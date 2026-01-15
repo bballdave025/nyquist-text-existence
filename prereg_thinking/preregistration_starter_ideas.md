@@ -61,6 +61,20 @@ The focus is strictly on whether evidentiary signal corresponding to writing exi
 
 If stroke-scale spatial frequencies or intensity gradients corresponding to writing fall below the Nyquist limit imposed by sampling resolution, bit depth, or compression, then the signal corresponding to text ceases to exist in the digitized image.
 
+Operationally, the Nyquist boundary is identified when a majority of stroke-associated spectral components collapse below a pre-specified detectability criterion under downsampling.
+
+In this work, the Nyquist boundary is treated as an operational transition characterized by simultaneous collapse of multiple observables, including:
+
+- loss of stroke-associated spectral components,
+- failure of edge-based representations to preserve stroke continuity,
+- and convergence of text-bearing regions toward texture-like statistics under further downsampling.
+
+The boundary is considered crossed when these observables jointly indicate that stroke-level signal is no longer recoverable under any invertible transformation of the sampled data.
+
+While idealized bitonal edges exhibit arbitrarily high spatial frequencies, real writing signals are band-limited by physical factors such as pen width, ink diffusion, substrate texture, and acquisition optics. The Nyquist boundary relevant here concerns the loss of physically meaningful stroke information, not the elimination of all high-frequency components.
+
+Exact thresholds depend on ink–substrate contrast, stroke width variability, edge smoothness, and bit depth. These factors preclude a single closed-form boundary while still permitting consistent operational detection. This work will therefore not seek an analytic boundary for loss but rather an observable one.
+
 Once this loss occurs, no downstream method—human, neural, or generative—can recover evidentiary signal corresponding to original inscription, as distinct from inferred or synthesized structure.
 
 ---
