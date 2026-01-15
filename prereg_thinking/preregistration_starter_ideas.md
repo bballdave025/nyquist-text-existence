@@ -128,7 +128,13 @@ Image B is not selected as a success case. It serves to instantiate a theoretica
 - recoverable stroke-scale writing signal, and
 - undecidable texture following routine resampling.
 
+### Systematic selection of Image B
+
+((CG. This likely needs stuff add as well as general clean-up.))
+
 We use another important term, canonical<sup>\[2\] crop, to refer to the specific region of image which will be evaluated for text existence via the ((CG. Best noun to insert?)) of Nyquist Text Existence Criteria, hereafter NTEC.
+
+To avoid selection based on ((CG. Better word? cherry picking)), we pre-register our method of crop selection. ((CG. Concise description of Sobel over sliding window, or simpler explanation without the word, Sobel, should go here.)
 
 ### Pre-registered expectations
 
@@ -227,6 +233,19 @@ Super-resolution and enhancement methods may generate visually plausible reconst
 
 Super-resolution results may be shown illustratively but are not used to support confirmatory claims.
 
+The precise pixel coordinates defining the region of interest will be registered prior to any generative reconstruction.
+
+Generative super-resolution will be applied only after region selection and downsampling procedures are locked. Visual outcomes will be documented descriptively but not treated as confirmatory evidence.
+
+If generative reconstruction applied to the preregistered region does not produce text-like structure, this outcome will be reported as inconclusive with respect to the general principle, as it may reflect region-specific variability rather than absence of the phenomenon.
+
+((CG. Likely redundancy here, please turn it down.))
+
+### Reiteration concerning region choice
+
+- **Image B crop:** “selected by maximal stroke-energy (Sobel magnitude sum) within a fixed strip along the binding edge, using fixed window size/stride.”
+- **Japanese crop(s):** “selected by locating base glyph instances and then applying a fixed geometric offset ROI for diacritics; no SR used prior to locking ROIs.”
+
 ---
 
 ## 9. Confirmatory vs. exploratory analyses
@@ -245,6 +264,12 @@ Super-resolution results may be shown illustratively but are not used to support
 - Qualitative inspection (including fingerprints and surface traces)
 
 Exploratory work is allowed and expected, but will be explicitly labeled as such and separated from confirmatory results.
+
+### Edge cases and non-goals (scope note)
+
+Our Nyquist framing addresses stroke-supported text existence—cases where ink–substrate alternation at stroke scale is preserved (or destroyed) by sampling. Humans (and models) may still infer “text exists” from higher-level regularities (e.g., repeated ascender/descender rhythm, baseline structure, or layout context) even when stroke-scale evidence is absent. We do not treat such inferences as errors; we treat them as prior-driven judgments that lie outside the stroke-existence criterion analyzed here. Extending the framework to these “global-regularity” cases is future work.
+
+We note that isolated, intentional human-created strokes may sometimes be identifiable even when stroke-scale text evidence is absent; such cases fall outside text existence detection and are treated here as a distinct class of intentional mark evidence.
 
 ---
 
