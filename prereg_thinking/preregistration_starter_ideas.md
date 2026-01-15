@@ -53,6 +53,10 @@ The scope explicitly excludes:
 
 The focus is strictly on whether evidentiary signal corresponding to writing exists in the sampled image data.
 
+### Model behavior under information loss.
+
+We note that modern convolutional vision models may continue to produce confident high-level classifications (e.g., “document,” “contains text”) even when stroke-scale information is provably absent at the resolution presented to the model. This behavior reflects the use of global structure, layout cues, and learned priors rather than access to evidentiary text signal. Such outputs are therefore not treated here as measurements of text existence. Instead, they serve to illustrate a potential divergence between model confidence and information-theoretic availability of evidence once sampling limits are violated. For this reason, model behavior is discussed only qualitatively and is not used as a primary anchor or experimental endpoint in this work.
+
 ---
 
 ## 3. Primary theoretical claim
@@ -138,7 +142,9 @@ Image B is not selected as a success case. It serves to instantiate a theoretica
 
 We use another important term, canonical<sup>\[2\] crop, to refer to the specific region of image which will be evaluated for text existence via the ((CG. Best noun to insert?)) of Nyquist Text Existence Criteria, hereafter NTEC.
 
-To avoid selection based on ((CG. Better word? cherry picking)), we pre-register our method of crop selection. ((CG. Concise description of Sobel over sliding window, or simpler explanation without the word, Sobel, should go here.)
+To avoid selection based on ((CG. Better word? cherry picking)), we pre-register our method of crop selection. Our goal is horizontal strip centered on the upper binding edge containing the densest continuous run of stroke-like structure, with fixed margins above and below.
+
+((CG. Concise description of Sobel over sliding window, or simpler explanation without the word, Sobel, should go here. Perhaps our ideas of the dimensions of the crop might be useful, but they might be too restrictive.)
 
 ### Pre-registered expectations
 
