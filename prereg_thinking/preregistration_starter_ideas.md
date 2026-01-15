@@ -14,7 +14,7 @@ David Black (GitHub @bballdave025)
 
 Keith Prisbrey (GitHub @keithprisbrey)
 
-**Date of preregistration:** 2026-01-13
+**Date of preregistration:** 2026-01-15
 
 **Status:** Pre-experimental (confirmatory phase not yet begun)
 
@@ -61,16 +61,14 @@ The focus is strictly on whether evidentiary signal corresponding to writing exi
 
 If stroke-scale spatial frequencies or intensity gradients corresponding to writing fall below the Nyquist limit imposed by sampling resolution, bit depth, or compression, then the signal corresponding to text ceases to exist in the digitized image.
 
-
+((CG. Does the next stuff, all but the last paragraph in the Claim 1 section, belong here?))
 In this work, the Nyquist boundary is treated as an operational transition characterized by simultaneous collapse of multiple observables, including:
 
 - loss of stroke-associated spectral components,
-- failure of edge-based representations to preserve stroke continuity,
+- failure of edge-based representations<sup>\[1\]</sup> to preserve stroke continuity,
 - and convergence of text-bearing regions toward texture-like statistics under further downsampling.
 
 The boundary is considered crossed when these observables jointly indicate that stroke-level signal is no longer recoverable under any invertible transformation of the sampled data.
-
-While idealized bitonal edges exhibit arbitrarily high spatial frequencies, real writing signals are band-limited by physical factors such as pen width, ink diffusion, substrate texture, and acquisition optics. The Nyquist boundary relevant here concerns the loss of physically meaningful stroke information, not the elimination of all high-frequency components.
 
 Exact thresholds depend on ink–substrate contrast, stroke width variability, edge smoothness, and bit depth. These factors preclude a single closed-form boundary while still permitting consistent operational ((CG. Right word? detection)).
 
@@ -130,6 +128,8 @@ Image B is not selected as a success case. It serves to instantiate a theoretica
 - recoverable stroke-scale writing signal, and
 - undecidable texture following routine resampling.
 
+We use another important term, canonical<sup>\[2\] crop, to refer to the specific region of image which will be evaluated for text existence via the ((CG. Best noun to insert?)) of Nyquist Text Existence Criteria, hereafter NTEC.
+
 ### Pre-registered expectations
 
 For Image B:
@@ -155,9 +155,9 @@ Image B is drawn from the FamilySearch digital collection “Sweden, Malmöhus C
 
 “Sweden, Malmöhus, Church Records, 1541–1918,” images, FamilySearch (https://www.familysearch.org : accessed 2026-01-14), Domkapitlet i Lund > A III Protokoll (domböcker) i äktenskapsmål > vol. 4, 1646–1649, image 5 of 111; Landsarkivet i Lund (Sweden Regional Archives, Lund).
 
+((CG. Usage suggestion?))
+
 For access information, see Note \[3\].
-
-
 
 ---
 
@@ -173,6 +173,27 @@ In cross-script contexts, we distinguish between two related but non-identical l
 - Depending on script geometry and stroke distribution, text existence may persist after semantic distinction fails, or may collapse simultaneously with base glyph structure.
 
 This extension is intended to test generality across writing systems without asserting universality.
+
+### Future Choice of Image
+
+We have not yet chosen the Japanese example, but we are constraining what it must be and how it will be chosen.
+
+### Requirements and limitations for cross-script image 
+
+A cross-script Japanese example is planned to complement Image B. At the time of preregistration, the specific document has not yet been selected. Instead, we preregister the selection criteria and analytical role of this example.
+
+The Japanese example will be chosen to satisfy the following constraints:
+
+- the semantic distinction depends on diacritic-scale marks (e.g., dakuten or handakuten),
+- the base glyph remains invariant across conditions,
+- the diacritic occupies a small spatial footprint relative to the full glyph,
+- and the document is a real genealogical or historical record, not a synthetic rendering.
+
+The purpose of this example is not to serve as an additional anchor, but to test the generality of the Nyquist text-existence argument across writing systems with different critical spatial frequencies.
+
+OCR will not be used to make the distinction. Rather, ((CG. What will be used? Subjective determination by subject expert?))
+
+No substitutions or additional Japanese examples will be introduced to replace an unsupportive result. Once the cross-script example is specified via addendum to this preregistration, it will be used in analysis regardless of findings. ((CG. Please clean this up.))
 
 ---
 
@@ -249,7 +270,11 @@ It does not assert priority, ownership, or completeness.
 
 ## 12. Notes
 
-3. Image B corresponds to FamilySearch DGS 004534287, image 00361.
+\[1\]. While idealized bitonal edges exhibit arbitrarily high spatial frequencies, real writing signals are band-limited by physical factors such as pen width, ink diffusion, substrate texture, and acquisition optics. The Nyquist boundary relevant here concerns the loss of physically meaningful stroke information, not the elimination of all high-frequency components.
+
+\[2\]. 
+
+\[3\]. Image B corresponds to FamilySearch DGS 004534287, image 00361.
 
 ---
 
