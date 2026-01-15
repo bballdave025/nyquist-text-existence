@@ -3,13 +3,12 @@
 **Project:** Nyquist Text Existence  
 
 **_Provisional Paper Title and Subtitle:_**  
+
 **Text Existence at the Nyquist Boundary**  
 *Information-Theoretic Limits on Binary Detectability in Digitized Manuscripts*
 
 **Authors:**  
-
 David Black (GitHub @bballdave025)  
-
 Keith Prisbrey (GitHub @keithprisbrey)
 
 **Date of preregistration:** ((Goal 2026-01-17))
