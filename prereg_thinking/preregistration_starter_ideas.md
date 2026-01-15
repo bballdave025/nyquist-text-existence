@@ -61,7 +61,7 @@ The focus is strictly on whether evidentiary signal corresponding to writing exi
 
 If stroke-scale spatial frequencies or intensity gradients corresponding to writing fall below the Nyquist limit imposed by sampling resolution, bit depth, or compression, then the signal corresponding to text ceases to exist in the digitized image.
 
-((CG. Does the next stuff, all but the last paragraph in the Claim 1 section, belong here?))
+((CG. Does the next stuff, all but the last paragraph in thid Claim 1 section, belong here?))
 In this work, the Nyquist boundary is treated as an operational transition characterized by simultaneous collapse of multiple observables, including:
 
 - loss of stroke-associated spectral components,
@@ -115,6 +115,10 @@ Once sampling destroys stroke-scale information, human observers will not reliab
 Such inference does not constitute access to evidentiary signal and is not treated as evidence of text existence under this framework.
 
 Any apparent human advantage below the sampling threshold is expected to derive from contextual inference or perceptual interpolation rather than access to evidentiary signal. Such advantage does not constitute evidence of text existence under this framework. (CG. Keep? No comment is being made about the value of such advantage.)
+
+**Falsification criterion:**
+
+((CG: Have we come up with the falsification criterion, here? We need to insert it.)
 
 ---
 
