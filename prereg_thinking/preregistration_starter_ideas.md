@@ -73,7 +73,7 @@ The boundary is considered crossed when these observables jointly indicate that 
 
 While idealized bitonal edges exhibit arbitrarily high spatial frequencies, real writing signals are band-limited by physical factors such as pen width, ink diffusion, substrate texture, and acquisition optics. The Nyquist boundary relevant here concerns the loss of physically meaningful stroke information, not the elimination of all high-frequency components.
 
-Exact thresholds depend on ink–substrate contrast, stroke width variability, edge smoothness, and bit depth. These factors preclude a single closed-form boundary while still permitting consistent operational detection. This work will therefore not seek an analytic boundary for loss but rather an observable one.
+Exact thresholds depend on ink–substrate contrast, stroke width variability, edge smoothness, and bit depth. These factors preclude a single closed-form boundary while still permitting consistent operational ((CG. Right word? detection)).
 
 Once this loss occurs, no downstream method—human, neural, or generative—can recover evidentiary signal corresponding to original inscription, as distinct from inferred or synthesized structure.
 
