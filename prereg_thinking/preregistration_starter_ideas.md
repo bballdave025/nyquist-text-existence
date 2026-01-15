@@ -2,9 +2,8 @@
 
 **Project:** Nyquist Text Existence  
 
-**Provisional Paper Title and Subtitle:**  
+**_Provisional Paper Title and Subtitle:_**  
 **Text Existence at the Nyquist Boundary**  
-
 *Information-Theoretic Limits on Binary Detectability in Digitized Manuscripts*
 
 **Authors:**  
