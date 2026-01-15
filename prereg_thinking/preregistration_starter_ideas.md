@@ -140,7 +140,7 @@ Image B is not selected as a success case. It serves to instantiate a theoretica
 
 ((CG. This likely needs stuff add as well as general clean-up.))
 
-We use another important term, canonical<sup>\[2\] crop, to refer to the specific region of image which will be evaluated for text existence via the ((CG. Best noun to insert?)) of Nyquist Text Existence Criteria, hereafter NTEC.
+We use another important term, canonical<sup>\[2\]</sup> crop, to refer to the specific region of image which will be evaluated for text existence via the ((CG. Best noun to insert?)) of Nyquist Text Existence Criteria, hereafter NTEC.
 
 To avoid selection based on ((CG. Better word? cherry picking)), we pre-register our method of crop selection. Our goal is horizontal strip centered on the upper binding edge containing the densest continuous run of stroke-like structure, with fixed margins above and below.
 
