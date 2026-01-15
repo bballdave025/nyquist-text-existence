@@ -61,7 +61,6 @@ The focus is strictly on whether evidentiary signal corresponding to writing exi
 
 If stroke-scale spatial frequencies or intensity gradients corresponding to writing fall below the Nyquist limit imposed by sampling resolution, bit depth, or compression, then the signal corresponding to text ceases to exist in the digitized image.
 
-Operationally, the Nyquist boundary is identified when a majority of stroke-associated spectral components collapse below a pre-specified detectability criterion under downsampling.
 
 In this work, the Nyquist boundary is treated as an operational transition characterized by simultaneous collapse of multiple observables, including:
 
@@ -82,6 +81,10 @@ Once this loss occurs, no downstream method—human, neural, or generative—can
 ## 4. Derived predictions
 
 From Claim 1, we pre-register the following predictions.
+
+**Operational definition used for predictions.**
+
+Operationally, the Nyquist boundary is identified when a majority of stroke-associated spectral components collapse below a pre-specified detectability criterion under downsampling. This criterion is held fixed across confirmatory analyses.
 
 ### Prediction 1: Abrupt failure under downsampling
 
