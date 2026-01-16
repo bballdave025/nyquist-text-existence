@@ -58,6 +58,9 @@ This document exists downstream of that framing and upstream of formal
 preregistration. It addresses how the framing is likely to be interpreted,
 challenged, or misunderstood, without modifying the framing itself.
 
+# Potential Reviewer Questions and Responses (Pre-Registered)
+
+---
 
 ---
 
@@ -117,5 +120,121 @@ Ever since, I’ve joked that the real danger sign is when ChatGPT starts using 
 
 ---
 
+### Gathered from lab notebook and chats
 
+**Q1. You invoke the Nyquist limit, but you do not provide a closed-form mathematical definition of the Nyquist boundary for text. Is this a theoretical gap?**
+
+**A1.** No. This work does not claim the existence of a single closed-form Nyquist boundary for text across documents. Stroke-scale writing is shaped by ink diffusion, substrate texture, pen width variability, acquisition optics, bit depth, and compression, which jointly preclude a universal analytic threshold. Instead, we adopt an operational identification of the Nyquist boundary, defined by the joint collapse of multiple observables (e.g., stroke-associated spectral components, edge continuity, and texture convergence). This preserves theoretical honesty while allowing falsifiable evaluation.
+
+---
+
+---
+
+**Q2. Why rely on an operational criterion rather than a purely analytical or information-theoretic proof?**
+
+**A2.** A purely analytical treatment would require idealized assumptions (e.g., band-limited edges, uniform substrates) that do not hold for real manuscript materials. Conversely, a purely empirical threshold would risk post hoc tuning. The operational criterion used here is theory-constrained but measurement-based, reflecting physically meaningful limits without overclaiming mathematical precision.
+
+---
+
+---
+
+**Q3. How do you avoid cherry-picking Image B or its crop to support your claim?**
+
+**A3.** Image B is selected as a pre-registered anchor, not a success case. Its canonical crop is chosen via a deterministic, pre-registered procedure (maximal stroke-energy within a fixed strip along the binding edge). The purpose is not optimality but invariance: once defined, the crop is fixed and not substituted based on outcomes. Alternative crops are treated as distinct analytical objects and are not swapped post hoc.
+
+---
+
+---
+
+**Q4. Why is Image B treated as an illustrative anchor rather than as defining the Nyquist boundary itself?**
+
+**A4.** Image B is used to concretize a theoretically predicted transition under realistic archival digitization conditions. The Nyquist boundary is defined at the level of sampling theory and operational observables, not by any single image. Image B illustrates the boundary; it does not set it.
+
+---
+
+---
+
+**Q5. Modern vision models can still confidently classify images as “text” even when stroke-level detail is lost. Why is this not evidence against your claim?**
+
+**A5.** Such behavior reflects reliance on learned priors, layout regularities, and global structure rather than access to evidentiary stroke-scale signal. This work explicitly distinguishes model confidence from information-theoretic availability of evidence. High confidence in the absence of recoverable signal is treated as a divergence between inference and evidence, not as detection of text existence.
+
+---
+
+---
+
+**Q6. Could human observers outperform machines below the Nyquist boundary?**
+
+**A6.** Humans may appear to outperform machines through perceptual interpolation or contextual inference. However, such judgments do not constitute access to evidentiary signal under this framework. The claim concerns recoverability of signal, not inferential plausibility. Any apparent human advantage below the boundary is therefore out of scope.
+
+---
+
+---
+
+**Q7. How do you define falsification for claims about text existence, rather than recognition or readability?**
+
+**A7.** A claim is falsified if recoverable stroke-scale signal remains detectable below the predicted boundary without the introduction of external information (e.g., priors, generative synthesis, cross-image leakage), and if such detection generalizes across resampling instances. Confidence alone is not sufficient; recoverability of evidentiary signal is required.
+
+---
+
+---
+
+**Q8. Why exclude super-resolution and enhancement methods from confirmatory evidence?**
+
+**A8.** Super-resolution and enhancement introduce information not present in the sampled data. While such methods may produce visually plausible reconstructions, they do not recover original signal and therefore cannot serve as evidence of text existence. Their use is explicitly limited to illustrative, non-confirmatory contexts.
+
+---
+
+---
+
+**Q9. How do you address cases like Herculaneum papyri or multispectral recoveries that appear to “beat” Nyquist limits?**
+
+**A9.** These cases do not contradict the Nyquist boundary as defined here. Successful recovery occurs because the signal existed in the original object and was accessed via additional physical channels or modalities, not because lost sampled information was reconstructed. The boundary distinguishes absence of access from absence of inscription.
+
+---
+
+---
+
+**Q10. Why include cross-script examples (e.g., Japanese diacritics) if the primary anchor is Latin script?**
+
+**A10.** Cross-script examples test the generality of the framework across writing systems with different critical spatial frequencies. The distinction between loss of semantic contrast and loss of text existence proper is expected to vary by script geometry. These examples probe scope, not universality.
+
+---
+
+---
+
+**Q11. The Japanese example is not yet selected. Does this weaken the preregistration?**
+
+**A11.** No. The preregistration constrains the selection criteria and analytical role of the example rather than the specific document. Once selected via addendum, the example will be analyzed regardless of outcome, with no substitution based on results.
+
+---
+
+---
+
+**Q12. Why include fingerprints and surface traces if the focus is text existence?**
+
+**A12.** Fingerprints and non-text traces are explicitly exploratory and serve to sharpen conceptual boundaries between writing, trace, and texture under sampling loss. They do not generate confirmatory claims about text existence and are clearly labeled as such.
+
+---
+
+---
+
+**Q13. Does this work claim that digitization should always occur at maximal resolution?**
+
+**A13.** No. The work does not prescribe archival policy. It characterizes irreversible information loss under sampling and clarifies what can and cannot be claimed once such loss occurs. Practical constraints and trade-offs are acknowledged but not adjudicated.
+
+---
+
+---
+
+**Q14. How does this framework remain compatible with democratized discovery (e.g., work by interns or non-specialists using limited imaging tools)?**
+
+**A14.** The framework clarifies limits rather than imposing exclusivity. Identifying when signal exists—or provably does not—helps guide both high-end imaging strategies and low-resource discovery efforts. In some cases, low-quality digitizations may become the only surviving witnesses, making clarity about evidentiary limits essential rather than elitist.
+
+---
+
+---
+
+**Q15. Why preregister a theory-forward project at all?**
+
+**A15.** Preregistration here serves to lock scope, claims, and falsification criteria, protecting negative results and preventing retrospective boundary-shifting. It is used not to constrain exploration, but to clearly separate confirmatory claims from exploratory insight.
 
