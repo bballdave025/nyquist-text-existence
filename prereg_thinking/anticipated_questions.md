@@ -61,6 +61,7 @@ challenged, or misunderstood, without modifying the framing itself.
 
 ---
 
+## ResNet confidence without epistemic info
 ## Question/Start of Reply Restating Question
 
 > Excellent question. The question was: Did you actually test this against modern vision models, 
@@ -96,3 +97,20 @@ or experimental endpoint in this work.
 ### Defusing remarks and other ideas
 
 > I would have disappointed my younger, I-want-to-be-a-scientist self if I hadn't at least checked.
+
+---
+
+---
+
+## Talk starter / Prompt Conditioning
+## Question: N/A
+
+A coworker with an English Literature background asked me a question about LLMs. I didn’t have a great off-the-cuff answer, but I did know a paper on the topic better than I knew the topic itself, so i told him so. Then, at my suggestion, he asked an LLM to explain the technical ML paper for an Eng Lit guy rather than an ML guy. The response opened with, “Imagine you’re a novelist…,” complete with protagonists and narrative arcs. We laughed, and I suggested he add, “You don’t need to use English Lit terms.” He paused and said, “No — I’ll ask it again, but tell it not to pander to me.”
+Ever since, I’ve joked that the real danger sign is when ChatGPT starts using Nyquist metaphors while I’m asking for talking points for my daughter’s bedtime story.
+
+---
+
+---
+
+
+
