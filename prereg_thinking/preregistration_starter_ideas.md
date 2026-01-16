@@ -11,7 +11,7 @@
 David Black (GitHub @bballdave025)  
 Keith Prisbrey (GitHub @keithprisbrey)
 
-**Date of preregistration:** ((Goal 2026-01-17))
+**Date of preregistration:** ((Goal 2026-01-21, almost certainly to OSF))
 
 **Status:** Pre-experimental (confirmatory phase not yet begun)
 
@@ -76,7 +76,7 @@ This claim concerns the existence of signal, not the performance of recognition 
 
 Operationally, the Nyquist Text Existence Criterion (NTEC) identifies the boundary at which stroke-level writing signal becomes unrecoverable under downsampling. The boundary is treated as an operational transition characterized by the joint collapse of multiple observables, including:
 
-- loss of stroke-associated spectral components,  
+- loss of stroke-associated spectral components<sup>[1]</sup>,  
 - failure of edge-based representations to preserve stroke continuity, and  
 - convergence of text-bearing regions toward texture-like statistics under further downsampling.
 
@@ -134,7 +134,7 @@ The anchor instantiates a theoretically predicted transition between:
 
 ### Canonical crop selection
 
-We define a **canonical crop**[^2] as the specific region of Image B evaluated under NTEC.
+We define a **canonical crop**<sup>[2]</sup> as the specific region of Image B evaluated under NTEC.
 
 To avoid outcome-dependent selection, we preregister a deterministic crop-selection procedure. Candidate horizontal strips near the upper binding edge are evaluated using a sliding-window edge-strength measure that quantifies the concentration of high-contrast, stroke-like transitions. The strip maximizing this measure is selected. In the event of a tie, the strip with the smallest horizontal coordinate in the original image orientation is chosen.
 
