@@ -39,7 +39,7 @@ This preregistration concerns **text existence**, defined as:
 
 > The presence or absence of recoverable signal corresponding to writing in a digitized image, independent of recognition, transcription, or interpretation.
 
-**Recoverable signal** refers to inscription-specific evidentiary information, not merely visible stroke geometry or segmentable structure.
+Recoverable signal refers to inscription-specific evidentiary information, not merely visible stroke geometry, segmentable structure, coarse layout regularities, or global form.
 
 The scope explicitly excludes:
 
@@ -51,11 +51,17 @@ The scope explicitly excludes:
 
 The focus is strictly on whether evidentiary signal corresponding to writing exists in the sampled image data.
 
-### 2.1. Model behavior under information loss
+### Scale dependence and non-transitivity
 
-Modern vision models may continue to produce confident high-level classifications (e.g., “document,” “contains text”) even when stroke-scale information is provably absent at the resolution presented to the model. Such behavior reflects reliance on global structure, layout cues, and learned priors rather than access to evidentiary text signal.
+Text existence is not a transitive or scale-invariant property of image regions. A region that is part of a larger text-bearing structure may itself contain no text-evidentiary signal at a given spatial scale.
 
-Accordingly, model confidence is not treated here as a measurement of text existence. Model behavior is discussed only qualitatively to illustrate potential divergence between confidence and information-theoretic availability of evidence once sampling limits are violated. Models are not used as primary anchors or experimental endpoints in this work.
+Accordingly, NTEC is explicitly scale-relative and does not assert transitivity of text existence across regions or resolutions.
+
+### Model behavior under information loss
+
+Modern vision models may continue to produce confident high-level classifications (e.g., “document,” “contains text”) even when inscription-specific evidentiary signal is provably absent at the resolution presented to the model. Such behavior reflects reliance on global structure, layout cues, and learned priors rather than access to recoverable text signal.
+
+Model confidence is therefore not treated here as a measurement of text existence. Model behavior is discussed only qualitatively to illustrate potential divergence between confidence and information-theoretic availability of evidence once sampling limits are violated.
 
 ---
 
@@ -236,9 +242,54 @@ This diagnostic framing allows NTEC to be used not only as a criterion for irrev
 
 This project includes exploratory analysis of fingerprints and related non-text surface traces frequently observed in manuscript imagery.
 
-These analyses are intended to clarify similarities and differences between text and non-text signals under sampling loss and to refine conceptual boundaries between writing, trace, and texture.
+These analyses are intended to clarify similarities and differences between writing signals and non-text ridge-based or texture-based structures under sampling loss, and to refine conceptual boundaries between inscription, trace, and texture.
 
-Fingerprint analyses do not generate confirmatory claims about text existence and are explicitly labeled as exploratory.
+### Fingerprints as a contrast class
+
+Fingerprints exhibit highly regular ridge–valley structure with comparatively narrow frequency bands and strong orientation coherence. This regularity is expected to make fingerprint signals particularly sensitive to sampling loss.
+
+Once contrast is sufficiently degraded, the only remnants of fingerprint structure are expected to be:
+
+- gross shape constraints imposed by the contact region,  
+- anisotropic smearing or directional remnants in the image or spectrum, or  
+- geometric distortion of an originally coherent ridge field.
+
+Such remnants preserve little or no evidentiary value for identifying a region as a fingerprint, and substantially less for identification of the fingerprint itself.
+
+Crucially, these remnants may preserve segmentable structure or visible geometry without preserving inscription- or trace-specific evidentiary signal.
+
+### Scale dependence and loss of evidentiary value
+
+As with text, fingerprint existence is scale-relative and non-transitive across regions.
+
+A region that is part of a larger fingerprint-bearing structure may itself contain no fingerprint-evidentiary signal at a given spatial scale, even while retaining geometric continuity or shape constraints.
+
+Recoverable signal here refers to ridge–valley alternation carrying identification-relevant information, not merely the presence of elongated or banded texture.
+
+### Exploratory hypothesis
+
+We hypothesize that fingerprint signals will exhibit **earlier and more abrupt catastrophic collapse** under downsampling than writing signals, due to:
+
+- narrower and more regular frequency bands,  
+- stronger orientation coherence, and  
+- reduced redundancy across spatial scales.
+
+Under this hypothesis, fingerprints are expected to lose evidentiary ridge information at higher resolutions than text loses stroke information, leaving behind only non-evidentiary shape or smear remnants.
+
+### Falsification criterion
+
+**Falsification criterion:**  
+This exploratory hypothesis would be falsified if fingerprint-bearing regions retain stable, ridge-specific evidentiary signal across downsampling regimes in which stroke-scale writing signal has already collapsed, in a manner that generalizes across documents and acquisition conditions.
+
+### Role in the project
+
+Fingerprint analyses do not generate confirmatory claims about text existence. They are used to:
+
+- contrast collapse behavior between inscription and non-inscription signals,  
+- clarify the distinction between separability and recoverability, and  
+- refine the conceptual boundary between evidentiary signal and residual structure.
+
+These analyses are explicitly exploratory and are not treated as anchors or primary theoretical tests. Fingerprint analyses do not generate confirmatory claims about text existence and are explicitly labeled as exploratory.
 
 ---
 
