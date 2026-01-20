@@ -35,6 +35,8 @@ This document is theory-forward. It intentionally avoids commitment to specific 
 
 ## 2. Scope of claims
 
+### 2.1 Text Existence
+
 This preregistration concerns **text existence**, defined as:
 
 > The presence or absence of recoverable signal corresponding to writing in a digitized image, independent of recognition, transcription, or interpretation.
@@ -51,13 +53,13 @@ The scope explicitly excludes:
 
 The focus is strictly on whether evidentiary signal corresponding to writing exists in the sampled image data.
 
-### Scale dependence and non-transitivity
+### 2.2 Scale dependence and non-transitivity
 
 Text existence is not a transitive or scale-invariant property of image regions. A region that is part of a larger text-bearing structure may itself contain no text-evidentiary signal at a given spatial scale.
 
 Accordingly, NTEC is explicitly scale-relative and does not assert transitivity of text existence across regions or resolutions.
 
-### Model behavior under information loss
+### 2.3 Model behavior under information loss
 
 Modern vision models may continue to produce confident high-level classifications (e.g., “document,” “contains text”) even when inscription-specific evidentiary signal is provably absent at the resolution presented to the model. Such behavior reflects reliance on global structure, layout cues, and learned priors rather than access to recoverable text signal.
 
@@ -171,6 +173,8 @@ Usage complies with FamilySearch access and citation guidelines; see Note [3].
 
 ## 6. Cross-script extension (Japanese diacritic challenge)
 
+### 6.1 Semantic Distinction and Text Existence Thresholds 
+
 We preregister the expectation that writing systems with small, information-critical diacritics (e.g., Japanese dakuten / handakuten) violate sampling limits at different thresholds than Latin scripts.
 
 In cross-script contexts, we distinguish between two related but non-identical limits:
@@ -180,7 +184,20 @@ In cross-script contexts, we distinguish between two related but non-identical l
 
 Semantic distinctions carried by diacritics are expected to be lost before full base-glyph structure collapses. Depending on script geometry and stroke distribution, text existence may persist after semantic distinction fails or may collapse simultaneously.
 
-### 6.1. Planned cross-script example
+Recoverable signal refers to inscription-specific evidentiary information, not merely visible stroke geometry or segmentable structure.
+
+### 6.2 Analytical role and boundary structure
+
+This extension probes whether multiple Nyquist-style boundaries may occur within a single writing system:
+
+- a **semantic boundary**, at which diacritic-scale information becomes unrecoverable and semantic distinctions collapse, and  
+- an **existence boundary**, at which recoverable writing signal ceases to exist entirely.
+
+These boundaries need not coincide. A region may retain base-glyph structure after semantic distinctions are lost, or may lose all stroke-scale signal simultaneously.
+
+The predicted ordering — semantic collapse preceding or coinciding with existence collapse — constitutes an empirical claim about the geometry of information loss in multi-scale writing systems.
+
+### 6.3 Planned cross-script example
 
 At the time of preregistration, the specific Japanese document has not been selected. Instead, we preregister the selection criteria and analytical role of this example.
 
@@ -191,7 +208,28 @@ The Japanese example will satisfy the following constraints:
 - the diacritic occupies a small spatial footprint relative to the glyph, and  
 - the document is a real historical or genealogical record.
 
-The example is not treated as an additional anchor case. Once specified via addendum, it will be analyzed regardless of outcome. OCR will not be used; assessment will rely on stroke-scale signal behavior under controlled resampling.
+The example is not treated as an additional anchor case. Once specified via addendum, it will be analyzed regardless of outcome.
+
+### 6.4 Judgment protocol
+
+Semantic distinguishability will be evaluated by an expert or native reader of Japanese.
+
+Judges will assess, under degraded sampling alone and without enhancement or contextual priors, whether the semantic distinction encoded by the diacritic remains recoverable. Judgments concern semantic discriminability, not visual salience or stylistic plausibility.
+
+OCR systems will not be used as evaluators.
+
+### 6.5 Falsification criterion
+
+**Falsification criterion:**  
+This extension is falsified if diacritic-scale semantic distinctions remain reliably recoverable at sampling regimes where base-glyph stroke structure has already crossed the NTEC existence boundary, or if no separable semantic boundary is observed prior to complete collapse of recoverable writing signal.
+
+Such an outcome would falsify the predicted ordering of semantic and existence boundaries in this cross-script case.
+
+Failure of this prediction does not falsify the Nyquist Text Existence Criterion itself. It would instead delimit the geometry of information loss across writing systems and indicate that semantic and existence boundaries may coincide or invert under certain stroke distributions.
+
+### 6.6 Scope of inference
+
+This cross-script analysis does not assert that semantic collapse implies text non-existence, nor that semantic preservation implies recoverability of evidentiary signal. It serves solely to characterize the relative ordering of semantic and existence boundaries under controlled sampling loss and to test whether multi-scale collapse behavior generalizes across scripts.
 
 ---
 
@@ -240,11 +278,13 @@ This diagnostic framing allows NTEC to be used not only as a criterion for irrev
 
 ## 8. Fingerprints and non-text surface traces (explicitly exploratory)
 
+### 8.1 NTEC intuition: Nyquist existence for non-text objects
+
 This project includes exploratory analysis of fingerprints and related non-text surface traces frequently observed in manuscript imagery.
 
 These analyses are intended to clarify similarities and differences between writing signals and non-text ridge-based or texture-based structures under sampling loss, and to refine conceptual boundaries between inscription, trace, and texture.
 
-### Fingerprints as a contrast class
+### 8.2 Fingerprints as a contrast class
 
 Fingerprints exhibit highly regular ridge–valley structure with comparatively narrow frequency bands and strong orientation coherence. This regularity is expected to make fingerprint signals particularly sensitive to sampling loss.
 
@@ -258,7 +298,7 @@ Such remnants preserve little or no evidentiary value for identifying a region a
 
 Crucially, these remnants may preserve segmentable structure or visible geometry without preserving inscription- or trace-specific evidentiary signal.
 
-### Scale dependence and loss of evidentiary value
+### 8.3 Scale dependence and loss of evidentiary value
 
 As with text, fingerprint existence is scale-relative and non-transitive across regions.
 
@@ -266,7 +306,7 @@ A region that is part of a larger fingerprint-bearing structure may itself conta
 
 Recoverable signal here refers to ridge–valley alternation carrying identification-relevant information, not merely the presence of elongated or banded texture.
 
-### Exploratory hypothesis
+### 8.4 Exploratory hypothesis
 
 We hypothesize that fingerprint signals will exhibit **earlier and more abrupt catastrophic collapse** under downsampling than writing signals, due to:
 
@@ -276,12 +316,12 @@ We hypothesize that fingerprint signals will exhibit **earlier and more abrupt c
 
 Under this hypothesis, fingerprints are expected to lose evidentiary ridge information at higher resolutions than text loses stroke information, leaving behind only non-evidentiary shape or smear remnants.
 
-### Falsification criterion
+### 8.5 Falsification criterion
 
 **Falsification criterion:**  
 This exploratory hypothesis would be falsified if fingerprint-bearing regions retain stable, ridge-specific evidentiary signal across downsampling regimes in which stroke-scale writing signal has already collapsed, in a manner that generalizes across documents and acquisition conditions.
 
-### Role in the project
+### 8.6 Role in the project
 
 Fingerprint analyses do not generate confirmatory claims about text existence. They are used to:
 
