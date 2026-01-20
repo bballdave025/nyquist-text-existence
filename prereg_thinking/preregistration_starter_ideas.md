@@ -1,6 +1,6 @@
 # Preregistration — Nyquist Text Existence
 
-**Project:** Nyquist Text Existence  
+**Project:** Nyquist Text Existence
 
 **Provisional Paper Title and Subtitle:**  
 **Text Existence at the Nyquist Boundary**  
@@ -10,7 +10,7 @@
 David Black (GitHub @bballdave025)  
 Keith Prisbrey (GitHub @keithprisbrey)
 
-**Date of preregistration:** 2026-01-15  
+**Date of preregistration:** 2026-01-15
 
 **Status:** Pre-experimental (confirmatory phase not yet begun)
 
@@ -39,6 +39,8 @@ This preregistration concerns **text existence**, defined as:
 
 > The presence or absence of recoverable signal corresponding to writing in a digitized image, independent of recognition, transcription, or interpretation.
 
+**Recoverable signal** refers to inscription-specific evidentiary information, not merely visible stroke geometry or segmentable structure.
+
 The scope explicitly excludes:
 
 - OCR accuracy,  
@@ -49,7 +51,7 @@ The scope explicitly excludes:
 
 The focus is strictly on whether evidentiary signal corresponding to writing exists in the sampled image data.
 
-### Model behavior under information loss
+### 2.1. Model behavior under information loss
 
 Modern vision models may continue to produce confident high-level classifications (e.g., “document,” “contains text”) even when stroke-scale information is provably absent at the resolution presented to the model. Such behavior reflects reliance on global structure, layout cues, and learned priors rather than access to evidentiary text signal.
 
@@ -59,7 +61,7 @@ Accordingly, model confidence is not treated here as a measurement of text exist
 
 ## 3. Primary theoretical claim
 
-### Claim 1 (Nyquist Text Existence)
+### 3.1. Claim 1 (Nyquist Text Existence)
 
 If stroke-scale spatial frequencies or intensity gradients corresponding to writing fall below the Nyquist limit imposed by sampling resolution, bit depth, or compression, then the signal corresponding to text ceases to exist in the digitized image.
 
@@ -71,7 +73,7 @@ This claim concerns the existence of signal, not the performance of recognition 
 
 ## 4. Operational identification and derived predictions
 
-### Operational identification of the Nyquist boundary
+### 4.1. Operational identification of the Nyquist boundary
 
 Operationally, the Nyquist Text Existence Criterion (NTEC) identifies the boundary at which stroke-level writing signal becomes unrecoverable under downsampling. The boundary is treated as an operational transition characterized by the joint collapse of multiple observables, including:
 
@@ -83,11 +85,11 @@ The boundary is considered crossed when these observables jointly indicate that 
 
 Exact thresholds depend on ink–substrate contrast, stroke width variability, edge smoothness, acquisition optics, and bit depth. These factors preclude a single closed-form boundary while still permitting consistent operational identification across images.
 
-### Derived predictions
+### 4.2. Derived predictions
 
 From Claim 1, we preregister the following predictions.
 
-#### Prediction 1: Abrupt failure under downsampling
+#### 4.2.1. Prediction 1: Abrupt failure under downsampling
 
 There exists a sampling threshold below which text existence transitions from recoverable to undecidable, and this transition is abrupt rather than gradual.
 
@@ -98,7 +100,7 @@ This prediction would be falsified if recoverable stroke-scale signal remains de
 
 ---
 
-#### Prediction 2: Model-agnostic failure
+#### 4.2.2. Prediction 2: Model-agnostic failure
 
 Below the sampling threshold, diverse model classes (e.g., CNNs, vision transformers, VLMs) will fail to identify text existence in qualitatively similar ways, despite architectural or training differences.
 
@@ -109,7 +111,7 @@ This prediction would be falsified if one or more model classes reliably identif
 
 ---
 
-#### Prediction 3: Human–machine parity after signal loss
+#### 4.2.3. Prediction 3: Human–machine parity after signal loss
 
 Once sampling destroys stroke-scale information, human observers will not reliably outperform machine systems in determining text existence, except via contextual inference or perceptual interpolation.
 
@@ -122,7 +124,7 @@ This prediction would be falsified if humans reliably identify text existence be
 
 ## 5. Image-specific anchor case (Image B)
 
-### Role of Image B
+### 5.1. Role of Image B
 
 Image B is designated as a pre-registered **anchor case** illustrating the Nyquist Text Existence boundary under realistic archival digitization conditions. It is not selected as a success case.
 
@@ -131,7 +133,7 @@ The anchor instantiates a theoretically predicted transition between:
 - recoverable stroke-scale writing signal, and  
 - undecidable texture following routine resampling.
 
-### Canonical crop selection
+### 5.2. Canonical crop selection
 
 We define a **canonical crop**[^2] as the specific region of Image B evaluated under NTEC.
 
@@ -141,7 +143,7 @@ The exact crop boundaries, expressed as pixel coordinates relative to Image B (c
 
 The purpose of defining a canonical crop is not to privilege a particular region as optimal, but to prevent outcome-driven substitution among plausible alternatives.
 
-### Pre-registered expectations for Image B
+### 5.3. Pre-registered expectations for Image B
 
 1. At native resolution, stroke-scale structure corresponding to writing is recoverable.  
 2. Under routine downsampling or compression consistent with common archival workflows, the same region becomes undecidable with respect to text existence.  
@@ -150,7 +152,7 @@ The purpose of defining a canonical crop is not to privilege a particular region
 **Falsification criterion:**  
 These expectations would be falsified if stroke-scale writing signal remains recoverable below the predicted threshold without the introduction of external information, or if apparent recovery depends on enhancement methods that introduce new information rather than preserve sampled signal.
 
-### Image B provenance and usage
+### 5.4. Image B provenance and usage
 
 Image B is drawn from the FamilySearch digital collection *“Sweden, Malmöhus Church Records, 1541–1918,”* originating from microfilm of archival material held by Landsarkivet i Lund (Sweden) and digitized under standard archival imaging practices.
 
@@ -172,7 +174,7 @@ In cross-script contexts, we distinguish between two related but non-identical l
 
 Semantic distinctions carried by diacritics are expected to be lost before full base-glyph structure collapses. Depending on script geometry and stroke distribution, text existence may persist after semantic distinction fails or may collapse simultaneously.
 
-### Planned cross-script example
+### 6.1. Planned cross-script example
 
 At the time of preregistration, the specific Japanese document has not been selected. Instead, we preregister the selection criteria and analytical role of this example.
 
@@ -189,36 +191,42 @@ The example is not treated as an additional anchor case. Once specified via adde
 
 ## 7. Diagnostic boundary and positive-complement investigation
 
-### Motivation and diagnostic question
+### 7.1. Motivation and diagnostic question
 
-A central motivation of the positive-complement investigation is not merely to identify cases of recoverable text, but to characterize the boundary between regions of an image that can be said to contain plausible text signal and regions that cannot, given only the sampled data. While the Nyquist Text Existence Criterion (NTEC) is formulated primarily as a loss condition — identifying when recoverable text signal must cease to exist under sampling — the complementary question is whether there exists a principled diagnostic for asserting that a given image region plausibly contains text signal at all, prior to any attempted reconstruction or enhancement. Such a diagnostic would not aim to recover text, but to assess whether the hypothesis “this region contains text signal” is logically supportable from the sampled data alone.
+A central motivation of the positive-complement investigation is not merely to identify cases of recoverable text, but to characterize the boundary between regions of an image that can be said to contain plausible text signal and regions that cannot, given only the sampled data. While the Nyquist Text Existence Criterion (NTEC) is formulated primarily as a loss condition — identifying when recoverable text signal must cease to exist under sampling — the complementary question is whether there exists a principled diagnostic for asserting that a given image region plausibly contains text signal at all, prior to any attempted reconstruction or enhancement.
 
-### Exploratory procedure
+Such a diagnostic would not aim to recover text, but to assess whether the hypothesis “this region contains text signal” is logically supportable from the sampled data alone. NTEC is an asymmetrical criterion: it can rule out the existence of recoverable text signal under a specified sampling regime, but failure to rule it out does not constitute evidence that such signal exists.
+
+### 7.2. Exploratory procedure
 
 To explore this boundary, we propose an exploratory procedure operating on known success cases in which text was later recovered through physical or imaging methods (e.g., bindings, burned text, shadowed text, palimpsests), but where only the original digitized images are available to the analyst. For each document, regions will be sampled using sliding windows at multiple scales. For each region, we compute frequency-domain and stroke-energy descriptors derived from the local Fourier spectrum and spatial gradients, and compare these to corresponding descriptors from visibly legible text elsewhere in the same document. Regions that later proved to contain text (according to independent recovery) will be contrasted with visually similar regions that did not. The primary outcome is not classification accuracy, but whether regions later confirmed to contain text occupy a distinct distributional neighborhood in descriptor space prior to recovery.
 
-### Diagnostic hypothesis
+### 7.3. Diagnostic hypothesis
 
 This procedure tests the diagnostic hypothesis that regions later confirmed to contain text will, prior to recovery, exhibit descriptor distributions that differ measurably from those of visually similar non-text regions drawn from the same document.
 
-### Falsification criterion
+### 7.4. Falsification criterion
 
 **Falsification criterion:**  
 This hypothesis is falsified if regions later confirmed to contain text are statistically indistinguishable from visually similar non-text regions under all examined descriptors, scales, and sampling conditions. Such a result constitutes a negative finding, indicating that the sampled data contains no diagnostically usable evidence of text existence prior to recovery.
 
 This negative outcome is an intended and informative result. It would strengthen the claim that the text existence boundary is sharp and that successful post-hoc recovery methods operate beyond what the original samples can justify.
 
-### Role of NTEC as a necessary-condition filter
+### 7.5. Role of NTEC as a necessary-condition filter
 
-Under this framework, NTEC functions as a necessary-condition filter on claims of text existence. When sampling constraints provably eliminate recoverable stroke-scale signal at the relevant spatial scale, asserting even the possibility of text existence in that region is not epistemically justified on the basis of the sampled data. In such cases, recovery attempts may produce visually plausible reconstructions, but these cannot be supported as evidentiary claims about original inscription. Conversely, when NTEC does not rule out recoverable signal, this does not establish text existence, but it preserves the logical permissibility of further physical or imaging investigation. NTEC thus forbids certain claims outright while remaining deliberately agnostic in cases where information-theoretic constraints do not preclude recoverability.
+Under this framework, NTEC functions as a necessary-condition filter on claims of text existence. When sampling constraints provably eliminate recoverable stroke-scale signal at the relevant spatial scale, asserting even the possibility of text existence in that region is not epistemically justified on the basis of the sampled data. In such cases, recovery attempts may produce visually plausible reconstructions, but these cannot be supported as evidentiary claims about original inscription.
 
-### Scope of inference
+Conversely, when NTEC does not rule out recoverable signal, this does not establish text existence, but it preserves the logical permissibility of further physical or imaging investigation. NTEC thus forbids certain claims outright while remaining deliberately agnostic in cases where information-theoretic constraints do not preclude recoverability.
+
+### 7.6. Scope of inference and scale-relative non-transitivity
 
 Crucially, this procedure is not intended as a reconstruction method, nor as a detection algorithm, but as a diagnostic probe of signal plausibility near the existence boundary. A positive result would indicate that, even when text is not visually legible, sampled images may contain measurable signatures consistent with “just-above-threshold” text signal. A negative result would be equally informative, indicating that such regions are indistinguishable from non-text prior to recovery.
 
+A region that is part of a larger text-bearing structure may itself contain no text-evidentiary signal at a given spatial scale. NTEC is explicitly scale-relative and does not assert transitivity of text existence across scales or regions.
+
 Failure of this specific diagnostic procedure does not falsify the general role of NTEC as a necessary-condition filter on claims of text existence. It would instead delimit the practical detectability of pre-recovery signatures within the descriptor families examined here.
 
-### Epistemic triage
+### 7.7. Epistemic triage
 
 This diagnostic framing allows NTEC to be used not only as a criterion for irreversible loss, but also as a tool for epistemic triage: identifying which regions merit further physical or imaging investigation and which do not, based solely on the information present in the sampled data. Importantly, any claims arising from this analysis are restricted to plausibility of signal existence, not to content recovery or interpretation. This maintains a strict separation between existence, detectability, and reconstruction, and provides a principled framework for deciding when recovery efforts are theoretically supported by the data and when they are not.
 
@@ -246,13 +254,13 @@ Region selection and downsampling procedures will be locked prior to any generat
 
 ## 10. Confirmatory vs. exploratory analyses
 
-### Confirmatory analyses
+### 10.1. Confirmatory analyses
 
 - Tests of preregistered predictions  
 - Conducted under locked image regions and locked resampling procedures  
 - Evaluated against preregistered falsification criteria  
 
-### Exploratory analyses
+### 10.2. Exploratory analyses
 
 - Visualization choices  
 - Model selection  
@@ -261,7 +269,7 @@ Region selection and downsampling procedures will be locked prior to any generat
 
 Exploratory analyses are expected and explicitly labeled.
 
-### Edge cases and non-goals
+### 10.3. Edge cases and non-goals
 
 Humans and models may infer “text exists” from global regularities even when stroke-scale evidence is absent. Such inferences lie outside the stroke-existence criterion analyzed here and are treated as future work.
 
