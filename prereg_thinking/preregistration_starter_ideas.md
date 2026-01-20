@@ -187,7 +187,44 @@ The example is not treated as an additional anchor case. Once specified via adde
 
 ---
 
-## 7. Fingerprints and non-text surface traces (explicitly exploratory)
+## 7. Diagnostic boundary and positive-complement investigation
+
+### Motivation and diagnostic question
+
+A central motivation of the positive-complement investigation is not merely to identify cases of recoverable text, but to characterize the boundary between regions of an image that can be said to contain plausible text signal and regions that cannot, given only the sampled data. While the Nyquist Text Existence Criterion (NTEC) is formulated primarily as a loss condition — identifying when recoverable text signal must cease to exist under sampling — the complementary question is whether there exists a principled diagnostic for asserting that a given image region plausibly contains text signal at all, prior to any attempted reconstruction or enhancement. Such a diagnostic would not aim to recover text, but to assess whether the hypothesis “this region contains text signal” is logically supportable from the sampled data alone.
+
+### Exploratory procedure
+
+To explore this boundary, we propose an exploratory procedure operating on known success cases in which text was later recovered through physical or imaging methods (e.g., bindings, burned text, shadowed text, palimpsests), but where only the original digitized images are available to the analyst. For each document, regions will be sampled using sliding windows at multiple scales. For each region, we compute frequency-domain and stroke-energy descriptors derived from the local Fourier spectrum and spatial gradients, and compare these to corresponding descriptors from visibly legible text elsewhere in the same document. Regions that later proved to contain text (according to independent recovery) will be contrasted with visually similar regions that did not. The primary outcome is not classification accuracy, but whether regions later confirmed to contain text occupy a distinct distributional neighborhood in descriptor space prior to recovery.
+
+### Diagnostic hypothesis
+
+This procedure tests the diagnostic hypothesis that regions later confirmed to contain text will, prior to recovery, exhibit descriptor distributions that differ measurably from those of visually similar non-text regions drawn from the same document.
+
+### Falsification criterion
+
+**Falsification criterion:**  
+This hypothesis is falsified if regions later confirmed to contain text are statistically indistinguishable from visually similar non-text regions under all examined descriptors, scales, and sampling conditions. Such a result constitutes a negative finding, indicating that the sampled data contains no diagnostically usable evidence of text existence prior to recovery.
+
+This negative outcome is an intended and informative result. It would strengthen the claim that the text existence boundary is sharp and that successful post-hoc recovery methods operate beyond what the original samples can justify.
+
+### Role of NTEC as a necessary-condition filter
+
+Under this framework, NTEC functions as a necessary-condition filter on claims of text existence. When sampling constraints provably eliminate recoverable stroke-scale signal at the relevant spatial scale, asserting even the possibility of text existence in that region is not epistemically justified on the basis of the sampled data. In such cases, recovery attempts may produce visually plausible reconstructions, but these cannot be supported as evidentiary claims about original inscription. Conversely, when NTEC does not rule out recoverable signal, this does not establish text existence, but it preserves the logical permissibility of further physical or imaging investigation. NTEC thus forbids certain claims outright while remaining deliberately agnostic in cases where information-theoretic constraints do not preclude recoverability.
+
+### Scope of inference
+
+Crucially, this procedure is not intended as a reconstruction method, nor as a detection algorithm, but as a diagnostic probe of signal plausibility near the existence boundary. A positive result would indicate that, even when text is not visually legible, sampled images may contain measurable signatures consistent with “just-above-threshold” text signal. A negative result would be equally informative, indicating that such regions are indistinguishable from non-text prior to recovery.
+
+Failure of this specific diagnostic procedure does not falsify the general role of NTEC as a necessary-condition filter on claims of text existence. It would instead delimit the practical detectability of pre-recovery signatures within the descriptor families examined here.
+
+### Epistemic triage
+
+This diagnostic framing allows NTEC to be used not only as a criterion for irreversible loss, but also as a tool for epistemic triage: identifying which regions merit further physical or imaging investigation and which do not, based solely on the information present in the sampled data. Importantly, any claims arising from this analysis are restricted to plausibility of signal existence, not to content recovery or interpretation. This maintains a strict separation between existence, detectability, and reconstruction, and provides a principled framework for deciding when recovery efforts are theoretically supported by the data and when they are not.
+
+---
+
+## 8. Fingerprints and non-text surface traces (explicitly exploratory)
 
 This project includes exploratory analysis of fingerprints and related non-text surface traces frequently observed in manuscript imagery.
 
@@ -197,7 +234,7 @@ Fingerprint analyses do not generate confirmatory claims about text existence an
 
 ---
 
-## 8. Role of super-resolution and enhancement
+## 9. Role of super-resolution and enhancement
 
 Super-resolution and enhancement methods may generate visually plausible reconstructions below the Nyquist limit.
 
@@ -207,7 +244,7 @@ Region selection and downsampling procedures will be locked prior to any generat
 
 ---
 
-## 9. Confirmatory vs. exploratory analyses
+## 10. Confirmatory vs. exploratory analyses
 
 ### Confirmatory analyses
 
@@ -230,13 +267,13 @@ Humans and models may infer “text exists” from global regularities even when
 
 ---
 
-## 10. Deviations and addenda
+## 11. Deviations and addenda
 
 Any deviation from this preregistration will be documented as an addendum. Addenda may refine scope or introduce new hypotheses but will not retroactively alter preregistered claims or evaluation criteria.
 
 ---
 
-## 11. Intended use
+## 12. Intended use
 
 This preregistration is intended to support transparent collaboration, protect negative results, and serve as a stable reference for workshops, arXiv preprints, and related discussion.
 
@@ -244,7 +281,7 @@ It does not assert priority, ownership, or completeness.
 
 ---
 
-## 12. Notes
+## 13. Notes
 
 [1] Real writing signals are band-limited by physical factors such as pen width, ink diffusion, substrate texture, and acquisition optics. The Nyquist boundary here concerns loss of physically meaningful stroke information, not elimination of all high-frequency components.
 
