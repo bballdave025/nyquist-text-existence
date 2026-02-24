@@ -205,3 +205,11 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+
+
+## Added 2026-01-30, DWB
+*.tar.gz
+*.tgz
+
+

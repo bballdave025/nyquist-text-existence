@@ -139,25 +139,6 @@ This is not a flaw of machine learning; it is a consequence of upstream sampling
 
 ---
 
-## 7. JPEG compression as a Nyquist interaction (experimental motivation)
-
-JPEG compression is optimized for **human visual salience**, not for preserving fine edge gradients.
-
-Even at high quality settings:
-- block-based transforms,
-- quantization of high-frequency coefficients,
-- and chroma subsampling
-
-can suppress stroke-scale information.
-
-### Pre-registered experimental question *(for Keith)*
-
-> Does JPEG compression at fixed spatial resolution reduce recoverable stroke-frequency or gradient information below Nyquist thresholds for text and surface traces that remain detectable in PNG/TIFF representations?
-
-This is a testable acquisition-level hypothesis, not a claim about JPEG’s design intent.
-
----
-
 ## 8. Script dependence and generality
 
 The Nyquist argument is **script-agnostic**, but critical frequencies differ by writing system.
@@ -197,7 +178,7 @@ preserves a clear separation between **evidence** and **interpretation**.
 
 ---
 
-## 10. Pre-registered, falsifiable claims *(for Keith)*
+## 10. Pre-registered, falsifiable claims
 
 The following claims are specified **prior to experimentation**. Each includes
 explicit refutation criteria.
@@ -223,18 +204,7 @@ gradient information and detection performance for low-contrast traces.
 
 ---
 
-### H3 — JPEG interaction
-
-At fixed spatial resolution, JPEG compression disproportionately degrades
-recoverable stroke-scale information relative to lossless formats.
-
-**Refutation:** No measurable difference in recoverable high-frequency or
-gradient information between JPEG and lossless encodings under controlled
-conditions.
-
----
-
-### H4 — Human–machine parity under signal annihilation
+### H3 — Human–machine parity under signal annihilation
 
 Once sampling removes critical stroke-scale information, humans do not
 outperform models in detecting text existence.
@@ -244,7 +214,7 @@ operating on the same sampled image succeeds.
 
 ---
 
-### H5 — Script-dependent critical frequencies
+### H4 — Script-dependent critical frequencies
 
 Scripts with dense, two-dimensional stroke structure reach Nyquist violation
 under downsampling or quantization at higher resolutions than scripts with
@@ -259,7 +229,7 @@ substantially different stroke density and orientation.
 
 \[Simply a placeholder for now.\]
 
-## 11. Conclusion and scope boundary
+## 12. Conclusion and scope boundary
 
 This project formalizes a simple but often neglected point: **digitization
 choices determine which historical signals remain available for computation at

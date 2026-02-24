@@ -1,3 +1,5 @@
+#prereg_thinking
+
 _Confirmatory analysis begins at the first execution of a pre-registered test on the locked image set and locked resampling procedure._
 
 ---
@@ -20,4 +22,8 @@ will evolve as we look at the theory and do some exploratory analysis.
 
 It is also expected that the authors will learn a lot about the process and
 ideas of preregistration and will want to share this information as well as
-their new understanding in documents here in this directory.
+their new understanding in documents here in this directory. Extraneous
+material will also be taken out, periodically, especially as it is added to
+preregistration, addenda to the preregistration, and publications.
+
+The first use of this directory was for drafting the preregistration document.
