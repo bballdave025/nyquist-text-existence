@@ -71,7 +71,7 @@ Model confidence is therefore not treated here as a measurement of text existenc
 
 ### 3.1. Claim 1 (Nyquist Text Existence)
 
-If stroke-scale spatial frequencies or intensity gradients corresponding to writing fall below the Nyquist limit imposed by sampling resolution, bit depth, or compression, then the signal corresponding to text ceases to exist in the digitized image.
+If stroke-scale spatial frequencies or intensity gradients corresponding to writing fall below the Nyquist limit imposed by sampling resolution or bit depth, or any other representational limit, then the signal corresponding to text ceases to exist in the digitized image.
 
 Once this loss occurs, no downstream method—human, neural, or generative—can recover evidentiary signal corresponding to original inscription, as distinct from inferred or synthesized structure.
 
@@ -154,7 +154,7 @@ The purpose of defining a canonical crop is not to privilege a particular region
 ### 5.3. Pre-registered expectations for Image B
 
 1. At native resolution, stroke-scale structure corresponding to writing is recoverable.  
-2. Under routine downsampling or compression consistent with common archival workflows, the same region becomes undecidable with respect to text existence.  
+2. Under routine downsampling consistent with common archival workflows, the same region becomes undecidable with respect to text existence.  
 3. The transition is attributable to sampling decisions alone and persists across observers and model classes.
 
 **Falsification criterion:**  

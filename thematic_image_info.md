@@ -46,7 +46,7 @@ Image B sits precisely at the boundary between:
 - **Expert certainty** and **computational undecidability**.
 
 At native resolution, the ink–background alternation that defines stroke
-structure is preserved. After modest downsampling or compression—of the sort
+structure is preserved. After modest downsampling—of the sort
 commonly used in computer vision pipelines—the same region becomes
 indistinguishable from background texture or noise.
 
@@ -166,7 +166,7 @@ This setup allows one to test, in a tightly constrained way:
 
 - whether **text existence** survives after semantic distinction fails;
 - how different scripts distribute critical spatial frequencies;
-- and whether digitization or compression pipelines erase decisive marks
+- and whether digitization pipelines erase decisive marks
   *before* larger glyph structure collapses.
 
 The challenge mirrors the Latin minim-based example in Image B while extending

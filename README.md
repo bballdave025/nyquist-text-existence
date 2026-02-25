@@ -2,7 +2,7 @@
 
 This repository explores fundamental constraints on detecting the *presence* of writing in digitized manuscript imagery.
 
-The central claim is that many failures to detect faint, peripheral, or low–pixel-footprint text are not due to model choice or insufficient training data, but to irreversible information loss introduced by upstream decisions about spatial resolution, bit depth, or compression.
+The central claim is that many failures to detect faint, peripheral, or low–pixel-footprint text are not due to model choice or insufficient training data, but to irreversible information loss introduced by upstream decisions about spatial resolution or bit depth, or anything else related to representational precision.
 
 In particular, the work distinguishes between:
 

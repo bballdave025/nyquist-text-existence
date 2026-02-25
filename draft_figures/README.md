@@ -15,4 +15,4 @@ Citation:
 
 Usage complies with FamilySearch access and citation guidelines. More information is given in the preregistration document.
 
-These are mostly hand-done crops. More rigor will go into creation of the crops made for publication and for the addenda giving specifics of images discussed in the preregistration. That rigor will include cropping principles, interpolation choices, corner pixel identification, etc.
+These are mostly hand-done crops. More rigor will go into creation of the crops made for publication and for the addenda giving specifics of images discussed in the preregistration. That rigor will include cropping principles, interpolation choices, corner pixel identification, etc. These were used to gain intuition and insights into different facets of NTEC as well as to provide some code, at least scaffolding, for what will become publication code.
