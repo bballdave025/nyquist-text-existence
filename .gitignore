@@ -1,3 +1,12 @@
+##  Do not distribute/mirror full-resolution institutional archive 
+##+ images from in the public-facing repo.
+##+ cf. possible_pre_crop_images/README.md
+possible_pre_crop_images/*.jpg
+possible_pre_crop_images/*.png
+
+tools/ntec_investigator/.ntec_prereg_venv/
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
