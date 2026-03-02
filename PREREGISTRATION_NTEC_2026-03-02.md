@@ -11,7 +11,8 @@ David Black (GitHub @bballdave025)
 Keith Prisbrey (GitHub @keithprisbrey)
 
 **Date of preregistration:** 2026-03-02
-**Drafted: 2026-01-09<sup>\[1\]</sup>
+
+**Drafted:** 2026-01-09<sup>\[1\]</sup>
 
 **Status:** Pre-experimental (confirmatory phase not yet begun)
 
