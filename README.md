@@ -31,6 +31,16 @@ The emphasis is on clarifying *what cannot be recovered* once sampling limits ar
 
 ## License and attribution
 
+### Code
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+The code in this project is licensed under the **MIT License**.
+
+---
+
+### Content, preregistration, etc.
+
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 This work is licensed under the **Creative Commons Attribution 4.0 International (CC BY 4.0)** license.
