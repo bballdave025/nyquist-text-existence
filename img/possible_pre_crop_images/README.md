@@ -1,0 +1,2 @@
+Images in this directory are locally downloaded from institutional archives for research use only and are not distributed in this repository.
+Filenames preserve source identifiers for citation and reproducibility.

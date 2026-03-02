@@ -1,3 +1,22 @@
+##  Do not distribute/mirror full-resolution institutional archive 
+##+ images from in the public-facing repo.
+##+ cf. img/possible_pre_crop_images/README.md
+# Ignore all candidate/source images under possible_pre_crop_images
+img/possible_pre_crop_images/**/*.jpg
+img/possible_pre_crop_images/**/*.jpeg
+img/possible_pre_crop_images/**/*.png
+img/possible_pre_crop_images/**/*.tif
+img/possible_pre_crop_images/**/*.tiff
+img/possible_pre_crop_images/**/*.webp
+
+# But keep docs
+!img/possible_pre_crop_images/**/README.md
+
+tools/ntec_investigator/.ntec_prereg_venv/
+
+
+# >>>>> Below here is from a GitHub template, sometime in 2025 >>>>>
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
@@ -205,3 +224,11 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# <<<<< End of stuff from a GitHub template, sometime in 2025 <<<<<
+
+## Added 2026-01-30, DWB
+*.tar.gz
+*.tgz
+
+

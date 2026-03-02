@@ -1,6 +1,6 @@
 # Start Here — Nyquist Text Existence
 
-## Welcome, Keith!
+## Welcome, Keith! And anyone else who decides to read this.
 
 This repository explores the **information-theoretic limits of text existence detection** in digitized manuscript imagery.  
 It is theory-forward, experiment-ready, and intended to support clean, falsifiable testing rather than post hoc interpretation.
@@ -40,7 +40,6 @@ This is the core conceptual document.
 - Defines:
   - pre-registered, falsifiable claims,
   - Nyquist limits (spatial + bit depth),
-  - JPEG compression as an acquisition-level hypothesis,
   - script dependence as a parameter, not an exception.
 
 Experiments are explicitly marked as forthcoming. (Forthcoming until you run them 😎)
