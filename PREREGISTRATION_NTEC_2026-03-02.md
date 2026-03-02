@@ -15,6 +15,8 @@ Keith Prisbrey (GitHub @keithprisbrey)
 
 **Status:** Pre-experimental (confirmatory phase not yet begun)
 
+**Repo:** https://github.com/bballdave025/nyquist-text-existence/
+
 ---
 
 *Confirmatory analysis begins at the first execution of a preregistered test on the locked image set and locked resampling procedure.*
