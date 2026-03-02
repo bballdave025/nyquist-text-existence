@@ -36,7 +36,196 @@ class CropSpec:
 
 
 class SpatialSignalSampler:
-  pass
+  """Minimal resampling + FFT utilities (Sprint: hook-slide artifacts)."""
+
+  # ---------- I/O + basic conversions ----------
+
+  @staticmethod
+  def load_gray_u8(path: str | Path) -> np.ndarray:
+    p = str(path)
+    img = cv2.imread(p, cv2.IMREAD_GRAYSCALE)
+    if img is None:
+      raise FileNotFoundError(f"Could not read image: {p}")
+    if img.dtype != np.uint8:
+      img = img.astype(np.uint8, copy=False)
+    if img.ndim != 2:
+      raise ValueError("Expected grayscale image (H, W).")
+    return img
+
+  @staticmethod
+  def save_gray_u8(path: str | Path, img_u8: np.ndarray) -> None:
+    if img_u8.ndim != 2:
+      raise ValueError("Expected grayscale image (H, W).")
+    if img_u8.dtype != np.uint8:
+      img_u8 = img_u8.astype(np.uint8, copy=False)
+    p = str(path)
+    ok = cv2.imwrite(p, img_u8)
+    if not ok:
+      raise IOError(f"Failed to write image: {p}")
+
+  @staticmethod
+  def to_float01(gray_u8: np.ndarray) -> np.ndarray:
+    if gray_u8.ndim != 2:
+      raise ValueError("Expected grayscale image (H, W).")
+    if gray_u8.dtype != np.uint8:
+      raise ValueError("to_float01 expects uint8 input.")
+    return (gray_u8.astype(np.float32) / 255.0)
+
+  @staticmethod
+  def save_float_image(path: str | Path, img_float01: np.ndarray) -> None:
+    """
+    Save float image (any finite range) as uint8 safely:
+    - If data already in [0,1], preserve that scale.
+    - Otherwise min-max normalize (finite values).
+    """
+    if img_float01.ndim != 2:
+      raise ValueError("Expected grayscale image (H, W).")
+    x = img_float01.astype(np.float32, copy=False)
+
+    finite = np.isfinite(x)
+    if not np.any(finite):
+      out = np.zeros_like(x, dtype=np.uint8)
+      SpatialSignalSampler.save_gray_u8(path, out)
+      return
+
+    mn = float(np.min(x[finite]))
+    mx = float(np.max(x[finite]))
+
+    # If it already looks like [0,1] (with small tolerance), keep that.
+    if mn >= -1e-6 and mx <= 1.0 + 1e-6:
+      y = np.clip(x, 0.0, 1.0)
+      out = (y * 255.0 + 0.5).astype(np.uint8)
+      SpatialSignalSampler.save_gray_u8(path, out)
+      return
+
+    # Otherwise min-max normalize.
+    if mx - mn < 1e-12:
+      out = np.zeros_like(x, dtype=np.uint8)
+      SpatialSignalSampler.save_gray_u8(path, out)
+      return
+
+    y = (x - mn) / (mx - mn)
+    y = np.clip(y, 0.0, 1.0)
+    out = (y * 255.0 + 0.5).astype(np.uint8)
+    SpatialSignalSampler.save_gray_u8(path, out)
+
+  # ---------- cropping ----------
+
+  @staticmethod
+  def crop_gray_u8(gray_u8: np.ndarray, crop: CropSpec | None) -> np.ndarray:
+    if gray_u8.ndim != 2:
+      raise ValueError("Expected grayscale image (H, W).")
+    if crop is None:
+      return gray_u8
+    if crop.w <= 0 or crop.h <= 0:
+      raise ValueError("Crop w/h must be positive.")
+    H, W = gray_u8.shape[:2]
+    x = max(0, min(int(crop.x), max(0, W - int(crop.w))))
+    y = max(0, min(int(crop.y), max(0, H - int(crop.h))))
+    w = int(crop.w)
+    h = int(crop.h)
+    return gray_u8[y:y + h, x:x + w]
+
+  # ---------- resampling ----------
+
+  @staticmethod
+  def resample_gray_u8(
+    gray_u8: np.ndarray,
+    mode: Literal["down", "up"],
+    factor: int,
+    interp: Literal["area", "nearest", "cubic"] = "area",
+  ) -> np.ndarray:
+    if gray_u8.ndim != 2:
+      raise ValueError("Expected grayscale image (H, W).")
+    if gray_u8.dtype != np.uint8:
+      raise ValueError("Expected uint8 image for resample_gray_u8.")
+    if factor <= 0:
+      raise ValueError("factor must be positive.")
+
+    interp_map = {
+      "area": cv2.INTER_AREA,
+      "nearest": cv2.INTER_NEAREST,
+      "cubic": cv2.INTER_CUBIC,
+    }
+    if interp not in interp_map:
+      raise ValueError(f"Unknown interp={interp!r}")
+
+    H, W = gray_u8.shape[:2]
+    if mode == "down":
+      newW, newH = max(1, W // factor), max(1, H // factor)
+    elif mode == "up":
+      newW, newH = W * factor, H * factor
+    else:
+      raise ValueError("mode must be 'down' or 'up'.")
+
+    return cv2.resize(gray_u8, (newW, newH), interpolation=interp_map[interp])
+
+  @staticmethod
+  def resize_to(gray_u8: np.ndarray, out_w: int, out_h: int,
+                interp: Literal["area", "nearest", "cubic"] = "nearest") -> np.ndarray:
+    if gray_u8.ndim != 2:
+      raise ValueError("Expected grayscale image (H, W).")
+    if gray_u8.dtype != np.uint8:
+      raise ValueError("Expected uint8 image for resize_to.")
+    if out_w <= 0 or out_h <= 0:
+      raise ValueError("out_w/out_h must be positive.")
+
+    interp_map = {
+      "area": cv2.INTER_AREA,
+      "nearest": cv2.INTER_NEAREST,
+      "cubic": cv2.INTER_CUBIC,
+    }
+    if interp not in interp_map:
+      raise ValueError(f"Unknown interp={interp!r}")
+
+    return cv2.resize(gray_u8, (int(out_w), int(out_h)), interpolation=interp_map[interp])
+
+  # ---------- FFT + magnitude ----------
+
+  @staticmethod
+  def fft2(gray_float01: np.ndarray) -> np.ndarray:
+    if gray_float01.ndim != 2:
+      raise ValueError("Expected grayscale image (H, W).")
+    g = gray_float01.astype(np.float32, copy=False)
+    return np.fft.fft2(g)
+
+  @staticmethod
+  def fft_mag(
+    fft: np.ndarray,
+    shift: bool = True,
+    log1p: bool = True,
+    normalize: bool = True,
+  ) -> np.ndarray:
+    """
+    Returns float32 magnitude image, optionally:
+      - shift DC to center
+      - log1p compress
+      - normalize to [0,1] (finite range)
+    """
+    z = fft
+    if shift:
+      z = np.fft.fftshift(z)
+
+    mag = np.abs(z).astype(np.float32, copy=False)
+
+    if log1p:
+      mag = np.log1p(mag)
+
+    if not normalize:
+      return mag.astype(np.float32, copy=False)
+
+    finite = np.isfinite(mag)
+    if not np.any(finite):
+      return np.zeros_like(mag, dtype=np.float32)
+
+    mn = float(np.min(mag[finite]))
+    mx = float(np.max(mag[finite]))
+    if mx - mn < 1e-12:
+      return np.zeros_like(mag, dtype=np.float32)
+
+    out = (mag - mn) / (mx - mn)
+    out = np.clip(out, 0.0, 1.0).astype(np.float32)
+    return out
 
 
 
@@ -202,11 +391,4 @@ class CropFinalizer:
 
     rel_amp = float((finite.max() - finite.min()) / (float(finite.mean()) + 1e-9))
     return scores, rel_amp
-
-
-
-
-
-
-
 

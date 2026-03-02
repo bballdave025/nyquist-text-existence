@@ -1,0 +1,7 @@
+# Selected Prior Work
+
+1. Nyquist (1928); Shannon (1949) — sampling and irrecoverability  
+2. Park et al. (1984); Mudge (2023) — sampled imaging systems and aliasing  
+3. Lindeberg (1994) — scale dependence  
+4. Donoho & Tanner (2009) — abrupt recoverability transitions  
+5. Li et al. (2018) — OCR-based document quality as a contrast case 

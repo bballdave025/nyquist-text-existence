@@ -124,7 +124,7 @@ Ever since, I’ve joked that the real danger sign is when ChatGPT starts using 
 
 **Q1. You invoke the Nyquist limit, but you do not provide a closed-form mathematical definition of the Nyquist boundary for text. Is this a theoretical gap?**
 
-**A1.** No. This work does not claim the existence of a single closed-form Nyquist boundary for text across documents. Stroke-scale writing is shaped by ink diffusion, substrate texture, pen width variability, acquisition optics, bit depth, and compression, which jointly preclude a universal analytic threshold. Instead, we adopt an operational identification of the Nyquist boundary, defined by the joint collapse of multiple observables (e.g., stroke-associated spectral components, edge continuity, and texture convergence). This preserves theoretical honesty while allowing falsifiable evaluation.
+**A1.** No. This work does not claim the existence of a single closed-form Nyquist boundary for text across documents. Stroke-scale writing is shaped by ink diffusion, substrate texture, pen width variability, acquisition optics, bit depth, and other representational limits, which jointly preclude a universal analytic threshold. Instead, we adopt an operational identification of the Nyquist boundary, defined by the joint collapse of multiple observables (e.g., stroke-associated spectral components, edge continuity, and texture convergence). This preserves theoretical honesty while allowing falsifiable evaluation.
 
 ---
 

@@ -1,6 +1,6 @@
-# Preregistration — Nyquist Text Existence
+# Preregistration — Nyquist Text Existence Criterion
 
-**Project:** Nyquist Text Existence
+**Project:** Nyquist Text Existence Criterion
 
 **Provisional Paper Title and Subtitle:**  
 **Text Existence at the Nyquist Boundary**  
@@ -10,13 +10,14 @@
 David Black (GitHub @bballdave025)  
 Keith Prisbrey (GitHub @keithprisbrey)
 
-**Date of preregistration:** 2026-01-15
+**Date of preregistration:** 2026-03-02
+**Drafted: 2026-01-09<sup>\[1\]</sup>
 
 **Status:** Pre-experimental (confirmatory phase not yet begun)
 
 ---
 
-*Confirmatory analysis begins at the first execution of a pre-registered test on the locked image set and locked resampling procedure.*
+*Confirmatory analysis begins at the first execution of a preregistered test on the locked image set and locked resampling procedure.*
 
 ---
 
@@ -41,7 +42,7 @@ This preregistration concerns **text existence**, defined as:
 
 > The presence or absence of recoverable signal corresponding to writing in a digitized image, independent of recognition, transcription, or interpretation.
 
-Recoverable signal refers to inscription-specific evidentiary information, not merely visible stroke geometry, segmentable structure, coarse layout regularities, or global form.
+“Recoverable signal” refers to inscription-specific evidentiary information—not merely visible stroke geometry, segmentable structure, coarse layout regularities, or global form.
 
 The scope explicitly excludes:
 
@@ -52,6 +53,8 @@ The scope explicitly excludes:
 - or claims about authorial intent.
 
 The focus is strictly on whether evidentiary signal corresponding to writing exists in the sampled image data.
+
+For clarity, we distinguish between the physical artifact, any intermediate preservation witness (when applicable), the initial digital sampling of that witness (including framing boundaries and sampling resolution), and any subsequent derived digital samples used for access or analysis. Information relevant to text existence may be constrained or eliminated at any transition between these stages.
 
 ### 2.2. Scale dependence and non-transitivity
 
@@ -71,7 +74,7 @@ Model confidence is therefore not treated here as a measurement of text existenc
 
 ### 3.1. Claim 1 (Nyquist Text Existence)
 
-If stroke-scale spatial frequencies or intensity gradients corresponding to writing fall below the Nyquist limit imposed by sampling resolution or bit depth, or any other representational limit, then the signal corresponding to text ceases to exist in the digitized image.
+If stroke-scale spatial frequencies or intensity gradients corresponding to writing fall below the Nyquist limit imposed by sampling resolution or bit depth, or other representational limit, then the signal corresponding to text<sup>\[2\]</sup> ceases to exist in the digitized image.
 
 Once this loss occurs, no downstream method—human, neural, or generative—can recover evidentiary signal corresponding to original inscription, as distinct from inferred or synthesized structure.
 
@@ -87,11 +90,17 @@ Operationally, the Nyquist Text Existence Criterion (NTEC) identifies the bounda
 
 - loss of stroke-associated spectral components,  
 - failure of edge-based representations to preserve stroke continuity, and  
-- convergence of text-bearing regions toward texture-like statistics under further downsampling.
+- convergence of text-bearing regions toward texture-like or noise-like statistical regimes under further downsampling.  
 
-The boundary is considered crossed when these observables jointly indicate that stroke-level signal is no longer recoverable under any invertible transformation of the sampled data.
+The boundary is considered crossed when these observables jointly indicate that stroke-level signal is no longer recoverable under any invertible transformation of the sampled image array.
+
+For operational testing, “invertible transformation” refers to any invertible representation of the sampled image array (e.g., frequency-domain or equivalent transforms), not to acquisition or preprocessing pipelines. Observables will be drawn from descriptor families<sup>\[3\]</sup> capable of detecting structured anisotropic signal in sampled image arrays. Specific metric definitions and decision thresholds will be specified in a locked addendum following exploratory visualization and prior to confirmatory evaluation.
+
+Certain historically meaningful traces may fall below NTEC-defined existence thresholds in sampled imagery, even when independent contextual evidence indicates writing intent. Such cases will be treated as boundary conditions and discussed in addenda without altering the preregistered falsification criteria.
 
 Exact thresholds depend on ink–substrate contrast, stroke width variability, edge smoothness, acquisition optics, and bit depth. These factors preclude a single closed-form boundary while still permitting consistent operational identification across images.
+
+---
 
 ### 4.2. Derived predictions
 
@@ -99,7 +108,7 @@ From Claim 1, we preregister the following predictions.
 
 #### 4.2.1. Prediction 1: Abrupt failure under downsampling
 
-There exists a sampling threshold below which text existence transitions from recoverable to undecidable, and this transition is abrupt rather than gradual.
+There exists a sampling threshold below which text existence transitions from recoverable to undecidable, and this transition is abrupt relative to sampling increments.
 
 Failure below this threshold reflects information-theoretic loss, not model inadequacy or insufficient training.
 
@@ -134,7 +143,7 @@ This prediction would be falsified if humans reliably identify text existence be
 
 ### 5.1. Role of Image B
 
-Image B is designated as a pre-registered **anchor case** illustrating the Nyquist Text Existence boundary under realistic archival digitization conditions. It is not selected as a success case.
+Image B is designated as a preregistered **anchor case** illustrating the Nyquist Text Existence boundary under realistic archival digitization conditions. It is not selected as a success case.
 
 The anchor instantiates a theoretically predicted transition between:
 
@@ -143,15 +152,17 @@ The anchor instantiates a theoretically predicted transition between:
 
 ### 5.2. Canonical crop selection
 
-We define a **canonical crop**[^2] as the specific region of Image B evaluated under NTEC.
+We define a **canonical crop**<sup>\[4\]</sup> as the specific region of Image B evaluated under NTEC.
 
-To avoid outcome-dependent selection, we preregister a deterministic crop-selection procedure. Candidate horizontal strips near the upper binding edge are evaluated using a sliding-window edge-strength measure that quantifies the concentration of high-contrast, stroke-like transitions. The strip maximizing this measure is selected. In the event of a tie, the strip with the smallest horizontal coordinate in the original image orientation is chosen.
+To prevent outcome-dependent selection, we preregister a deterministic crop-selection procedure implemented in the project codebase (`CropFinalizer`). A fixed-size sliding window is evaluated over a prespecified candidate region near the upper binding edge. For each window position, the procedure computes an edge-strength score defined as the mean (or sum) of the Sobel-gradient magnitude within the window. The window attaining the maximal score is designated the canonical crop.
 
-The exact crop boundaries, expressed as pixel coordinates relative to Image B (canonical), will be recorded prior to any resampling, enhancement, or visualization and treated as fixed for all confirmatory analyses.
+**Tie-breaking is deterministic**<sup>\[5\]</sup>. If multiple windows attain the same maximal score, the canonical crop is the one encountered first in the algorithm’s scan order (row-major order over the sampled grid). This matches the implementation’s behavior (`np.nanargmax` over the row-major–flattened score array).
 
-The purpose of defining a canonical crop is not to privilege a particular region as optimal, but to prevent outcome-driven substitution among plausible alternatives.
+The candidate-containing region for Image B will be specified in an addendum as pixel coordinates relative to the full-sized, full-resolution institutional image hosted on FamilySearch. The canonical crop boundary will be recorded (a) relative to the candidate-containing region and (b) relative to the full FamilySearch image, **prior to any resampling, enhancement, or visualization**, and will be treated as fixed for all confirmatory analyses. The canonical crop coordinates will be given privileged placement among the preregistration addenda.
 
-### 5.3. Pre-registered expectations for Image B
+The purpose of defining a canonical crop is not to claim that the selected region is optimal, but to prevent outcome-driven substitution among plausible alternatives within the prespecified candidate region. Note that the process described here for the selection and definition of a canonical crop is part of the NTEC processing pipeline for the greater part of our exploratory analysis. When performed on images and areas corresponding to anything but the candidate-containing region for Image B, it is denoted the crop finalization procedure.
+
+### 5.3. Preregistered expectations for Image B
 
 1. At native resolution, stroke-scale structure corresponding to writing is recoverable.  
 2. Under routine downsampling consistent with common archival workflows, the same region becomes undecidable with respect to text existence.  
@@ -167,7 +178,7 @@ Image B is drawn from the FamilySearch digital collection *“Sweden, Malmöhus 
 Citation:  
 “Sweden, Malmöhus, Church Records, 1541–1918,” images, FamilySearch (https://www.familysearch.org : accessed 2026-01-14), Domkapitlet i Lund > A III Protokoll (domböcker) i äktenskapsmål > vol. 4, 1646–1649, image 5 of 111; Landsarkivet i Lund (Sweden Regional Archives, Lund).
 
-Usage complies with FamilySearch access and citation guidelines; see Note [3].
+Usage complies with FamilySearch access and citation guidelines; see Note \[6\].
 
 ---
 
@@ -237,7 +248,7 @@ This cross-script analysis does not assert that semantic collapse implies text n
 
 ### 7.1. Positive-complement diagnostic motivation
 
-A central motivation of the positive-complement investigation is not merely to identify cases of recoverable text, but to characterize the boundary between regions of an image that can be said to contain plausible text signal and regions that cannot, given only the sampled data. While the Nyquist Text Existence Criterion (NTEC) is formulated primarily as a loss condition — identifying when recoverable text signal must cease to exist under sampling — the complementary question is whether there exists a principled diagnostic for asserting that a given image region plausibly contains text signal at all, prior to any attempted reconstruction or enhancement.
+A central motivation of the positive-complement investigation is not merely to identify cases of recoverable text, but to characterize the boundary between regions of an image that can be said to contain plausible text signal and regions that cannot, given only the sampled data. While the Nyquist Text Existence Criterion (NTEC) is formulated primarily as a loss condition — identifying when recoverable text signal must cease to exist under sampling — the complementary question is whether there exists a principled diagnostic for asserting that a given image region plausibly contains text signal at all, prior to any attempted reconstruction or generative post-processing.
 
 Such a diagnostic would not aim to recover text, but to assess whether the hypothesis “this region contains text signal” is logically supportable from the sampled data alone. NTEC is an asymmetrical criterion: it can rule out the existence of recoverable text signal under a specified sampling regime, but failure to rule it out does not constitute evidence that such signal exists.
 
@@ -266,7 +277,7 @@ Conversely, when NTEC does not rule out recoverable signal, this does not establ
 
 Crucially, this procedure is not intended as a reconstruction method, nor as a detection algorithm, but as a diagnostic probe of signal plausibility near the existence boundary. A positive result would indicate that, even when text is not visually legible, sampled images may contain measurable signatures consistent with “just-above-threshold” text signal. A negative result would be equally informative, indicating that such regions are indistinguishable from non-text prior to recovery.
 
-A region that is part of a larger text-bearing structure may itself contain no text-evidentiary signal at a given spatial scale. NTEC is explicitly scale-relative and does not assert transitivity of text existence across scales or regions.
+As is stated in §2.2, a region that is part of a larger text-bearing structure may itself contain no text-evidentiary signal at a given spatial scale. NTEC is explicitly scale-relative and does not assert transitivity of text existence across scales or regions.
 
 Failure of this specific diagnostic procedure does not falsify the general role of NTEC as a necessary-condition filter on claims of text existence. It would instead delimit the practical detectability of pre-recovery signatures within the descriptor families examined here.
 
@@ -382,11 +393,24 @@ It does not assert priority, ownership, or completeness.
 
 ## 13. Notes
 
-[1] Real writing signals are band-limited by physical factors such as pen width, ink diffusion, substrate texture, and acquisition optics. The Nyquist boundary here concerns loss of physically meaningful stroke information, not elimination of all high-frequency components.
+\[1\] Initial draft information and text in GitHub commit c947a5, details at
+https://web.archive.org/web/20260302122342/https://github.com/bballdave025/nyquist-text-existence/commit/c947a5932a34eaa69bdc05e2ae100c671e52095c
 
-[2] *Canonical* denotes the unique, fixed data object designated for evaluation under NTEC. Canonical does not imply optimality or standardization; it reflects commitment to a single, explicitly defined evidentiary object chosen via a preregistered procedure.
+\[2\] Real writing signals are effectively band-limited by physical factors such as pen width, ink diffusion, substrate texture, and acquisition optics. The Nyquist boundary here concerns loss of physically meaningful stroke information, not elimination of all high-frequency components.
 
-[3] Image B corresponds to FamilySearch DGS 004534287, image 00361.
+\[3\] Examples consistent with this scope include frequency-domain summaries (e.g., band-energy measures derived from invertible transforms), gradient-orientation statistics, structure-tensor coherence measures, connected-component continuity metrics, and local autocorrelation statistics. These examples are illustrative rather than exhaustive; specific metric definitions and decision thresholds will be locked in a preregistered addendum prior to confirmatory evaluation.
+
+\[4\] *Canonical* denotes the unique, fixed data object designated for evaluation under NTEC. Canonical does not imply optimality or standardization; it reflects commitment to a single, explicitly defined evidentiary object chosen via a preregistered procedure.
+
+\[5\] The code implementing the deterministic crop-selection procedure described here is available in the project repository as it exists at the time of public preregistration.
+
+\[6\] Image B corresponds to FamilySearch DGS 004534287, image 00361.
+
+\[7\] _Not marked in the preregistration text_. Relevant work is summarized in 
+
+`REPO-ROOT/prereg_and_addenda/relevant_work/literature_review.md`
+
+It is non-normative to the preregistered claims.
 
 ---
 

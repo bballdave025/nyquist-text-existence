@@ -46,9 +46,9 @@ Image B sits precisely at the boundary between:
 - **Expert certainty** and **computational undecidability**.
 
 At native resolution, the ink–background alternation that defines stroke
-structure is preserved. After modest downsampling—of the sort
-commonly used in computer vision pipelines—the same region becomes
-indistinguishable from background texture or noise.
+structure is preserved. After modest downsampling, the same region becomes
+indistinguishable from background texture or noise. Similar thresholds may 
+be crossed during capture, archival resampling, or research preprocessing.
 
 This collapse is **structural, not semantic**. It is not a failure of model
 architecture, training data, or enhancement technique. It is a direct
@@ -166,10 +166,11 @@ This setup allows one to test, in a tightly constrained way:
 
 - whether **text existence** survives after semantic distinction fails;
 - how different scripts distribute critical spatial frequencies;
-- and whether digitization pipelines erase decisive marks
+- and whether sampling or resampling stages eliminate decisive marks
   *before* larger glyph structure collapses.
 
-The challenge mirrors the Latin minim-based example in Image B while extending
+The challenge mirrors the Latin minim-based example on the other 
+(bottom) edge of Image B's canonical crop while extending
 the Nyquist argument across writing systems.
 
 ### Open Invitation
