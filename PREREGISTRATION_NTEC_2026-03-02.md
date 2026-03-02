@@ -23,7 +23,7 @@ Keith Prisbrey (GitHub @keithprisbrey)
 
 ## 1. Purpose of this preregistration
 
-This preregistration records the core theoretical claims, predictions, and evaluation boundaries of the Nyquist Text Existence project prior to confirmatory experimentation.
+This preregistration records the core theoretical claims, predictions, and evaluation boundaries of the Nyquist Text Existence Criterion project prior to confirmatory experimentation.
 
 The primary goal is to clearly distinguish:
 
@@ -72,7 +72,7 @@ Model confidence is therefore not treated here as a measurement of text existenc
 
 ## 3. Primary theoretical claim
 
-### 3.1. Claim 1 (Nyquist Text Existence)
+### 3.1. Claim 1 (Nyquist Text Existence Criterion)
 
 If stroke-scale spatial frequencies or intensity gradients corresponding to writing fall below the Nyquist limit imposed by sampling resolution or bit depth, or other representational limit, then the signal corresponding to text<sup>\[2\]</sup> ceases to exist in the digitized image.
 
@@ -143,7 +143,7 @@ This prediction would be falsified if humans reliably identify text existence be
 
 ### 5.1. Role of Image B
 
-Image B is designated as a preregistered **anchor case** illustrating the Nyquist Text Existence boundary under realistic archival digitization conditions. It is not selected as a success case.
+Image B is designated as a preregistered **anchor case** illustrating the Nyquist Text Existence Criterion boundary under realistic archival digitization conditions. It is not selected as a success case.
 
 The anchor instantiates a theoretically predicted transition between:
 
@@ -393,8 +393,7 @@ It does not assert priority, ownership, or completeness.
 
 ## 13. Notes
 
-\[1\] Initial draft information and text in GitHub commit c947a5, details at
-https://web.archive.org/web/20260302122342/https://github.com/bballdave025/nyquist-text-existence/commit/c947a5932a34eaa69bdc05e2ae100c671e52095c
+\[1\] Initial draft information and text in GitHub commit c947a5.
 
 \[2\] Real writing signals are effectively band-limited by physical factors such as pen width, ink diffusion, substrate texture, and acquisition optics. The Nyquist boundary here concerns loss of physically meaningful stroke information, not elimination of all high-frequency components.
 
