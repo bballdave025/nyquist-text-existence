@@ -5,8 +5,11 @@
 @author: David Black   GitHub @bballdave025
 @since: 2026-02-25
 
-Two primary classes and a frozen dataclass. I'll list
-them later.
+Two primary classes and a frozen dataclass. 
+
+SpatialSignalSampler
+class CropFinalizer
+@dataclass CropSpec
 
 Dependencies:
   - numpy
