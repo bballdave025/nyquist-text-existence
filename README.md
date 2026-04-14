@@ -2,7 +2,7 @@
 
 This repository explores fundamental constratints on detecting the presence of writing in digitized manuscript imagery.
 
-The central claim is that the existence of text in an image depends on representational thresholds imposed during acquisition, sampline, and subsequent digital derivation. These thresholds become especially visible in model behavior: many apparent failures to detect peripheral, low–pixel-footprint, or faint writing reflect information-theoretic absence rather than deficiencies in architecture or training.
+The central claim is that the existence of text in an image depends on representational thresholds imposed during acquisition, sampling, and subsequent digital derivation. These thresholds become especially visible in model behavior: many apparent failures to detect peripheral, low–pixel-footprint, or faint writing reflect information-theoretic absence rather than deficiencies in architecture or training.
 
 In particular, the work distinguishes between:
 
