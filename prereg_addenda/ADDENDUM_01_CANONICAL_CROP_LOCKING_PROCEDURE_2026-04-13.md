@@ -104,17 +104,19 @@ The locked canonical crop is preserved as a **digital evidence witness**.
 
 **Native resolution (192×64):**
 
-<img src="https://raw.githubusercontent.com/bballdave025/nyquist-text-existence/refs/heads/addendum-1-lock/img/canonical_crop_imgB_process/canonical_crop_out/Image_B_Canonical_Crop_-_Locked_2026-04-13T182226-0400.png" width="192" style="image-rendering: pixelated;">
+<img src="https://raw.githubusercontent.com/bballdave025/nyquist-text-existence/00367d3f45c835b608c0f07a12cd48bbb4aedd08/img/canonical_crop_imgB_process/canonical_crop_out/Image_B_Canonical_Crop_-_Locked_2026-04-13T182226-0400.png" width="192" style="image-rendering: pixelated;">
 
 **Pixel-enlarged visualization (4×):**
 
-<img src="https://raw.githubusercontent.com/bballdave025/nyquist-text-existence/refs/heads/addendum-1-lock/img/canonical_crop_imgB_process/canonical_crop_out/Image_B_Canonical_Crop_-_Locked_big_pix_04x.png" width="768">
+<img src="https://raw.githubusercontent.com/bballdave025/nyquist-text-existence/00367d3f45c835b608c0f07a12cd48bbb4aedd08/img/canonical_crop_imgB_process/canonical_crop_out/Image_B_Canonical_Crop_-_Locked_big_pix_04x.png" width="768">
 
 This pixel-enlarged visualization is provided to expose the sampled structure without interpolation. The image is upsampled using nearest-neighbor interpolation by a factor of 4; in the underlying image data, each pixel in the native-resolution canonical crop is represented by a 4×4 block of identical pixels. Apparent deviations from this structure in rendered views may occur due to display or PDF rescaling.
 
-A self-contained HTML (base64-encoded) version is archived at:
+A [self-contained HTML](https://raw.githubusercontent.com/bballdave025/nyquist-text-existence/00367d3f45c835b608c0f07a12cd48bbb4aedd08/img/canonical_crop_imgB_process/canonical_crop_out/Image_B_Canonical_Crop_-_Locked_2026-04-13T182226-0400.html) (base64-encoded) version is archived at:
 
-`REPO_ROOT/img/canonical_crop_imgB_process/canonical_crop_out/ Image_B_Canonical_Crop_-_Locked_2026-04-13T182226-0400.html`
+`REPO_ROOT/blob/00367d3f45c835b608c0f07a12cd48bbb4aedd08/img/canonical_crop_imgB_process/canonical_crop_out/Image_B_Canonical_Crop_-_Locked_big_pix_04x.png`
+
+The hyperlink goes to the raw version.
 
 ---
 
