@@ -2,7 +2,7 @@
 
 This repository explores fundamental constratints on detecting the presence of writing in digitized manuscript imagery.
 
-The central claim is that the existence of text in an image depends on representational thresholds imposed during acquisition, sampline, and subsequent digital derivation. These thresholds become especially visible in model behavior: many apparent failures to detect peripheral, low–pixel-footprint, or faint writing reflect information-theoretic absence rather than deficiencies in architecture or training.
+The central claim is that the existence of text in an image depends on representational thresholds imposed during acquisition, sampling, and subsequent digital derivation. These thresholds become especially visible in model behavior: many apparent failures to detect peripheral, low–pixel-footprint, or faint writing reflect information-theoretic absence rather than deficiencies in architecture or training.
 
 In particular, the work distinguishes between:
 
@@ -10,7 +10,7 @@ In particular, the work distinguishes between:
 - **model uncertainty** vs. **information-theoretic absence**, and  
 - **recoverable** vs. **unrecoverable** historical signal.
 
-See the [preregistration document](PREREGISTRATION_NTEC_2026-03-02.md) for preregistered claims, hypotheses, falsification clarification, and scope of the study and forthcoming publication. It is being submitted to OSF and is serving as the base for a presentation at the [Family History Technology Workshop](https://fhtw.byu.edu/), [2026](https://docs.google.com/document/d/1UKWjL9LTcZqTyATYb1-eTa6NnC7jR-u9yzcrWyczWms).
+See the [preregistration document](PREREGISTRATION_NTEC_2026-03-02.md) for preregistered claims, hypotheses, falsification clarification, and scope of the study and forthcoming publication. It has been submitted to OSF. ~~and is serving as the base for a presentation at the [Family History Technology Workshop](https://fhtw.byu.edu/), [2026](https://docs.google.com/document/d/1UKWjL9LTcZqTyATYb1-eTa6NnC7jR-u9yzcrWyczWms); the Workshop location and schedule didn't allow for presentation.~~
 
 See [`thematic_image_info.md`](thematic_image_info.md) for discussion of representative images and their role in motivating the Nyquist text-existence argument.
 

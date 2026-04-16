@@ -5,8 +5,11 @@
 @author: David Black   GitHub @bballdave025
 @since: 2026-02-25
 
-Two primary classes and a frozen dataclass. I'll list
-them later.
+Two primary classes and a frozen dataclass. 
+
+SpatialSignalSampler
+class CropFinalizer
+@dataclass CropSpec
 
 Dependencies:
   - numpy
@@ -36,21 +39,43 @@ class CropSpec:
 
 
 class SpatialSignalSampler:
-  """Minimal resampling + FFT utilities (Sprint: hook-slide artifacts)."""
-
-  # ---------- I/O + basic conversions ----------
+  """Minimal resampling + FFT utilities."""
 
   @staticmethod
   def load_gray_u8(path: str | Path) -> np.ndarray:
     p = str(path)
     img = cv2.imread(p, cv2.IMREAD_GRAYSCALE)
-    if img is None:
-      raise FileNotFoundError(f"Could not read image: {p}")
-    if img.dtype != np.uint8:
-      img = img.astype(np.uint8, copy=False)
-    if img.ndim != 2:
-      raise ValueError("Expected grayscale image (H, W).")
-    return img
+    if img is None: raise FileNotFoundError(f"Could not read: {p}")
+    return img.astype(np.uint8, copy=False)
+
+  @staticmethod
+  def resample_flexible(
+      gray_u8: np.ndarray,
+      factor: Optional[float] = None,
+      target_w: Optional[int] = None,
+      target_h: Optional[int] = None,
+      interp: Literal["area", "nearest", "cubic"] = "area"
+  ) -> np.ndarray:
+    """
+    Enforces NTEC linear reduction logic: new_dim = orig_dim // factor.
+    Only one of {factor, target_w, target_h} allowed.
+    """
+    provided = [x is not None for x in [factor, target_w, target_h]]
+    if sum(provided) != 1:
+      raise ValueError("Provide exactly ONE of: factor, target_w, or target_h.")
+
+    H, W = gray_u8.shape[:2]
+    interp_map = {"area": cv2.INTER_AREA, "nearest": cv2.INTER_NEAREST, "cubic": cv2.INTER_CUBIC}
+        
+    if factor is not None:
+      if factor <= 0: raise ValueError("factor must be positive.")
+      newW, newH = max(1, int(W // factor)), max(1, int(H // factor))
+    elif target_w is not None:
+      newW, newH = target_w, max(1, int(H * (target_w / W)))
+    else: # target_h
+      newH, newW = target_h, max(1, int(W * (target_h / H)))
+
+      return cv2.resize(gray_u8, (newW, newH), interpolation=interp_map[interp])
 
   @staticmethod
   def save_gray_u8(path: str | Path, img_u8: np.ndarray) -> None:
@@ -231,11 +256,7 @@ class SpatialSignalSampler:
 
 class CropFinalizer:
   """
-  Deterministic crop selection via Sobel-energy ranking + optional phase sweep.
-
-  Sprint 2 contract:
-  - Parity with _crop_sobel_energy.py (same tie-break, same scoring).
-  - No slide-artifact outputs yet (those are parked).
+  Deterministic crop selection via Sobel-energy ranking + phase sweep.
   """
 
   @staticmethod
@@ -264,6 +285,30 @@ class CropFinalizer:
     x = max(0, min(crop.x, max(0, W - crop.w)))
     y = max(0, min(crop.y, max(0, H - crop.h)))
     return CropSpec(x=x, y=y, w=crop.w, h=crop.h)
+
+  @staticmethod
+  def generate_unbiased_mcc(
+    initial_spec: CropSpec, 
+    img_shape: tuple[int, int],
+    seed: int = 137,
+    coord_sigma_pct: float = 0.10,
+    dim_jitter_pct: float = 0.05
+  ) -> CropSpec:
+    """The Physics-Seeded Shaker for Addendum 1."""
+    rng = np.random.default_rng(seed)
+    H_max, W_max = img_shape
+    
+    w_jitter = rng.uniform(1.0 - dim_jitter_pct, 1.0 + dim_jitter_pct)
+    h_jitter = rng.uniform(1.0 - dim_jitter_pct, 1.0 + dim_jitter_pct)
+    new_w, new_h = int(initial_spec.w * w_jitter), int(initial_spec.h * h_jitter)
+    
+    new_x = int(rng.normal(initial_spec.x, initial_spec.w * coord_sigma_pct))
+    new_y = int(rng.normal(initial_spec.y, initial_spec.h * coord_sigma_pct))
+    
+    # Clip to image boundaries
+    final_x = max(0, min(new_x, W_max - new_w))
+    final_y = max(0, min(new_y, H_max - new_h))
+    return CropSpec(x=final_x, y=final_y, w=new_w, h=new_h)
 
   @classmethod
   def crop_score(cls, edge_mag: np.ndarray, crop: CropSpec, agg: AggMode = "mean") -> float:

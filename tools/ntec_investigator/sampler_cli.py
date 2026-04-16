@@ -54,7 +54,32 @@ def _parse_args() -> argparse.Namespace:
     default=None,
     help="Optional integer downsample factor (e.g., 32 for 256->8).",
   )
-
+  
+  # Replace the --down argument in _parse_args() with this:
+  resample_group = p.add_mutually_exclusive_group()
+  resample_group.add_argument(
+    "--down-int",
+    type=int,
+    default=None,
+    help="Optional integer downsample factor (e.g., 32 for 256->8).",
+  )
+  resample_group.add_argument(
+    "--down",
+    type=float,
+    default=None,
+    help="Resample factor d as a float (n_pixels_out = n_pixels_orig / d).",
+  )
+  resample_group.add_argument(
+    "--target-width",
+    type=int,
+    help="Target width in pixels (maintains aspect ratio).",
+  )
+  resample_group.add_argument(
+    "--target-height",
+    type=int,
+    help="Target height in pixels (maintains aspect ratio).",
+  )
+  
   p.add_argument(
     "--up-nn",
     nargs=2,
@@ -233,12 +258,36 @@ def main() -> int:
 
   working = gray
 
-  # Downsample (area)
-  if args.down is not None:
-    if args.down <= 0:
-      raise ValueError("--down must be positive.")
-    working = SpatialSignalSampler.resample_gray_u8(working, mode="down", factor=int(args.down), interp="area")
-
+  #replacing## Downsample (area)
+  #replacing#if args.down is not None:
+  #replacing#  if args.down <= 0:
+  #replacing#    raise ValueError("--down must be positive.")
+  #replacing#  working = SpatialSignalSampler.resample_gray_u8(
+  #replacing#      working, 
+  #replacing#      mode="down", 
+  #replacing#      factor=int(args.down), 
+  #replacing#      interp="area"
+  #replacing#  )
+  
+  # Update/replace the downsampling logic
+  if any([args.down, args.target_width, args.target_height]):
+    H, W = working.shape[:2]
+    if args.down is not None:
+      # Inverse area-ratio logic: linear_scale = 1/sqrt(d)
+      scale = 1.0 / np.sqrt(args.down)
+      new_w, new_h = max(1, int(W * scale)), max(1, int(H * scale))
+    elif args.target_width is not None:
+      new_w = args.target_width
+      new_h = max(1, int(H * (args.target_width / W)))
+    elif args.target_height is not None:
+      new_h = args.target_height
+      new_w = max(1, int(W * (args.target_height / H)))
+      
+    working = SpatialSignalSampler.resize_to(working, new_w, new_h, interp="area")
+  
+  
+  
+  ######################################################
   ##  FFT is computed on the working resolution BEFORE
   ##+ upsampling to big pixels for slide viewing
   
