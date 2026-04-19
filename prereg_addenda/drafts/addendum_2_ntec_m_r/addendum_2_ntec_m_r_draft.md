@@ -37,7 +37,7 @@ The underlying artifact is held fixed; only the measurement and region vary.
 
 ## A2.3 Filename conventions
 
-Figure filenames follow the structured schema documented in FIGURE_FILENAME_SCHEMA.md, encoding source, phenomenon family, measurement instance, region, and crop status.
+Figure filenames follow the structured schema documented in `FIGURE_FILENAME_SCHEMA.md`, encoding source, phenomenon family, measurement instance, region, and crop status.
 
 ---
 
