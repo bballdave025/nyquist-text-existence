@@ -5,7 +5,7 @@ To support reproducibility, rapid lookup, and consistent reference across images
 ### General Pattern
 
 ```text
-[source]_[phenom]_[M####]_[R_*]_[status].png
+[source]_[phenom]_[M#####]_[R_*]_[status].png
 ```
 
 ### Fields
