@@ -12,16 +12,16 @@ To support reproducibility, rapid lookup, and consistent reference across images
 
 | Field | Meaning | Example |
 |---|---|---|
-| `source` | Collection / shelfmark / DGS identifier | `fs8835608` |
+| `source` | Collection / shelfmark / DGS identifier | `fs008835608` |
 | `phenom` | Short phenomenon code (max 7 chars) | `tbrrgt` |
-| `M#####` | Measurement identifier | `M0706` |
+| `M#####` | Measurement identifier | `M00706` |
 | `R_*` | Region identifier | `R_overview`, `R04` |
 | `status` | Crop state | `unofficialcrop` |
 
 ### Examples
 
 ```text
-fs8835608_tbrrgt_M0706_R_overview_unofficialcrop.png
-fs8835608_tbrrgt_M0706_R04_unofficialcrop.png
-fs8105019_inkovr_M1921_R02_officialcrop.png
+fs008835608_tbrrgt_M00706_R_overview_unofficialcrop.png
+fs008835608_tbrrgt_M00706_R04_unofficialcrop.png
+fs008105019_inkovr_M01921_R02_officialcrop.png
 ```
