@@ -35,7 +35,13 @@ The underlying artifact is held fixed; only the measurement and region vary.
 
 ---
 
-## A2.3 Empirical Illustration
+## A2.3 Filename conventions
+
+Figure filenames follow the structured schema documented in FIGURE_FILENAME_SCHEMA.md, encoding source, phenomenon family, measurement instance, region, and crop status.
+
+---
+
+## A2.4 Empirical Illustration
 
 We consider two measurements of the same manuscript page:
 
@@ -95,7 +101,7 @@ In particular, $R_{\text{clean, small}}$ provides a case where:
 
 ---
 
-## A2.4 Interpretation
+## A2.5 Interpretation
 
 These examples demonstrate:
 
@@ -112,7 +118,7 @@ Taken together, this shows that text existence, as evaluated from images, is not
 
 ---
 
-## A2.5 Consequences for Transcription
+## A2.6 Consequences for Transcription
 
 A transcription derived from image data must distinguish between:
 
@@ -132,7 +138,7 @@ This does not imply that information is added; rather, different measurements pr
 
 ---
 
-## A2.6 Note (for later): Physical Text Existence (PTEC)
+## A2.7 Note (for later): Physical Text Existence (PTEC)
 
 Throughout this appendix, we evaluate text existence in a measurement-dependent manner using $\mathrm{NTEC}(M, R)$.
 
@@ -146,4 +152,4 @@ This concept is introduced only to clarify the relationship between measurement-
 
 ---
 
-_End of Addendum 2
+_End of Addendum 2_
