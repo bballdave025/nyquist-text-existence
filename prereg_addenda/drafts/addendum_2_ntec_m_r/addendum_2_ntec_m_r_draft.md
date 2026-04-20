@@ -1,17 +1,18 @@
 # Addendum 2 — Regional and Measurement-Dependent NTEC
 
-Note that this will likely become an appendix to the eventual, published paper, which is why the section identifications have 'A' prepended.
-
-## A2.1 Motivation
-
-Text existence in this work is evaluated in a measurement-dependent manner.  
-However, both **measurement conditions** and **spatial location within an image** can materially affect whether stroke-level signal is recoverable.
-
-To make this dependence explicit, we introduce a regional form of the criterion and illustrate it using paired measurements of the same artifact under differing imaging conditions.
+*This addendum is expected to inform a future appendix in the manuscript version. Numbering here follows addendum order rather than projected appendix numbering.*
 
 ---
 
-## A2.2 Formalization
+## 2.1 Motivation
+
+In this work, image-based text existence claims are evaluated relative to specific measurements. However, both **measurement conditions** and **spatial location within an image** can materially affect whether stroke-level signal is recoverable.
+
+To make this dependence explicit, we introduce a regional form of the criterion and illustrate it using representative examples.
+
+---
+
+## 2.2 Formalization
 
 We write:
 
@@ -21,93 +22,88 @@ We write:
 We define:
 
 $$
-\mathrm{NTEC}(M, R)
+\mathrm{NTEC}(M,R)
 $$
 
 as the Nyquist Text Existence Criterion evaluated on region $R$ of an image produced under measurement $M$.
 
 This makes explicit that:
 
-- NTEC is **not invariant under measurement** ($M$)
-- NTEC is **not uniform across an image** (depends on $R$)
+- NTEC is **not invariant under measurement** (depends on $M$)
+- NTEC is **not spatially uniform across an image** (depends on $R$)
 
 The underlying artifact is held fixed; only the measurement and region vary.
 
 ---
 
-## A2.3 Filename conventions
+## 2.3 Filename Conventions
 
 Figure filenames follow the structured schema documented in `FIGURE_FILENAME_SCHEMA.md`, encoding source, phenomenon family, measurement instance, region, and crop status.
 
 ---
 
-## A2.4 Empirical Illustration
+## 2.4 Paired-Measurement Example: Ink Spill and Clean Regions
 
 We consider two measurements of the same manuscript page:
 
-- $M_{\text{dark}}$ — lower-light digitization  
-- $M_{\text{light}}$ — higher-light digitization  
+- $M_{\text{dark}}$ — lower-light digitization
+- $M_{\text{light}}$ — higher-light digitization
 
 From these, we define regions:
 
-- $R_{\text{ink, large}}$, $R_{\text{ink, small}}$ — regions within an ink spill  
-- $R_{\text{clean, large}}$, $R_{\text{clean, small}}$ — regions outside the spill  
+- $R_{\text{ink,large}}$, $R_{\text{ink,small}}$ — regions within an ink spill
+- $R_{\text{clean,large}}$, $R_{\text{clean,small}}$ — regions outside the spill
 
-### Overview
+### 2.4.1 Overview
 
 | Measurement | Full page |
-|------------|----------|
+|:--|:--|
 | $M_{\text{dark}}$ | ![](M_dark_overview.png) |
 | $M_{\text{light}}$ | ![](M_light_overview.png) |
 
 ---
 
-### Ink spill regions
+### 2.4.2 Ink Spill Regions
 
 | Region | $M_{\text{dark}}$ | $M_{\text{light}}$ |
-|-------|------------------|-------------------|
-| $R_{\text{ink, large}}$ | ![](M_dark_R_ink_large.png) | ![](M_light_R_ink_large.png) |
-| $R_{\text{ink, small}}$ | ![](M_dark_R_ink_small.png) | ![](M_light_R_ink_small.png) |
+|:--|:--|:--|
+| $R_{\text{ink,large}}$ | ![](M_dark_R_ink_large.png) | ![](M_light_R_ink_large.png) |
+| $R_{\text{ink,small}}$ | ![](M_dark_R_ink_small.png) | ![](M_light_R_ink_small.png) |
 
-**Observation.**  
-In the ink regions, stroke-level structure is heavily suppressed under $M_{\text{dark}}$, while partial recovery is visible under $M_{\text{light}}$.
+**Observation.** In the ink regions, stroke-level structure is heavily suppressed under $M_{\text{dark}}$, while partial recovery is visible under $M_{\text{light}}$.
 
 This yields cases where:
 
-- $\mathrm{NTEC}(M_{\text{dark}}, R)$ plausibly fails  
-- $\mathrm{NTEC}(M_{\text{light}}, R)$ plausibly holds  
+- $\mathrm{NTEC}(M_{\text{dark}},R)$ plausibly fails
+- $\mathrm{NTEC}(M_{\text{light}},R)$ plausibly holds
 
 ---
 
-### Clean regions
+### 2.4.3 Clean Regions
 
 | Region | $M_{\text{dark}}$ | $M_{\text{light}}$ |
-|-------|------------------|-------------------|
-| $R_{\text{clean, large}}$ | ![](M_dark_R_clean_large.png) | ![](M_light_R_clean_large.png) |
-| $R_{\text{clean, small}}$ | ![](M_dark_R_clean_small.png) | ![](M_light_R_clean_small.png) |
+|:--|:--|:--|
+| $R_{\text{clean,large}}$ | ![](M_dark_R_clean_large.png) | ![](M_light_R_clean_large.png) |
+| $R_{\text{clean,small}}$ | ![](M_dark_R_clean_small.png) | ![](M_light_R_clean_small.png) |
 
-**Observation.**  
-In clean regions, the dependence is more subtle but still present.
+**Observation.** In clean regions, the dependence is subtler but still present.
 
-Notably, fine-scale regions exhibit **threshold-sensitive behavior**, where:
+Notably, fine-scale regions may exhibit **threshold-sensitive behavior**, where faint but structured strokes remain visible under one measurement while the same region under another approaches uniformity.
 
-- faint but structured strokes are visible under one measurement
-- while the same region under another measurement approaches uniformity
+In particular, $R_{\text{clean,small}}$ may provide a case where:
 
-In particular, $R_{\text{clean, small}}$ provides a case where:
-
-- $\mathrm{NTEC}(M_{\text{dark}}, R)$ may weakly hold  
-- $\mathrm{NTEC}(M_{\text{light}}, R)$ may fail  
+- $\mathrm{NTEC}(M_{\text{dark}},R)$ weakly holds
+- $\mathrm{NTEC}(M_{\text{light}},R)$ plausibly fails
 
 ---
 
-## A2.5 NTEC for marginally-visible manuscript reuse with differing folio depth
+## 2.5 Sequential-Measurement Example: Marginally Visible Manuscript Reuse
 
-\[Hey, we should clearly define the situation and explain why this example is good for M- and R-dependence of NTEC.\] ... instance of manuscript reuse<sup>[1]</sup> ...
+We next consider a sequence involving marginally visible manuscript reuse.[1] This example is useful because both apparent measurement quality and effective physical separation from the reused surface vary across the image sequence.
 
-### Exploratory Region Judgments for `tbrrgt`
+### 2.5.1 Exploratory Region Judgments for `tbrrgt`
 
-The following judgments are rapid exploratory assessments based on visual inspection while developing operational definitions for NTEC. They are **not** final adjudications, thresholded measurements, or formal criterion outputs. Rather, they are quick-glance intuitive judgments intended to guide later formalization, region selection, and hypothesis refinement.
+The following judgments are rapid exploratory assessments based on visual inspection while developing operational definitions for NTEC. They are **not** final adjudications, thresholded measurements, or formal criterion outputs. Rather, they are provisional judgments intended to guide later formalization, region selection, and hypothesis refinement.
 
 | M | R | Judgment | Notes |
 |:--|:--|:--|:--|
@@ -138,7 +134,7 @@ The following judgments are rapid exploratory assessments based on visual inspec
 | 0706 | 01 | borderline | degraded |
 | 0706 | 02 | pass | retained structure |
 | 0706 | 03 | pass | still plausible |
-| 0706 | 04 | borderline | interesting transition zone |
+| 0706 | 04 | borderline | transition zone |
 | 0706 | 05 | fail | weak evidence |
 | 0706 | 06 | fail | likely below threshold |
 | 0701 | 03 | borderline | less undisqualified |
@@ -152,74 +148,90 @@ The following judgments are rapid exploratory assessments based on visual inspec
 | 0697 | 05 | fail | no evident structure |
 | 0697 | 06 | uncertain | region boundary itself unclear |
 
-### Preliminary Observations
+---
+
+### 2.5.2 Preliminary Observations
 
 Across successive measurements, subregions of the same physical reuse strip exhibit progressive loss of inscription-evidentiary structure. Smaller regions that remain plausible under one measurement become borderline or implausible under another, illustrating joint measurement- and region-dependence.
 
 Across successive measurements, local recoverability is heterogeneous rather than monotonic. Adjacent subregions may differ sharply, and analyst-defined region boundaries can materially affect criterion judgments.
 
-### Measurement Index Interpretation
+---
 
-For this `tbrrgt` sequence, Measurement `M0723` corresponds to the exposed reuse instance (i.e., the back pastedown image in which the phenomenon is directly visible).
+### 2.5.3 Measurement Index Interpretation
 
-Earlier measurements in the sequence are interpreted approximately as progressively deeper views through an overlying folio stack. Under this working assumption, measurement `M(0723 - n)` corresponds approximately to the reuse instance viewed with `n` codex folios above it.
+For this `tbrrgt` sequence, measurement $M_{0723}$ corresponds to the exposed reuse instance (i.e., the back pastedown image in which the phenomenon is directly visible).
 
-This mapping is provisional rather than exact. Undetected blank or visually uninformative leaves may exist, so image-number offset should be treated as an approximate physical-depth proxy rather than a guaranteed leaf count.
+Earlier measurements in the sequence are interpreted approximately as progressively deeper views through an overlying folio stack. Under this working assumption, measurement $M_{0723-n}$ corresponds approximately to the reuse instance viewed with $n$ codex folios above it.
 
+This mapping is provisional rather than exact. Undetected blank or visually uninformative leaves may exist, so image-number offset should be treated as an approximate physical-depth proxy rather than a guaranteed folio count.
 
+---
 
-## A2.6 Interpretation
+## 2.6 Interpretation
 
 These examples demonstrate:
 
 1. **Measurement dependence.**  
-   $\mathrm{NTEC}(M, R)$ can differ for the same region under different measurements.
+   $\mathrm{NTEC}(M,R)$ can differ for the same region under different measurements.
 
 2. **Spatial dependence.**  
    Within a single image, some regions may satisfy NTEC while others do not.
 
 3. **Non-monotonicity.**  
-   Improved visibility in one regime (e.g., lighter exposure) does not guarantee improvement across all regions.
+   Improved visibility in one regime does not guarantee improvement across all regions.
 
 Taken together, this shows that text existence, as evaluated from images, is not a global property of a digitization but a **localized, measurement-dependent property**.
 
 ---
 
-## A2.6 Consequences for Transcription
+## 2.7 Consequences for Transcription
 
-A transcription derived from image data must distinguish between:
+A transcription derived from image data should distinguish between:
 
-- **Evidentiary content** — supported by $\mathrm{NTEC}(M, R)$  
-- **Conjectural content** — not supported under that measurement  
+- **Evidentiary content** — supported by local recoverable signal under $\mathrm{NTEC}(M,R)$
+- **Conjectural content** — supplied through inference, contextual completion, or unsupported interpretation
 
 Under a single measurement:
 
-- some regions may require conjectural interpretation
+- some regions may remain conjectural
 
 Across multiple measurements:
 
-- the union of evidentiary regions may expand  
+- the union of evidentiary regions may expand
 - reducing or eliminating conjectural components
 
-This does not imply that information is added; rather, different measurements preserve different aspects of the underlying signal.
+This does not imply that information is added. Rather, different measurements may preserve different aspects of the underlying signal.
 
 ---
 
-## A2.7 Note (for later): Physical Text Existence (PTEC)
+## 2.8 Note for Later: Physical Text Existence (PTEC)
 
-Throughout this appendix, we evaluate text existence in a measurement-dependent manner using $\mathrm{NTEC}(M, R)$.
+Throughout this appendix, we evaluate text existence in a measurement-dependent manner using $\mathrm{NTEC}(M,R)$.
 
-We briefly note a related, more general concept: $\mathrm{PTEC}(R)$, referring to text existence as a property of the underlying artifact rather than any single measurement.
+We briefly note a related artifact-level concept:
+
+$$
+\mathrm{PTEC}(R)
+$$
+
+referring to text existence as a property of the underlying artifact rather than any single measurement.
 
 Intuitively, $\mathrm{PTEC}(R)$ concerns whether structured material differences corresponding to writing exist in the artifact in a manner that is, in principle, recoverable under physically realizable measurement conditions.
 
-This perspective may be approached by considering multiple measurements of the same region and asking whether any such measurement preserves recoverable stroke-level signal. However, the available set of measurements may be incomplete. In particular, it is possible for $\mathrm{NTEC}(M, R)$ to fail across all observed measurements while $\mathrm{PTEC}(R)$ nevertheless holds, due to limitations in imaging conditions.
+This perspective may be approached by considering multiple measurements of the same region and asking whether any such measurement preserves recoverable stroke-level signal. However, the available set of measurements may be incomplete.
+
+Accordingly, it is possible for $\mathrm{NTEC}(M,R)$ to fail across all observed measurements while $\mathrm{PTEC}(R)$ nevertheless holds, due to limitations in imaging conditions.
 
 This concept is introduced only to clarify the relationship between measurement-dependent detectability and artifact-level structure. It is not used for confirmatory claims in this work.
 
+---
+
 ## Notes
 
-[1]: Related background on reused manuscript fragment phenomena (referred to as RMFB when found in bindings; these, as is discussed for NTEC in Addendum 3, are not restricted to manuscripts but rather relate to any reused information-bearing writing surface traces) and classification notes is available in the associated project repositories: [link], [link].
+[1] Background examples of reused information-bearing writing surfaces, including manuscript fragments reused in bindings (RMFB), together with a working classification schema used during exploratory dataset construction, are documented in the associated reference repository:
+
+https://github.com/bballdave025/congenial-chainsaw-rmfb-html
 
 ---
 
