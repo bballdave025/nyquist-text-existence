@@ -101,7 +101,74 @@ In particular, $R_{\text{clean, small}}$ provides a case where:
 
 ---
 
-## A2.5 Interpretation
+## A2.5 NTEC for marginally-visible manuscript reuse with differing folio depth
+
+\[Hey, we should clearly define the situation and explain why this example is good for M- and R-dependence of NTEC.\] ... instance of manuscript reuse<sup>[1]</sup> ...
+
+### Exploratory Region Judgments for `tbrrgt`
+
+The following judgments are rapid exploratory assessments based on visual inspection while developing operational definitions for NTEC. They are **not** final adjudications, thresholded measurements, or formal criterion outputs. Rather, they are quick-glance intuitive judgments intended to guide later formalization, region selection, and hypothesis refinement.
+
+| M | R | Judgment | Notes |
+|:--|:--|:--|:--|
+| 0723 | 01 | pass | strong visibility near upper zone |
+| 0723 | 02 | pass | clear retained structure |
+| 0723 | 03 | pass | readable / undisqualified |
+| 0723 | 04 | pass | still strong |
+| 0723 | 05 | pass | moderate retained structure |
+| 0723 | 06 | pass | weaker but plausible |
+| 0721 | 01 | pass | still clear |
+| 0721 | 02 | pass | moderate structure |
+| 0721 | 03 | pass | plausible retained evidence |
+| 0721 | 04 | pass | weakening begins |
+| 0721 | 05 | borderline | reduced local clarity |
+| 0721 | 06 | borderline | lower confidence |
+| 0719 | 01 | pass | upper region preserved |
+| 0719 | 02 | pass | visible structure |
+| 0719 | 03 | pass | plausible |
+| 0719 | 04 | borderline | weaker than above |
+| 0719 | 05 | borderline | diminished evidence |
+| 0719 | 06 | fail | little evident structure |
+| 0717 | 01 | pass | upper zone still plausible |
+| 0717 | 02 | pass | moderate structure |
+| 0717 | 03 | borderline | fading |
+| 0717 | 04 | borderline | weak |
+| 0717 | 05 | fail | no clear local evidence |
+| 0717 | 06 | fail | likely below threshold |
+| 0706 | 01 | borderline | degraded |
+| 0706 | 02 | pass | retained structure |
+| 0706 | 03 | pass | still plausible |
+| 0706 | 04 | borderline | interesting transition zone |
+| 0706 | 05 | fail | weak evidence |
+| 0706 | 06 | fail | likely below threshold |
+| 0701 | 03 | borderline | less undisqualified |
+| 0701 | 04 | borderline | collapsing structure |
+| 0701 | 05 | fail | likely below threshold |
+| 0701 | 06 | fail | likely below threshold |
+| 0697 | 01 | fail | insufficient visible structure |
+| 0697 | 02 | pass | clearer than 0701 |
+| 0697 | 03 | pass | retained evidence |
+| 0697 | 04 | borderline | weak chance |
+| 0697 | 05 | fail | no evident structure |
+| 0697 | 06 | uncertain | region boundary itself unclear |
+
+### Preliminary Observations
+
+Across successive measurements, subregions of the same physical reuse strip exhibit progressive loss of inscription-evidentiary structure. Smaller regions that remain plausible under one measurement become borderline or implausible under another, illustrating joint measurement- and region-dependence.
+
+Across successive measurements, local recoverability is heterogeneous rather than monotonic. Adjacent subregions may differ sharply, and analyst-defined region boundaries can materially affect criterion judgments.
+
+### Measurement Index Interpretation
+
+For this `tbrrgt` sequence, Measurement `M0723` corresponds to the exposed reuse instance (i.e., the back pastedown image in which the phenomenon is directly visible).
+
+Earlier measurements in the sequence are interpreted approximately as progressively deeper views through an overlying folio stack. Under this working assumption, measurement `M(0723 - n)` corresponds approximately to the reuse instance viewed with `n` codex folios above it.
+
+This mapping is provisional rather than exact. Undetected blank or visually uninformative leaves may exist, so image-number offset should be treated as an approximate physical-depth proxy rather than a guaranteed leaf count.
+
+
+
+## A2.6 Interpretation
 
 These examples demonstrate:
 
@@ -149,6 +216,10 @@ Intuitively, $\mathrm{PTEC}(R)$ concerns whether structured material differences
 This perspective may be approached by considering multiple measurements of the same region and asking whether any such measurement preserves recoverable stroke-level signal. However, the available set of measurements may be incomplete. In particular, it is possible for $\mathrm{NTEC}(M, R)$ to fail across all observed measurements while $\mathrm{PTEC}(R)$ nevertheless holds, due to limitations in imaging conditions.
 
 This concept is introduced only to clarify the relationship between measurement-dependent detectability and artifact-level structure. It is not used for confirmatory claims in this work.
+
+## Notes
+
+[1]: Related background on reused manuscript fragment phenomena (referred to as RMFB when found in bindings; these, as is discussed for NTEC in Addendum 3, are not restricted to manuscripts but rather relate to any reused information-bearing writing surface traces) and classification notes is available in the associated project repositories: [link], [link].
 
 ---
 
