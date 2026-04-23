@@ -107,46 +107,46 @@ The following judgments are rapid exploratory assessments based on visual inspec
 
 | M | R | Judgment | Notes |
 |:--|:--|:--|:--|
-| 0723 | 01 | pass | strong visibility near upper zone |
-| 0723 | 02 | pass | clear retained structure |
-| 0723 | 03 | pass | readable / undisqualified |
-| 0723 | 04 | pass | still strong |
-| 0723 | 05 | pass | moderate retained structure |
-| 0723 | 06 | pass | weaker but plausible |
-| 0721 | 01 | pass | still clear |
-| 0721 | 02 | pass | moderate structure |
-| 0721 | 03 | pass | plausible retained evidence |
-| 0721 | 04 | pass | weakening begins |
-| 0721 | 05 | borderline | reduced local clarity |
-| 0721 | 06 | borderline | lower confidence |
-| 0719 | 01 | pass | upper region preserved |
-| 0719 | 02 | pass | visible structure |
-| 0719 | 03 | pass | plausible |
-| 0719 | 04 | borderline | weaker than above |
-| 0719 | 05 | borderline | diminished evidence |
-| 0719 | 06 | fail | little evident structure |
-| 0717 | 01 | pass | upper zone still plausible |
-| 0717 | 02 | pass | moderate structure |
-| 0717 | 03 | borderline | fading |
-| 0717 | 04 | borderline | weak |
-| 0717 | 05 | fail | no clear local evidence |
-| 0717 | 06 | fail | likely below threshold |
-| 0706 | 01 | borderline | degraded |
-| 0706 | 02 | pass | retained structure |
-| 0706 | 03 | pass | still plausible |
-| 0706 | 04 | borderline | transition zone |
-| 0706 | 05 | fail | weak evidence |
-| 0706 | 06 | fail | likely below threshold |
-| 0701 | 03 | borderline | less undisqualified |
-| 0701 | 04 | borderline | collapsing structure |
-| 0701 | 05 | fail | likely below threshold |
-| 0701 | 06 | fail | likely below threshold |
-| 0697 | 01 | fail | insufficient visible structure |
-| 0697 | 02 | pass | clearer than 0701 |
-| 0697 | 03 | pass | retained evidence |
-| 0697 | 04 | borderline | weak chance |
-| 0697 | 05 | fail | no evident structure |
-| 0697 | 06 | uncertain | region boundary itself unclear |
+| 00723 | 01 | pass | strong visibility near upper zone |
+| 00723 | 02 | pass | clear retained structure |
+| 00723 | 03 | pass | readable / undisqualified |
+| 00723 | 04 | pass | still strong |
+| 00723 | 05 | pass | moderate retained structure |
+| 00723 | 06 | pass | weaker but plausible |
+| 00721 | 01 | pass | still clear |
+| 00721 | 02 | pass | moderate structure |
+| 00721 | 03 | pass | plausible retained evidence |
+| 00721 | 04 | pass | weakening begins |
+| 00721 | 05 | borderline | reduced local clarity |
+| 00721 | 06 | borderline | lower confidence |
+| 00719 | 01 | pass | upper region preserved |
+| 00719 | 02 | pass | visible structure |
+| 00719 | 03 | pass | plausible |
+| 00719 | 04 | borderline | weaker than above |
+| 00719 | 05 | borderline | diminished evidence |
+| 00719 | 06 | fail | little evident structure |
+| 00717 | 01 | pass | upper zone still plausible |
+| 00717 | 02 | pass | moderate structure |
+| 00717 | 03 | borderline | fading |
+| 00717 | 04 | borderline | weak |
+| 00717 | 05 | fail | no clear local evidence |
+| 00717 | 06 | fail | likely below threshold |
+| 00706 | 01 | borderline | degraded |
+| 00706 | 02 | pass | retained structure |
+| 00706 | 03 | pass | still plausible |
+| 00706 | 04 | borderline | transition zone |
+| 00706 | 05 | fail | weak evidence |
+| 00706 | 06 | fail | likely below threshold |
+| 00701 | 03 | borderline | less undisqualified |
+| 00701 | 04 | borderline | collapsing structure |
+| 00701 | 05 | fail | likely below threshold |
+| 00701 | 06 | fail | likely below threshold |
+| 00697 | 01 | fail | insufficient visible structure |
+| 00697 | 02 | pass | clearer than 0701 |
+| 00697 | 03 | pass | retained evidence |
+| 00697 | 04 | borderline | weak chance |
+| 00697 | 05 | fail | no evident structure |
+| 00697 | 06 | uncertain | region boundary itself unclear |
 
 ---
 
