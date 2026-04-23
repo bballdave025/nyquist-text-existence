@@ -164,20 +164,22 @@ For this `tbrrgt` sequence, measurement $M_{0723}$ corresponds to the exposed re
 
 Earlier measurements in the sequence are interpreted approximately as progressively deeper views through an overlying folio stack. Under this working assumption, measurement $M_{0723-n}$ corresponds approximately to the reuse instance viewed with $n$ codex folios above it.
 
-I define: 
+This mapping is provisional rather than exact. Undetected blank or visually uninformative leaves may exist, so image-number offset should be treated as an approximate physical-depth proxy rather than a guaranteed folio count.
 
-$ d\left(M\right) = 1723 - M $
+Due to its utility, I define: 
 
-where $$d\left(M\right)$$ is approximate folio depth from exposure.
+$$
+d\left(M\right) = 1723 - M
+$$
+
+where $d\left(M\right)$ is approximate folio depth from exposure.
 
 So:
-- $$d\left(1723\right) = 0$$
-- $$d\left(1706\right) = 17$$
-- $$d\left(1697\right) = 26$$
+- $d\left(1723\right) = 0$
+- $d\left(1706\right) = 17$
+- $d\left(1697\right) = 26$
 
-with obvious limitations and inexactitudes.
-
-This mapping is provisional rather than exact. Undetected blank or visually uninformative leaves may exist, so image-number offset should be treated as an approximate physical-depth proxy rather than a guaranteed folio count.
+with obvious limitations and inexactitudes, not the least of which is that the number of pages in the codex is finite, and there are several codices in the DGS.
 
 ---
 
