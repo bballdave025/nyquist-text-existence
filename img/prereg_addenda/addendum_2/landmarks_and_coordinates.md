@@ -128,7 +128,18 @@ Started making official 2026-04-22. NOTE THAT NOT ALL FILENAMES LISTED HERE WILL
 
 ### Image identifiers
 
-Here, for convenience in giving the characteristics, I introduce
+Here, for convenience in giving the characteristics, I introduce the definition: 
+
+$ d\left(M\right) = 1723 - M $
+
+where $$d\left(M\right)$$ is approximate folio depth from exposure.
+
+Then:
+- $$d\left(1723\right) = 0$$
+- $$d\left(1706\right) = 17$$
+- $$d\left(1697\right) = 26$$
+
+with obvious limitations and inexactitudes.
 
 | Image Number (on DGS) | Characteristic | Measurement ID |
 |:--- |:--- |:---            |
