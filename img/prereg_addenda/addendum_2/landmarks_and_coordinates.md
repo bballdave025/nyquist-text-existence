@@ -16,25 +16,25 @@ Started making official 2026-04-22. NOTE THAT NOT ALL FILENAMES LISTED HERE WILL
 ### Region crops:
 
 **Overview = complete, full-resolution image**
-- M01920 (Dark)
+- `M01920` (Dark)
   - Landmarks
     - Not applicable
   - Image dimensions
     - `2083×2730`
   - Filename
-    - Not included in repo as per the policy of not rehosting full images
+    - _File_ not included in repo as per the policy of not rehosting full images
     - Locally / Internally: `FamilySearch_-_DGS008105019_01920.jpg`
-- M01921 (Light)
+- `M01921` (Light)
   - Landmarks
     - Not applicable
   - Image dimensions
     - `2184×2815`
   - Filename
-    - Not included in repo as per the policy of not rehosting full images
+    - _File_ not included in repo as per the policy of not rehosting full images
     - Locally / Internally: `FamilySearch_-_DGS008105019_01921.jpg`
 
 **Ink, large region (`R_big_1`)**
-- M01920 (Dark)
+- `M01920` (Dark)
   - Landmarks
     - Top-left:     
     - Top-right:    
@@ -43,8 +43,8 @@ Started making official 2026-04-22. NOTE THAT NOT ALL FILENAMES LISTED HERE WILL
   - Image top-left `(x,y)` and `(w, h)` pixel coordinates in relation to full image
     - `@TODO x=#, y=#, w=#, h=#`
   - Filename
-    - `fs008105019_inkovr_M01920_R_big_1_officialcrop.jpg`
-- M01921 (Light)
+    - `fs008105019_inkovr_M01920_R_big_1_officialcrop.png`
+- `M01921` (Light)
   - Landmarks
     - Top-left:     
     - Top-right:    
@@ -53,10 +53,10 @@ Started making official 2026-04-22. NOTE THAT NOT ALL FILENAMES LISTED HERE WILL
   - Image top-left `(x,y)` and `(w, h)` pixel coordinates in relation to full image
     - `@TODO x=#, y=#, w=#, h=#`
   - Filename
-    - `fs008105019_inkovr_M01921_R_big_1_officialcrop.jpg`
+    - `fs008105019_inkovr_M01921_R_big_1_officialcrop.png`
 
 **Ink, small region (`R1_01`)**
-- M01920 (Dark)
+- `M01920` (Dark)
   - Landmarks
     - Top-left:     
     - Top-right:    
@@ -65,8 +65,8 @@ Started making official 2026-04-22. NOTE THAT NOT ALL FILENAMES LISTED HERE WILL
   - Image top-left `(x,y)` and `(w, h)` pixel coordinates in relation to full image
     - `@TODO x=#, y=#, w=#, h=#`
   - Filename
-    - `fs008105019_inkovr_M01920_R1_01_officialcrop.jpg`
-- M01921 (Light)
+    - `fs008105019_inkovr_M01920_R1_01_officialcrop.png`
+- `M01921` (Light)
   - Landmarks
     - Top-left:     
     - Top-right:    
@@ -75,10 +75,10 @@ Started making official 2026-04-22. NOTE THAT NOT ALL FILENAMES LISTED HERE WILL
   - Image top-left `(x,y)` and `(w, h)` pixel coordinates in relation to full image
     - `@TODO x=#, y=#, w=#, h=#`
   - Filename
-    - `fs008105019_inkovr_M01921_R1_01_officialcrop.jpg`
+    - `fs008105019_inkovr_M01921_R1_01_officialcrop.png`
 
 **Clean, large region (`R_big_2`)**
-- M01920 (Dark)
+- `M01920` (Dark)
   - Landmarks
     - Top-left:     
     - Top-right:    
@@ -87,8 +87,8 @@ Started making official 2026-04-22. NOTE THAT NOT ALL FILENAMES LISTED HERE WILL
   - Image top-left `(x,y)` and `(w, h)` pixel coordinates in relation to full image
     - `@TODO x=#, y=#, w=#, h=#`
   - Filename
-    - `fs008105019_inkovr_M01920_R_big_2_officialcrop.jpg`
-- M01921 (Light)
+    - `fs008105019_inkovr_M01920_R_big_2_officialcrop.png`
+- `M01921` (Light)
   - Landmarks
     - Top-left:     
     - Top-right:    
@@ -97,10 +97,10 @@ Started making official 2026-04-22. NOTE THAT NOT ALL FILENAMES LISTED HERE WILL
   - Image top-left `(x,y)` and `(w, h)` pixel coordinates in relation to full image
     - `@TODO x=#, y=#, w=#, h=#`
   - Filename
-    - `fs008105019_inkovr_M01921_R_big_2_officialcrop.jpg`
+    - `fs008105019_inkovr_M01921_R_big_2_officialcrop.png`
 
 **Clean, small region (`R2_01`)**
-- M01920 (Dark)
+- `M01920` (Dark)
   - Landmarks
     - Top-left:     
     - Top-right:    
@@ -109,8 +109,8 @@ Started making official 2026-04-22. NOTE THAT NOT ALL FILENAMES LISTED HERE WILL
   - Image top-left `(x,y)` and `(w, h)` pixel coordinates in relation to full image
     - `@TODO x=#, y=#, w=#, h=#`
   - Filename
-    - `fs008105019_inkovr_M01920_R2_01_officialcrop.jpg`
-- M01921 (Light)
+    - `fs008105019_inkovr_M01920_R2_01_officialcrop.png`
+- `M01921` (Light)
   - Landmarks
     - Top-left:     
     - Top-right:    
@@ -119,7 +119,7 @@ Started making official 2026-04-22. NOTE THAT NOT ALL FILENAMES LISTED HERE WILL
   - Image top-left `(x,y)` and `(w, h)` pixel coordinates in relation to full image
     - `@TODO x=#, y=#, w=#, h=#`
   - Filename
-    - `fs008105019_inkovr_M01921_R2_01_officialcrop.jpg`
+    - `fs008105019_inkovr_M01921_R2_01_officialcrop.png`
 
 
 ## One repeated TBR region, different images
@@ -130,28 +130,30 @@ Started making official 2026-04-22. NOTE THAT NOT ALL FILENAMES LISTED HERE WILL
 
 Here, for convenience in giving the characteristics, I introduce the definition: 
 
-$$ d\left(M\right) = 1723 - M $$
+$$
+d\left(M_i\right) = 723 - M_i
+$$
 
-where $$d\left(M\right)$$ is approximate folio depth from exposure.
+where $d\left(M_i\right)$ is approximate folio depth from exposure for measurement / image $i$.
 
 Then:
-- $$d\left(1723\right) = 0$$
-- $$d\left(1706\right) = 17$$
-- $$d\left(1697\right) = 26$$
+- $d\left(00723\right) = 0$
+- $d\left(00706\right) = 17$
+- $d\left(00697\right) = 26$
 
 with obvious limitations and inexactitudes, not the least of which is that the number of pages in the codex is finite, and there are several codices in the DGS.
 
 This mapping is provisional rather than exact. Undetected blank or visually uninformative leaves may exist, so image-number offset should be treated as an approximate physical-depth proxy rather than a guaranteed folio count.
 
 | Image Number (on DGS) | Characteristic | Measurement ID |
-|:--- |:--- |:---            |
-| `00697` | foo | `M00697` |
-| `00701` | bar | `M00701` |
-| `00706` | baz | `M00706` |
-| `007##` | ofo | `M007##` |
-| `007##` | zab | `M007##` |
-| `00719` | rab | `M00719` |
-| `00723` | oof | `M00723` |
+|:--- |:--- |:--- |
+| `00697` | $d_{697} = 26$ | `M00697` |
+| `00701` | $d_{701} = 22$ | `M00701` |
+| `00706` | $d_{706} = 17$ | `M00706` |
+| `007xx` | $d_{7xx} = yy$ | `M007##` |
+| `007zz` | $d_{7zz} = θθ$ | `M007##` |
+| `00719` | $d_{719} = 4$ | `M00719` |
+| `00723` | $d_{723} = 0$ | `M00723` |
 
 ### Region crops:
 
