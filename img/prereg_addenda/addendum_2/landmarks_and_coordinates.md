@@ -130,7 +130,7 @@ Started making official 2026-04-22. NOTE THAT NOT ALL FILENAMES LISTED HERE WILL
 
 Here, for convenience in giving the characteristics, I introduce the definition: 
 
-$ d\left(M\right) = 1723 - M $
+$$ d\left(M\right) = 1723 - M $$
 
 where $$d\left(M\right)$$ is approximate folio depth from exposure.
 
