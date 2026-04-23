@@ -139,7 +139,9 @@ Then:
 - $$d\left(1706\right) = 17$$
 - $$d\left(1697\right) = 26$$
 
-with obvious limitations and inexactitudes.
+with obvious limitations and inexactitudes, not the least of which is that the number of pages in the codex is finite, and there are several codices in the DGS.
+
+This mapping is provisional rather than exact. Undetected blank or visually uninformative leaves may exist, so image-number offset should be treated as an approximate physical-depth proxy rather than a guaranteed folio count.
 
 | Image Number (on DGS) | Characteristic | Measurement ID |
 |:--- |:--- |:---            |
