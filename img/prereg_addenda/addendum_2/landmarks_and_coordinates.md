@@ -147,7 +147,7 @@ This mapping is provisional rather than exact. In general, for a microfilmed or 
 
 | Image Number (on DGS) | Characteristic | Measurement ID |
 |:--- |:--- |:--- |
-| `00675` | $d\left(685\right) = 48$,<br/>the region of interest, part of the reused writing surface, is not visible under/next to the folio stack, so no provisional comments about NTEC will nor should be given | `M00685` |
+| `00675` | $d\left(685\right) = 48$,<br/>the region of interest, part of the reused writing surface, is not visible under/next to the folio stack, so no provisional comments about NTEC as it pertains to that region will nor should be given | `M00675` |
 | `00685` | $d\left(685\right) = 38$,<br/>first time the reused writing surface is imaged next to/under the folio stack | `M00685` |
 | `00697` | $d\left(697\right) = 26$ | `M00697` |
 | `00701` | $d\left(701\right) = 22$ | `M00701` |
