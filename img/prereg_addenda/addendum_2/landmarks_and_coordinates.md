@@ -153,11 +153,18 @@ To identify the smallest regions, which are also the regions on which we desire 
 
 The transcription convention&mdash;breaking as it does the conventions of paleography simultaneously with those of regular expressions&mdash;and the transcriptions themselves are the author's (Dave Black's), and responsibility for any errors (and the lack of clarity they may cause) lie solely with him.
 
-**Writing Lines and IDs, from vertically 1st to 7th**
+**Writing Lines and IDs, from vertically 1st to 6th**
 
 | Vertical Position | Writing Line ID | Shorthand ID |
 | :--- | :--- | :--- |
 | 1st | [regn]ab | ab1 |
+| 2nd | it | it2 |
+| 3rd | [a]ng | ng3 |
+| 4th | [reſ]po(n?) | po4 |
+| 5th | [a]lt(o?) | lt5 |
+| 6th | [naſcet]ur | ur6 |
+
+
 
 #### Actual metadata
 
