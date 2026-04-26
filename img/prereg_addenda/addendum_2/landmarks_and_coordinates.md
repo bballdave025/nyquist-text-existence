@@ -141,23 +141,33 @@ Then:
 - $d\left(00706\right) = 17$
 - $d\left(00697\right) = 26$
 
-with obvious limitations and inexactitudes, not the least of which is that the number of pages in the codex is finite, and there are several codices in the DGS.
+with obvious limitations and inexactitudes, not the least of which is that the number of pages in the codex is finite, and there are several codices in the DGS. Image `00662` is an image of a pair of folio from a different codex, so the result of the measurement, $d\left(00662\right)$, is not only inaccurate but meaningless in our context.
 
-This mapping is provisional rather than exact. Undetected blank or visually uninformative leaves may exist, so image-number offset should be treated as an approximate physical-depth proxy rather than a guaranteed folio count.
+This mapping is provisional rather than exact. In general, for a microfilmed or otherwise measured codex, unimaged blank or visually uninformative leaves may exist, or an opening showing the verso of one folio and the recto of another may have been imaged twice due to an error with the first attempt or due to differences in the character of one surface as compared to another (a situation well illustrated by the previous example,) so image-number offset should be treated as an approximate physical-depth proxy rather than a guaranteed folio count. Image `00655` is the first we have of any opening of the codex in question showing a pair of folia divided by a book gutter, but it is highly unlikely that the measured $d\left(655\right) = 68$ corresponds to exactly 68 folia (not counting that on the left hand side of the image) existing in the folio stack.
 
 | Image Number (on DGS) | Characteristic | Measurement ID |
 |:--- |:--- |:--- |
-| `00697` | $d_{697} = 26$ | `M00697` |
-| `00701` | $d_{701} = 22$ | `M00701` |
-| `00706` | $d_{706} = 17$ | `M00706` |
-| `007xx` | $d_{7xx} = yy$ | `M007##` |
-| `007zz` | $d_{7zz} = θθ$ | `M007##` |
-| `00719` | $d_{719} = 4$ | `M00719` |
-| `00723` | $d_{723} = 0$ | `M00723` |
+| `00675` | $d\left(685\right) = 48$,<br/>the region of interest, part of the reused writing surface, is not visible under/next to the folio stack, so no provisional comments about NTEC will nor should be given | `M00685` |
+| `00685` | $d\left(685\right) = 38$,<br/>first time the reused writing surface is imaged next to/under the folio stack | `M00685` |
+| `00697` | $d\left(697\right) = 26$ | `M00697` |
+| `00701` | $d\left(701\right) = 22$ | `M00701` |
+| `00706` | $d\left(706\right) = 17$ | `M00706` |
+| `00711` | $d\left(711\right) = 12$ | `M00711` |
+| `00717` | $d\left(717\right) = 6$ | `M00717` |
+| `00719` | $d\left(719\right) = 4$ | `M00719` |
+| `00723` | $d\left(723\right) = 0$,<br/>reused writing surface is imaged as the surface of focus, not simply next to/under a folio stack | `M00723` |
 
 ### Region crops:
 
 **Overview = complete, full-resolution image**
+- M00685 (folio stack height value highest, 1st highest stack out of 7)
+  - Landmarks
+    - Not applicable
+  - Image dimensions
+    - `4044×2797`
+  - Filename
+    - _File_ not included in repo as per the policy of not rehosting full images
+    - Locally / Internally: `FamilySearch_-_DGS008835608_00685.jpg`
 - M00697 (folio stack height value highest, 1st highest stack out of 7)
   - Landmarks
     - Not applicable
@@ -182,22 +192,22 @@ This mapping is provisional rather than exact. Undetected blank or visually unin
   - Filename
     - _File_ not included in repo as per the policy of not rehosting full images
     - Locally / Internally: `FamilySearch_-_DGS008835608_00706.jpg`
-- M# (folio stack height value fourth highest, 4th highest stack out of 7)
+- M00711 (folio stack height value fourth highest, 4th highest stack out of 7)
   - Landmarks
     - Not applicable
   - Image dimensions
-    - `a×b`
+    - `4047×2801`
   - Filename
     - _File_ not included in repo as per the policy of not rehosting full images
-    - Locally / Internally: `FamilySearch_-_DGS008835608_007##.jpg`
-- M# (folio stack height value fifth highest, 5th highest stack out of 7)
+    - Locally / Internally: `FamilySearch_-_DGS008835608_00711.jpg`
+- M00717 (folio stack height value fifth highest, 5th highest stack out of 7)
   - Landmarks
     - Not applicable
   - Image dimensions
-    - `a×b`
+    - `4048×2804`
   - Filename
     - _File_ not included in repo as per the policy of not rehosting full images
-    - Locally / Internally: `FamilySearch_-_DGS008835608_007##.jpg`
+    - Locally / Internally: `FamilySearch_-_DGS008835608_00717.jpg`
 - M00719 (folio stack height value sixth highest, 6th highest stack out of 7)
   - Landmarks
     - Not applicable
@@ -206,7 +216,7 @@ This mapping is provisional rather than exact. Undetected blank or visually unin
   - Filename
     - _File_ not included in repo as per the policy of not rehosting full images
     - Locally / Internally: `FamilySearch_-_DGS008835608_00719.jpg`
-- M00723 (folio stack height value of zero&mdash; this image shows the manuscript reuse as binding, specifically the real flyleaf and it now appears though possibly in the paste-down or ending inner cover originally, as the focal right-hand-side surface being imaged and thus the main recto folio in the image, making its folio attach height the seventh highest, stack, 7th highest stack out of 7 as well as the minimum value corresponding to zero-height)
+- M00723 (folio stack height value of zero&mdash;this image shows the manuscript reuse as binding, specifically the real flyleaf and it now appears though possibly in the paste-down or ending inner cover originally, as the focal right-hand-side surface being imaged and thus the main recto folio in the image, making its folio attach height the seventh highest, stack, 7th highest stack out of 7 as well as the minimum value corresponding to zero-height)
   - Landmarks
     - Not applicable
   - Image dimensions
@@ -214,3 +224,6 @@ This mapping is provisional rather than exact. Undetected blank or visually unin
   - Filename
     - _File_ not included in repo as per the policy of not rehosting full images
     - Locally / Internally: `FamilySearch_-_DGS008835608_00723.jpg`
+
+**Large region including several lines from the raised writing surface (`R_big_1`)**
+
