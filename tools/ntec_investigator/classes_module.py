@@ -20,7 +20,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Literal, Sequence
+from typing import Literal, Sequence, Optional
 
 import numpy as np
 import cv2
@@ -75,7 +75,7 @@ class SpatialSignalSampler:
     else: # target_h
       newH, newW = target_h, max(1, int(W * (target_h / H)))
 
-      return cv2.resize(gray_u8, (newW, newH), interpolation=interp_map[interp])
+    return cv2.resize(gray_u8, (newW, newH), interpolation=interp_map[interp])
 
   @staticmethod
   def save_gray_u8(path: str | Path, img_u8: np.ndarray) -> None:
@@ -125,7 +125,7 @@ class SpatialSignalSampler:
 
     # Otherwise min-max normalize.
     if mx - mn < 1e-12:
-      out = np.zeros_like(x, dtype=np.uint8)
+      out = np.zeros_likwe(x, dtype=np.uint8)
       SpatialSignalSampler.save_gray_u8(path, out)
       return
 
