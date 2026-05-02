@@ -4,7 +4,6 @@ This directory contains **continuation-ready context documents** for the
 *Nyquist Text Existence Criterion* project, in the *nyquist-text-existence* repo.
 
 These are not polished documentation. They are:
-
 - structured snapshots of design state
 - handoff-ready summaries for continuing work in a new session
 - “lab notebook” entries for architecture decisions and progress
