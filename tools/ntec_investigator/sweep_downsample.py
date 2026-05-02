@@ -8,15 +8,19 @@ Supports either:
 - factor sweep
 - target-width sweep
 - target-height sweep
+
+Optionally writes a contact sheet from downsampled-then-upsampled outputs.
 """
 
 from __future__ import annotations
 
 import argparse
 import csv
+import math
 from pathlib import Path
 
 import cv2
+import numpy as np
 
 from classes_module import SpatialSignalSampler, CropSpec
 
@@ -68,6 +72,19 @@ def parse_args() -> argparse.Namespace:
 
     p.add_argument("--prefix", default=None)
 
+    p.add_argument(
+        "--make-contact-sheet",
+        action="store_true",
+        help="Create a contact sheet from downsampled-then-upsampled outputs.",
+    )
+
+    p.add_argument(
+        "--contact-sheet-cols",
+        type=int,
+        default=10,
+        help="Number of columns in the contact sheet.",
+    )
+
     return p.parse_args()
 ##endof:  parse_args()
 
@@ -99,6 +116,67 @@ def safe_label(value: float | int) -> str:
 ##endof:  safe_label(value)
 
 
+def make_contact_sheet(
+    image_paths: list[Path],
+    output_path: Path,
+    cols: int = 10,
+    thumb_w: int = 180,
+) -> None:
+    if not image_paths:
+        return
+
+    if cols <= 0:
+        raise ValueError("cols must be positive.")
+
+    thumbs: list[np.ndarray] = []
+
+    for path in image_paths:
+        img = cv2.imread(str(path), cv2.IMREAD_GRAYSCALE)
+        if img is None:
+            continue
+
+        h, w = img.shape[:2]
+        if w <= 0 or h <= 0:
+            continue
+
+        thumb_h = max(1, int(h * (thumb_w / w)))
+
+        thumb = cv2.resize(
+            img,
+            (thumb_w, thumb_h),
+            interpolation=cv2.INTER_AREA,
+        )
+
+        thumbs.append(thumb)
+    ##endof:  for path in image_paths
+
+    if not thumbs:
+        return
+
+    max_h = max(t.shape[0] for t in thumbs)
+    rows = math.ceil(len(thumbs) / cols)
+
+    sheet = np.full(
+        (rows * max_h, cols * thumb_w),
+        255,
+        dtype=np.uint8,
+    )
+
+    for idx, thumb in enumerate(thumbs):
+        row = idx // cols
+        col = idx % cols
+        y = row * max_h
+        x = col * thumb_w
+
+        sheet[y:y + thumb.shape[0], x:x + thumb.shape[1]] = thumb
+    ##endof:  for idx, thumb in enumerate(thumbs)
+
+    ok = cv2.imwrite(str(output_path), sheet)
+    if not ok:
+        raise IOError(f"Failed to write contact sheet: {output_path}")
+##endof:  make_contact_sheet(...)
+
+
 def main() -> None:
     args = parse_args()
 
@@ -123,6 +201,7 @@ def main() -> None:
     sweep_h, sweep_w = gray.shape[:2]
 
     rows = []
+    downup_paths: list[Path] = []
 
     if args.factor_sweep:
         sweep_kind = "factor"
@@ -211,6 +290,8 @@ def main() -> None:
         SpatialSignalSampler.save_gray_u8(down_path, down)
         SpatialSignalSampler.save_gray_u8(downup_path, downup)
 
+        downup_paths.append(downup_path)
+
         rows.append(
             {
                 "input": str(input_path),
@@ -239,6 +320,16 @@ def main() -> None:
             writer.writerows(rows)
         ##endof:  with csv_path.open(...) as f
     ##endof:  if rows
+
+    if args.make_contact_sheet:
+        contact_sheet_path = outdir / f"{prefix}_{sweep_kind}_contact_sheet.png"
+        make_contact_sheet(
+            image_paths=downup_paths,
+            output_path=contact_sheet_path,
+            cols=args.contact_sheet_cols,
+        )
+        print(f"Wrote contact sheet to: {contact_sheet_path}")
+    ##endof:  if args.make_contact_sheet
 
     print(f"Wrote {len(rows)} downsampled images to: {down_dir}")
     print(f"Wrote {len(rows)} downsampled-then-upsampled images to: {downup_dir}")
