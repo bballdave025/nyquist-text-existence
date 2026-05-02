@@ -1,7 +1,7 @@
 # Context Documents
 
 This directory contains **continuation-ready context documents** for the  
-*Nyquist Text Existence Criterion* project, in the *nyquist-text+existence* repo.
+*Nyquist Text Existence Criterion* project, in the *nyquist-text-existence* repo.
 
 These are not polished documentation. They are:
 
