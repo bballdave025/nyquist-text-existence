@@ -3,6 +3,11 @@
 
 """
 Fine-grained NTEC downsampling sweep.
+
+Supports either:
+- factor sweep
+- target-width sweep
+- target-height sweep
 """
 
 from __future__ import annotations
@@ -21,25 +26,36 @@ def parse_args() -> argparse.Namespace:
         description="Fine-grained downsampling sweep for NTEC image experiments."
     )
 
-    p.add_argument("--input", required=True, help="Input image path")
-    p.add_argument("--outdir", required=True, help="Output directory")
+    p.add_argument("--input", required=True)
+    p.add_argument("--outdir", required=True)
+
+    mode = p.add_mutually_exclusive_group(required=True)
+    mode.add_argument("--factor-sweep", action="store_true")
+    mode.add_argument("--target-w-sweep", action="store_true")
+    mode.add_argument("--target-h-sweep", action="store_true")
 
     p.add_argument("--factor-start", type=float, default=1.0)
     p.add_argument("--factor-stop", type=float, default=8.0)
     p.add_argument("--factor-step", type=float, default=0.125)
 
+    p.add_argument("--target-w-start", type=int)
+    p.add_argument("--target-w-stop", type=int)
+    p.add_argument("--target-w-step", type=int, default=-1)
+
+    p.add_argument("--target-h-start", type=int)
+    p.add_argument("--target-h-stop", type=int)
+    p.add_argument("--target-h-step", type=int, default=-1)
+
     p.add_argument(
         "--interp",
         choices=["area", "nearest", "cubic"],
         default="area",
-        help="OpenCV interpolation mode used for downsampling",
     )
 
     p.add_argument(
         "--up-interp",
         choices=["nearest", "area", "cubic"],
         default="nearest",
-        help="OpenCV interpolation mode used for upsampling back to sweep size",
     )
 
     p.add_argument(
@@ -48,34 +64,39 @@ def parse_args() -> argparse.Namespace:
         type=int,
         metavar=("X", "Y", "W", "H"),
         default=None,
-        help="Optional crop before sweep",
     )
 
-    p.add_argument(
-        "--prefix",
-        default=None,
-        help="Optional output filename prefix; defaults to input stem",
-    )
+    p.add_argument("--prefix", default=None)
 
     return p.parse_args()
+##endof:  parse_args()
 
 
-def factor_values(start: float, stop: float, step: float) -> list[float]:
-    if start <= 0 or stop <= 0 or step <= 0:
-        raise ValueError("factor start/stop/step must be positive.")
-    if stop < start:
-        raise ValueError("factor-stop must be >= factor-start.")
+def sweep_values(start: float, stop: float, step: float) -> list[float]:
+    if step == 0:
+        raise ValueError("step must not be zero.")
 
     vals: list[float] = []
     x = start
-    while x <= stop + 1e-9:
-        vals.append(round(x, 6))
-        x += step
+
+    if step > 0:
+        while x <= stop + 1e-9:
+            vals.append(round(x, 6))
+            x += step
+    else:
+        while x >= stop - 1e-9:
+            vals.append(round(x, 6))
+            x += step
+
     return vals
+##endof:  sweep_values(start, stop, step)
 
 
-def safe_factor_label(factor: float) -> str:
-    return f"{factor:08.3f}".replace(".", "p")
+def safe_label(value: float | int) -> str:
+    if isinstance(value, int):
+        return f"{value:04d}"
+    return f"{value:08.3f}".replace(".", "p")
+##endof:  safe_label(value)
 
 
 def main() -> None:
@@ -101,7 +122,42 @@ def main() -> None:
 
     sweep_h, sweep_w = gray.shape[:2]
 
-    csv_path = outdir / f"{prefix}_downsample_sweep.csv"
+    rows = []
+
+    if args.factor_sweep:
+        sweep_kind = "factor"
+        values = sweep_values(
+            args.factor_start,
+            args.factor_stop,
+            args.factor_step,
+        )
+    elif args.target_w_sweep:
+        sweep_kind = "target_w"
+        if args.target_w_start is None or args.target_w_stop is None:
+            raise ValueError(
+                "target-width sweep requires --target-w-start and --target-w-stop."
+            )
+        values = [int(v) for v in sweep_values(
+            args.target_w_start,
+            args.target_w_stop,
+            args.target_w_step,
+        )]
+    elif args.target_h_sweep:
+        sweep_kind = "target_h"
+        if args.target_h_start is None or args.target_h_stop is None:
+            raise ValueError(
+                "target-height sweep requires --target-h-start and --target-h-stop."
+            )
+        values = [int(v) for v in sweep_values(
+            args.target_h_start,
+            args.target_h_stop,
+            args.target_h_step,
+        )]
+    else:
+        raise ValueError("No sweep mode selected.")
+    ##endof:  if/elif/elif/else <sweep mode>
+
+    csv_path = outdir / f"{prefix}_{sweep_kind}_downsample_sweep.csv"
 
     interp_map = {
         "area": cv2.INTER_AREA,
@@ -109,20 +165,31 @@ def main() -> None:
         "cubic": cv2.INTER_CUBIC,
     }
 
-    rows = []
+    for value in values:
+        if sweep_kind == "factor":
+            down = SpatialSignalSampler.resample_flexible(
+                gray,
+                factor=float(value),
+                interp=args.interp,
+            )
+            value_label = f"f{safe_label(float(value))}"
+        elif sweep_kind == "target_w":
+            down = SpatialSignalSampler.resample_flexible(
+                gray,
+                target_w=int(value),
+                interp=args.interp,
+            )
+            value_label = f"tw{safe_label(int(value))}"
+        else:
+            down = SpatialSignalSampler.resample_flexible(
+                gray,
+                target_h=int(value),
+                interp=args.interp,
+            )
+            value_label = f"th{safe_label(int(value))}"
+        ##endof:  if/elif/else <sweep kind>
 
-    for factor in factor_values(args.factor_start, args.factor_stop, args.factor_step):
-        if factor <= 0:
-            raise ValueError("factor must be positive.")
-
-        new_w = max(1, int(sweep_w // factor))
-        new_h = max(1, int(sweep_h // factor))
-
-        down = cv2.resize(
-            gray,
-            (new_w, new_h),
-            interpolation=interp_map[args.interp],
-        )
+        out_h, out_w = down.shape[:2]
 
         downup = cv2.resize(
             down,
@@ -130,13 +197,13 @@ def main() -> None:
             interpolation=interp_map[args.up_interp],
         )
 
-        label = safe_factor_label(factor)
-
-        down_name = f"{prefix}_down_f{label}_{new_w}x{new_h}_{args.interp}.png"
+        down_name = (
+            f"{prefix}_down_{value_label}_{out_w}x{out_h}_{args.interp}.png"
+        )
         down_path = down_dir / down_name
 
         downup_name = (
-            f"{prefix}_downup_f{label}_{sweep_w}x{sweep_h}_"
+            f"{prefix}_downup_{value_label}_{sweep_w}x{sweep_h}_"
             f"{args.interp}_to_{args.up_interp}.png"
         )
         downup_path = downup_dir / downup_name
@@ -149,30 +216,36 @@ def main() -> None:
                 "input": str(input_path),
                 "downsampled_output": str(down_path),
                 "downsampled_then_upsampled_output": str(downup_path),
-                "factor": factor,
+                "sweep_kind": sweep_kind,
+                "sweep_value": value,
                 "down_interp": args.interp,
                 "up_interp": args.up_interp,
                 "sweep_w": sweep_w,
                 "sweep_h": sweep_h,
-                "out_w": new_w,
-                "out_h": new_h,
+                "out_w": out_w,
+                "out_h": out_h,
                 "crop_x": "" if crop_spec is None else crop_spec.x,
                 "crop_y": "" if crop_spec is None else crop_spec.y,
                 "crop_w": "" if crop_spec is None else crop_spec.w,
                 "crop_h": "" if crop_spec is None else crop_spec.h,
             }
         )
+    ##endof:  for value in values
 
     if rows:
         with csv_path.open("w", newline="", encoding="utf-8") as f:
             writer = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
             writer.writeheader()
             writer.writerows(rows)
+        ##endof:  with csv_path.open(...) as f
+    ##endof:  if rows
 
     print(f"Wrote {len(rows)} downsampled images to: {down_dir}")
     print(f"Wrote {len(rows)} downsampled-then-upsampled images to: {downup_dir}")
     print(f"Wrote CSV log to: {csv_path}")
+##endof:  main()
 
 
 if __name__ == "__main__":
     main()
+##endof:  if __name__ == "__main__"
