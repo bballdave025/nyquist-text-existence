@@ -11,7 +11,7 @@ C++ Jupyter Config Class (ChatGPT didn't catch that I wanted
 ALSO INVOLVING
 `NTEC, RMFB, Nyquist Text Existence, Bordeaux weave, watermark downsampling, Moiré scout experiments`
 
-FROM USER thebballdave025@gmail.com
+FROM USER @bballdave025 (GitHub) 
 
 ---
 
